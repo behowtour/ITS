@@ -2,6 +2,7 @@
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
+[Ll]ogs/
 [Bb]uilds/
 Assets/AssetStoreTools*
 
@@ -25,6 +26,8 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+*.log
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -35,3 +38,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.log
+*.log
