@@ -41,3 +41,4 @@ sysinfo.txt
 *.unitypackage
 *.log
 *.log
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
