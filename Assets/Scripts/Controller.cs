@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controllerv2 : MonoBehaviour
+public class Controller : MonoBehaviour
 {
 
     public SpringJoint2D spring;
@@ -14,7 +14,7 @@ public class Controllerv2 : MonoBehaviour
     
 
     private Rigidbody2D rigidbody;
-   public float power;
+    public float power;
     public float force;
 
     // Start is called before the first frame update

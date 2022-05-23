@@ -6,12 +6,12 @@ public class Anchor : MonoBehaviour
 {
     //public SpringJoint2D springJoint2D;
     //public ParticleSystem particle;
-    private Controllerv2 mainController;
+    private Controller mainController;
     public float impulsePower;
 
     private void Start()
     {
-        mainController = GameObject.Find("Hero").transform.GetComponent<Controllerv2>();
+        mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
     }
 
 
@@ -30,7 +30,7 @@ public class Anchor : MonoBehaviour
     private void OnMouseDrag()
     {
         //particle.Play();
-       
+
     }
 
     //private void OnMouseUp()
