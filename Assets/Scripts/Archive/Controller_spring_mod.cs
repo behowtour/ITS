@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerSparrow : MonoBehaviour
+public class Controller_spring_mod : MonoBehaviour
 {
 
     public SpringJoint2D spring;
