@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5997551165494692164}
   - component: {fileID: 5997551165494692166}
   - component: {fileID: 2693316329251020}
+  - component: {fileID: 8199327362711613422}
   m_Layer: 6
   m_Name: Leaf
-  m_TagString: Untagged
+  m_TagString: GreenLeaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,3 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f6cf62a7c77a246b8bd1e5624333b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8199327362711613422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997551165494692163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9758b92298a51e240a20067248186749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulsePower: 0
