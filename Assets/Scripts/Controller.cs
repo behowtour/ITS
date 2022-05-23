@@ -20,22 +20,17 @@ public class Controller : MonoBehaviour
 
         {
           
-            Debug.Log("Mouse down");
-
-
-
-
-
+            //Debug.Log("Mouse down");
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
             if (hit.collider != null)
             {
                 spring.enabled = true;
-                Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
+                //Debug.Log("Target Position: " + hit.collider.gameObject.transform.position);
 
                 spring.connectedAnchor = new Vector2(hit.transform.position.x, hit.transform.position.y);
-                Debug.Log("Touched");
+                //Debug.Log("Touched");
 
             }
         }

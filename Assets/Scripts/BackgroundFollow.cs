@@ -15,7 +15,7 @@ public class BackgroundFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, target.position.y+3.38f-target.position.y*0.1f, transform.position.z);
+        Vector3 newPos = new Vector3(transform.position.x, target.position.y+3.38f-target.position.y*0.4f+46, transform.position.z);
         transform.position = newPos;
         
     }
