@@ -6,29 +6,34 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    private Transform heroTransform;
     public Text scoreText;
     public float timeLeft = 1f;
-    // Start is called before the first frame update
+    public float lastCoordinateY;
+
+    
     void Start()
     {
+        GameObject hero = GameObject.Find("Hero");
+        heroTransform = hero.transform;
         scoreText.text = "0";
+        lastCoordinateY = heroTransform.position.y;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreUp();
+        int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
+        if (coordDiff>0)
+        {
+            ScoreUp(coordDiff);
+            lastCoordinateY = heroTransform.position.y;
+        }
     }
 
-    private void scoreUp()
+    private void ScoreUp(int score)
     {
-        timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
-        {
-            int scoreCount;
-            scoreCount = int.Parse(scoreText.text) + 1;
-            scoreText.text = scoreCount.ToString();
-            timeLeft = 1;
-        }
+        int scoreCount;
+        scoreCount = int.Parse(scoreText.text) + score;
+        scoreText.text = scoreCount.ToString();
     }
 }
