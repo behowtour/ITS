@@ -7,6 +7,7 @@ public class LeafGenerator : MonoBehaviour
     public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
     public GameObject[] leafPrefab;
     public GameObject lastLeaf; 
+    public bool isDestroyLeaf;
     Camera cam;
     int numberOfLeaf;
     int greenLeafChance, orangeLeafChance, redLeafChance;
@@ -77,9 +78,9 @@ public class LeafGenerator : MonoBehaviour
                 Destroy(oldLeaf);
             }
         }
-        //if (cam.transform.position.y<lastLeaf.transform.position.y-screenHeightWorld*2)
-        //{
-        //    Destroy(GameObject.Find("Hero"));
-        //}
+        if (isDestroyLeaf && cam.transform.position.y<lastLeaf.transform.position.y-screenHeightWorld*2)
+        {
+           Destroy(GameObject.Find("Hero"));
+        }
     }
 }
