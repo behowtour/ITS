@@ -6,28 +6,43 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private Transform heroTransform;
+    public GameObject restartButtonObject;
+    public GameObject hero;
     public Text scoreText;
     public float timeLeft = 1f;
     public float lastCoordinateY;
 
-    
+    private Transform heroTransform;
+    private LeafGenerator point;
+
+
     void Start()
     {
-        GameObject hero = GameObject.Find("Hero");
+        hero = GameObject.Find("Hero");
+        point = GetComponent<LeafGenerator>();
         heroTransform = hero.transform;
         scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
+        restartButtonObject.SetActive(false);
     }
 
     void Update()
     {
+        if (point.CheckGameOver())
+        {
+            restartButtonObject.SetActive(true);
+            Destroy(hero);
+            
+        }
         int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
         if (coordDiff>0)
         {
             ScoreUp(coordDiff);
             lastCoordinateY = heroTransform.position.y;
         }
+        
+        
+        Debug.Log( point.CheckGameOver());
     }
 
     private void ScoreUp(int score)

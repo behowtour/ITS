@@ -28,7 +28,7 @@ public class LeafGenerator : MonoBehaviour
         GameObject newLeaf;
         newLeaf = Instantiate(leafPrefab[0]);
         newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld,rightBorderWorld),0,0);
-        newLeaf.name = "LeafGreen_" + numberOfLeaf;
+        newLeaf.name = "Leaf_" + numberOfLeaf;
         numberOfLeaf++;
         lastLeaf = newLeaf;
     }
@@ -40,7 +40,7 @@ public class LeafGenerator : MonoBehaviour
         {
             int typeOfNextLeaf;
             GameObject newLeaf;
-            if (lastLeaf.name.Contains("LeafRed"))
+            if (lastLeaf.tag.Contains("RedLeaf"))
             {
                 typeOfNextLeaf = Random.Range(0, greenLeafChance+orangeLeafChance);
             }
@@ -51,19 +51,19 @@ public class LeafGenerator : MonoBehaviour
             if (typeOfNextLeaf < greenLeafChance)
             {
                 newLeaf = Instantiate(leafPrefab[0]);
-                newLeaf.name = "LeafGreen_" + numberOfLeaf;
+                newLeaf.name = "Leaf_" + numberOfLeaf;
             }
             else
             {
                 if (typeOfNextLeaf >= greenLeafChance && typeOfNextLeaf< greenLeafChance + orangeLeafChance)
                 {
                     newLeaf = Instantiate(leafPrefab[1]);
-                    newLeaf.name = "LeafOrange_" + numberOfLeaf;
+                    newLeaf.name = "Leaf_" + numberOfLeaf;
                 }
                 else
                 {
                     newLeaf = Instantiate(leafPrefab[2]);
-                    newLeaf.name = "LeafRed_" + numberOfLeaf;
+                    newLeaf.name = "Leaf_" + numberOfLeaf;
                 }
             }
             //newLeaf = Instantiate(leafPrefab[0]);
@@ -73,14 +73,26 @@ public class LeafGenerator : MonoBehaviour
             numberOfLeaf++;
             string targetValue = "Leaf_" + (numberOfLeaf - 10);
             GameObject oldLeaf = GameObject.Find(targetValue);
-            if (oldLeaf)
+            if (isDestroyLeaf && oldLeaf)
             {
                 Destroy(oldLeaf);
             }
         }
-        if (isDestroyLeaf && cam.transform.position.y<lastLeaf.transform.position.y-screenHeightWorld*2)
+        //if (cam.transform.position.y<lastLeaf.transform.position.y-screenHeightWorld*2)
+        //{
+        //   Destroy(GameObject.Find("Hero"));
+        //}
+    }
+
+    public bool CheckGameOver()
+    {
+        if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
         {
-           Destroy(GameObject.Find("Hero"));
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

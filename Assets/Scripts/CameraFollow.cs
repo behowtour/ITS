@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
     public Transform target;
-    // Start is called before the first frame update
+    public float camPositionOffset;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, target.position.y+4, transform.position.z), Time.deltaTime);
+        Vector3 newPos;
+        float coordDiff = Mathf.Abs(target.position.y - transform.position.y);
+        if (target.position.y<0)
+        {
+            newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, 0, transform.position.z), Time.deltaTime * coordDiff);
+        }
+        else
+        {
+            newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, target.position.y+ camPositionOffset, transform.position.z), Time.deltaTime* coordDiff);
+        }
         transform.position = newPos;
-        
     }
 }
