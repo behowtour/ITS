@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class BackgroundFollow : MonoBehaviour
 {
-
+    private float backgroundOffsetToCam ;
+    public Camera cam;
     public Transform target;
-    // Start is called before the first frame update
+    
+
     void Start()
     {
+        var backgroundHeight = GetComponent<SpriteRenderer>().bounds.size.y;
+        backgroundOffsetToCam = backgroundHeight / 2 - cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0) ).y; //нижняя часть бэкграунда
         
+        Vector3 newPos = new Vector3(transform.position.x, target.transform.position.y + backgroundOffsetToCam, transform.position.z);
+        transform.position = newPos;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, target.position.y+3.38f-target.position.y*0.4f+46, transform.position.z);
-        transform.position = newPos;
+        Vector3 newPos = new Vector3(transform.position.x, target.position.y-target.position.y*0.1f+backgroundOffsetToCam, transform.position.z);
         
+        transform.position = newPos;
     }
 }
