@@ -35,13 +35,10 @@ public class Controller : MonoBehaviour
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
         }
-        //ropeLengthVec = hittedAnchor.transform.position - transform.position;
 
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
-
         {
             rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized, ForceMode2D.Force);
-
         }
     }
 }

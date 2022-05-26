@@ -9,17 +9,19 @@ public class GameManager : MonoBehaviour
     public GameObject restartButtonObject;
     public GameObject hero;
     public Text scoreText;
-    public float timeLeft = 1f;
     public float lastCoordinateY;
 
     private Transform heroTransform;
     private LeafGenerator point;
     private bool onPlay;
-
+    private CameraFollow cameraFollow;
+    private Controller controller;
 
     void Start()
     {
         hero = GameObject.Find("Hero");
+        cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
+        controller = hero.transform.gameObject.GetComponent<Controller>();
         point = GetComponent<LeafGenerator>();
         heroTransform = hero.transform;
         scoreText.text = "0";
@@ -34,15 +36,14 @@ public class GameManager : MonoBehaviour
         if (onPlay)
         {
             point.GenerateNextPoint();
-            
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {
                 ScoreUp(coordDiff);
                 lastCoordinateY = heroTransform.position.y;
             }
-            transform.gameObject.GetComponent<CameraFollow>().Follow();
-            hero.transform.gameObject.GetComponent<Controller>().HitPoint();
+            cameraFollow.Follow();
+            controller.HitPoint();
             if (point.CheckGameOver())
             {
                 restartButtonObject.SetActive(true);
