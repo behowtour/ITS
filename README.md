@@ -1,5 +1,14 @@
 # ITS
 
+## Быстрые ссылки
+### [Список задач](https://github.com/behowtour/ITS/issues)
+### [Проект с задачами](https://github.com/users/behowtour/projects/1)
+### [Идеи](https://github.com/behowtour/ITS/discussions/categories/ideas)
+### [Обсуждения](https://github.com/behowtour/ITS/discussions)
+### [Скрипты](https://github.com/behowtour/ITS/tree/main/Assets/Scripts)
+
+
+
 ## Терминология
 
 - **ГМ, GM** - геймменеджер. Основной скрипт, висящий на главной камере и управляющий игрой.
