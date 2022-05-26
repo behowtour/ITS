@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
    
     
 
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody;
     public float power;
     public float force;
 
@@ -26,6 +26,11 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    
+    public void HitPoint()
+    {
         if (hittedAnchor)
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
@@ -35,9 +40,8 @@ public class Controller : MonoBehaviour
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
 
         {
-            rigidbody.AddForce(ropeLengthVec.normalized * Time.deltaTime * force, ForceMode2D.Force);
+            rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized, ForceMode2D.Force);
 
         }
     }
-  
 }

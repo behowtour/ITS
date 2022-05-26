@@ -33,8 +33,19 @@ public class LeafGenerator : MonoBehaviour
         lastLeaf = newLeaf;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool CheckGameOver()
+    {
+        if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void GenerateNextPoint()
     {
         if (lastLeaf.transform.position.y < cam.transform.position.y + screenHeightWorld / 2)
         {
@@ -42,7 +53,7 @@ public class LeafGenerator : MonoBehaviour
             GameObject newLeaf;
             if (lastLeaf.tag.Contains("RedLeaf"))
             {
-                typeOfNextLeaf = Random.Range(0, greenLeafChance+orangeLeafChance);
+                typeOfNextLeaf = Random.Range(0, greenLeafChance + orangeLeafChance);
             }
             else
             {
@@ -55,7 +66,7 @@ public class LeafGenerator : MonoBehaviour
             }
             else
             {
-                if (typeOfNextLeaf >= greenLeafChance && typeOfNextLeaf< greenLeafChance + orangeLeafChance)
+                if (typeOfNextLeaf >= greenLeafChance && typeOfNextLeaf < greenLeafChance + orangeLeafChance)
                 {
                     newLeaf = Instantiate(leafPrefab[1]);
                     newLeaf.name = "Leaf_" + numberOfLeaf;
@@ -67,7 +78,7 @@ public class LeafGenerator : MonoBehaviour
                 }
             }
             //newLeaf = Instantiate(leafPrefab[0]);
-            newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld, rightBorderWorld),lastLeaf.transform.position.y + Mathf.Max(Random.Range(0,screenHeightWorld/2),screenHeightWorld/10),0);
+            newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld, rightBorderWorld), lastLeaf.transform.position.y + Mathf.Max(Random.Range(0, screenHeightWorld / 2), screenHeightWorld / 10), 0);
             //newLeaf.name = "Leaf_" + numberOfLeaf;
             lastLeaf = newLeaf;
             numberOfLeaf++;
@@ -77,22 +88,6 @@ public class LeafGenerator : MonoBehaviour
             {
                 Destroy(oldLeaf);
             }
-        }
-        //if (cam.transform.position.y<lastLeaf.transform.position.y-screenHeightWorld*2)
-        //{
-        //   Destroy(GameObject.Find("Hero"));
-        //}
-    }
-
-    public bool CheckGameOver()
-    {
-        if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }
