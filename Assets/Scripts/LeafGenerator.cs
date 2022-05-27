@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LeafGenerator : MonoBehaviour
-{
-    public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
+{    
     public GameObject[] leafPrefab;
-    public GameObject lastLeaf; 
+    public int greenLeafChance, orangeLeafChance, redLeafChance;
     public bool isDestroyLeaf;
-    Camera cam;
-    int numberOfLeaf;
-    int greenLeafChance, orangeLeafChance, redLeafChance;
+    public GameObject lastLeaf; 
+    
+    private Camera cam;
+    private int numberOfLeaf;
+    private float leftBorderWorld, rightBorderWorld, screenHeightWorld;
     
     void Start()
     {
@@ -19,31 +20,24 @@ public class LeafGenerator : MonoBehaviour
         orangeLeafChance = 10000;
         redLeafChance = 100000 - greenLeafChance - orangeLeafChance;
         cam = GetComponent<Camera>();
-        Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
-        Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        leftBorderWorld = botLeftWorld.x;
-        rightBorderWorld = topRightWorld.x;
-        screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
-  
-        GameObject newLeaf;
-        newLeaf = Instantiate(leafPrefab[0]);
-        newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld,rightBorderWorld),0,0);
-        newLeaf.name = "Leaf_" + numberOfLeaf;
-        numberOfLeaf++;
-        lastLeaf = newLeaf;
+        // Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        // Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        // leftBorderWorld = botLeftWorld.x;
+        // rightBorderWorld = topRightWorld.x;
+        // screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);        
     }
 
-    public bool CheckGameOver()
-    {
-        if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // public bool CheckGameOver()
+    // {
+    //     if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 
     public void GenerateNextPoint()
     {
@@ -77,17 +71,28 @@ public class LeafGenerator : MonoBehaviour
                     newLeaf.name = "Leaf_" + numberOfLeaf;
                 }
             }
+            GameObject oldLeaf = GameObject.Find(targetValue);
+            if (isDestroyLeaf && oldLeaf)
+            {
+                Destroy(oldLeaf);
+            }
             //newLeaf = Instantiate(leafPrefab[0]);
             newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld, rightBorderWorld), lastLeaf.transform.position.y + Mathf.Max(Random.Range(0, screenHeightWorld / 2), screenHeightWorld / 10), 0);
             //newLeaf.name = "Leaf_" + numberOfLeaf;
             lastLeaf = newLeaf;
             numberOfLeaf++;
             string targetValue = "Leaf_" + (numberOfLeaf - 10);
-            GameObject oldLeaf = GameObject.Find(targetValue);
-            if (isDestroyLeaf && oldLeaf)
-            {
-                Destroy(oldLeaf);
-            }
+            
         }
+    }
+
+    public void GenerateFirstPoint()
+    {
+        GameObject newLeaf;
+        newLeaf = Instantiate(leafPrefab[0]);
+        newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld,rightBorderWorld),0,0);
+        newLeaf.name = "Leaf_" + numberOfLeaf;
+        numberOfLeaf++;
+        lastLeaf = newLeaf;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
     public GameObject restartButtonObject;
     public GameObject hero;
     public Text scoreText;
@@ -14,8 +15,11 @@ public class GameManager : MonoBehaviour
     private Transform heroTransform;
     private LeafGenerator point;
     private bool onPlay;
-    private CameraFollow cameraFollow;
+    private CameraFollow cameraFollow;  
+    private Camera cam;
     private Controller controller;
+    private GameOver gameOver;
+    
 
     void Start()
     {
@@ -23,12 +27,22 @@ public class GameManager : MonoBehaviour
         cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         point = GetComponent<LeafGenerator>();
+        cam = GetComponent<Camera>();
+        Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        leftBorderWorld = botLeftWorld.x;
+        rightBorderWorld = topRightWorld.x;
+        screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
         heroTransform = hero.transform;
         scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
 
-        onPlay = true; //Заменить на FALSE когда будет переход из меню
+        point.GenerateFirstPoint(leftBorderWorld, rightBorderWorld);
+        point.screenHeightWorld = screenHeightWorld;
+        point.leftBorderWorld = leftBorderWorld;
+        point.rightBorderWorld = rightBorderWorld;
+        onPlay = true; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ FALSE пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
     }
 
     void Update()
@@ -44,7 +58,7 @@ public class GameManager : MonoBehaviour
             }
             cameraFollow.Follow();
             controller.HitPoint();
-            if (point.CheckGameOver())
+            if (gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y,screenHeightWorld))
             {
                 restartButtonObject.SetActive(true);
                 onPlay = false;
