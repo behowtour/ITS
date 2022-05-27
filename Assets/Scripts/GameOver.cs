@@ -8,10 +8,10 @@ public class GameOver : MonoBehaviour
     {
         bool isGameOver;
         isGameOver = false;
-        if (cam.transform.position.y < lastLeaf.transform.position.y - screenHeightWorld * 2)
+        if (camPositionY < lastPointy - screenHeightWorld * 2)
         {
-            isGameOver true;
+            isGameOver = true;
         }
-        return = isGameOver;
+        return isGameOver;
     }
 }

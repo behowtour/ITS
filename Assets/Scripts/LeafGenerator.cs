@@ -11,7 +11,7 @@ public class LeafGenerator : MonoBehaviour
     
     private Camera cam;
     private int numberOfLeaf;
-    private float leftBorderWorld, rightBorderWorld, screenHeightWorld;
+    public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
     
     void Start()
     {
@@ -71,6 +71,7 @@ public class LeafGenerator : MonoBehaviour
                     newLeaf.name = "Leaf_" + numberOfLeaf;
                 }
             }
+            string targetValue = "Leaf_" + (numberOfLeaf - 10);
             GameObject oldLeaf = GameObject.Find(targetValue);
             if (isDestroyLeaf && oldLeaf)
             {
@@ -81,7 +82,7 @@ public class LeafGenerator : MonoBehaviour
             //newLeaf.name = "Leaf_" + numberOfLeaf;
             lastLeaf = newLeaf;
             numberOfLeaf++;
-            string targetValue = "Leaf_" + (numberOfLeaf - 10);
+            
             
         }
     }

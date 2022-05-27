@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
         controller = hero.transform.gameObject.GetComponent<Controller>();
         point = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
+        gameOver = GetComponent<GameOver>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         leftBorderWorld = botLeftWorld.x;
@@ -38,11 +39,11 @@ public class GameManager : MonoBehaviour
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
 
-        point.GenerateFirstPoint(leftBorderWorld, rightBorderWorld);
+        point.GenerateFirstPoint();
         point.screenHeightWorld = screenHeightWorld;
         point.leftBorderWorld = leftBorderWorld;
         point.rightBorderWorld = rightBorderWorld;
-        onPlay = true; //�������� �� FALSE ����� ����� ������� �� ����
+        onPlay = true;
     }
 
     void Update()
