@@ -471,7 +471,6 @@ MonoBehaviour:
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
   scoreText: {fileID: 1527627180}
-  timeLeft: 1
   lastCoordinateY: 0
 --- !u!114 &519420036
 MonoBehaviour:
