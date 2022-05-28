@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
+    [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
+
+    [Header("Dynamic variables")]
     public Text scoreText;
-    public float lastCoordinateY;
+    public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
     private LeafGenerator point;
@@ -40,10 +42,6 @@ public class GameManager : MonoBehaviour
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
-
-
-
-
         point.GenerateFirstPoint();
         point.screenHeightWorld = screenHeightWorld;
         point.leftBorderWorld = leftBorderWorld;
@@ -90,7 +88,6 @@ public class GameManager : MonoBehaviour
         pointsRightWall.Add(new Vector2(right, up));
         pointsRightWall.Add(new Vector2(right, down));
 
-        //EdgeCollider2D[] edgeCollider2D = gameObject.GetComponents<EdgeCollider2D>();
         edgeColliders2D[0].SetPoints(pointsLeftWall);
         edgeColliders2D[1].SetPoints(pointsRightWall);
     }

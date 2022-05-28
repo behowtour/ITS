@@ -4,29 +4,20 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-
-    public SpringJoint2D spring;
+    [Header("Static variables")]
     public bool isMouseHoldOnAnchor;
-    public GameObject hittedAnchor;
 
+    [Header("Dynamic variables")]
+    public GameObject hittedAnchor;
     public Vector2 ropeLengthVec;
    
-    
-
     private new Rigidbody2D rigidbody;
     public float power;
     public float force;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
     
     public void HitPoint()

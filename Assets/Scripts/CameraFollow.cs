@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    [Header("Static variables")]
     public Transform target;
     public float camPositionOffset;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void Follow()
     {
