@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
         cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
         controller = hero.transform.gameObject.GetComponent<Controller>();
