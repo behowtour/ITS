@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
-        point.GenerateFirstPoint();
         point.screenHeightWorld = screenHeightWorld;
         point.leftBorderWorld = leftBorderWorld;
         point.rightBorderWorld = rightBorderWorld;
+        point.GenerateFirstPoint();
         onPlay = true;
     }
 
@@ -62,13 +62,14 @@ public class GameManager : MonoBehaviour
             }
             cameraFollow.Follow();
             controller.HitPoint();
-            if (gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y,screenHeightWorld))
-            {
-                restartButtonObject.SetActive(true);
-                onPlay = false;
-                Destroy(hero);
-            }
         }
+        else
+        {
+            restartButtonObject.SetActive(true);
+            Destroy(hero);
+        }
+        onPlay = !(gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y, screenHeightWorld)
+                || gameOver.CheckGameOver(controller.hittedAnchor));
     }
 
     private void ScoreUp(int score)

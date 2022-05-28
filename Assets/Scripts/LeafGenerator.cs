@@ -65,8 +65,6 @@ public class LeafGenerator : MonoBehaviour
             newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld, rightBorderWorld), lastLeaf.transform.position.y + Mathf.Max(Random.Range(0, screenHeightWorld / 2), screenHeightWorld / 10), 0);
             lastLeaf = newLeaf;
             numberOfLeaf++;
-            
-            
         }
     }
 
