@@ -38,8 +38,8 @@ public class GameManager : MonoBehaviour
         scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
-
-        SetUpWalls(transform.gameObject, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
+        EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
+        SetUpWalls(edgeColliders2D, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
 
 
 
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = scoreCount.ToString();
     }
 
-    private void SetUpWalls(GameObject gameObject, float left, float right, float up, float down) 
+    private void SetUpWalls(EdgeCollider2D[] edgeColliders2D, float left, float right, float up, float down) 
     {
         List<Vector2> pointsLeftWall = new List<Vector2>();
         pointsLeftWall.Add(new Vector2(left, up));
@@ -90,8 +90,8 @@ public class GameManager : MonoBehaviour
         pointsRightWall.Add(new Vector2(right, up));
         pointsRightWall.Add(new Vector2(right, down));
 
-        EdgeCollider2D[] edgeCollider2D = gameObject.GetComponents<EdgeCollider2D>();
-        edgeCollider2D[0].SetPoints(pointsLeftWall);
-        edgeCollider2D[1].SetPoints(pointsRightWall);
+        //EdgeCollider2D[] edgeCollider2D = gameObject.GetComponents<EdgeCollider2D>();
+        edgeColliders2D[0].SetPoints(pointsLeftWall);
+        edgeColliders2D[1].SetPoints(pointsRightWall);
     }
 }
