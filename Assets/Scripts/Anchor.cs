@@ -19,4 +19,9 @@ public class Anchor : MonoBehaviour
         mainController.isMouseHoldOnAnchor = true;
         mainController.power = impulsePower;
     }
+
+    private void OnMouseUp()
+    {
+        mainController.hittedAnchor = null;
+    }
 }
