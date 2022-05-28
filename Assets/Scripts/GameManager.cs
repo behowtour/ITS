@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
 
+        SetUpWalls(transform.gameObject, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
+
+
+
+
         point.GenerateFirstPoint();
         point.screenHeightWorld = screenHeightWorld;
         point.leftBorderWorld = leftBorderWorld;
@@ -73,5 +78,20 @@ public class GameManager : MonoBehaviour
         int scoreCount;
         scoreCount = int.Parse(scoreText.text) + score;
         scoreText.text = scoreCount.ToString();
+    }
+
+    private void SetUpWalls(GameObject gameObject, float left, float right, float up, float down) 
+    {
+        List<Vector2> pointsLeftWall = new List<Vector2>();
+        pointsLeftWall.Add(new Vector2(left, up));
+        pointsLeftWall.Add(new Vector2(left, down));
+
+        List<Vector2> pointsRightWall = new List<Vector2>();
+        pointsRightWall.Add(new Vector2(right, up));
+        pointsRightWall.Add(new Vector2(right, down));
+
+        EdgeCollider2D[] edgeCollider2D = gameObject.GetComponents<EdgeCollider2D>();
+        edgeCollider2D[0].SetPoints(pointsLeftWall);
+        edgeCollider2D[1].SetPoints(pointsRightWall);
     }
 }
