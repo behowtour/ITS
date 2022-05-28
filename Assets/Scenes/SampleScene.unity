@@ -372,11 +372,11 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  greenLeafChance: 0
-  orangeLeafChance: 0
-  redLeafChance: 0
+  greenLeafChance: 10000
+  orangeLeafChance: 10000
   isDestroyLeaf: 1
   lastLeaf: {fileID: 0}
+  redLeafChance: 0
   leftBorderWorld: 0
   rightBorderWorld: 0
   screenHeightWorld: 0
@@ -392,13 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ae0c691fd57ef44d910cf20020e0f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBorderWorld: 0
-  rightBorderWorld: 0
-  screenHeightWorld: 0
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
   scoreText: {fileID: 1527627180}
   lastCoordinateY: 0
+  leftBorderWorld: 0
+  rightBorderWorld: 0
+  screenHeightWorld: 0
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
