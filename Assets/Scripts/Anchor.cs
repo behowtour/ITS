@@ -23,5 +23,6 @@ public class Anchor : MonoBehaviour
     private void OnMouseUp()
     {
         mainController.hittedAnchor = null;
+        mainController.isMouseHoldOnAnchor = false;
     }
 }
