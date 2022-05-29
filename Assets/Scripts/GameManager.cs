@@ -64,14 +64,14 @@ public class GameManager : MonoBehaviour
             }
             cameraFollow.Follow();
             controller.HitPoint();
-        }
-        else
-        {
-            restartButtonObject.SetActive(true);
-            Destroy(hero);
-        }
-        onPlay = !(gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y, screenHeightWorld)
+            onPlay = !(gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y, screenHeightWorld)
                 || gameOver.CheckGameOver(controller.hittedAnchor));
+            if (!onPlay)
+            {
+                restartButtonObject.SetActive(true);
+                Destroy(hero);
+            }
+        }
     }
 
     private void ScoreUp(int score)
