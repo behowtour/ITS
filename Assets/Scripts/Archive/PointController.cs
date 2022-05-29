@@ -9,7 +9,7 @@ public class PointController : MonoBehaviour
     Vector3 pointPosition;
     Vector3 pointPositionStep;
 
-    private bool firstFrame = true;
+   
     Vector3 offset;
     void Start()
     {
