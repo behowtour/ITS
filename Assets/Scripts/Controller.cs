@@ -27,7 +27,9 @@ public class Controller : MonoBehaviour
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
+
             lastHittedAnchor = hittedAnchor;
+
             rigidbody.AddForce(ropeLengthVec.normalized * Time.deltaTime * force - ropeLengthVec * Time.deltaTime * force * 0.05f, ForceMode2D.Force);
         }
 
