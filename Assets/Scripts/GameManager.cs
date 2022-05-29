@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
+    public float wallsOffset;
 
     [Header("Dynamic variables")]
     public Text scoreText;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
-        SetUpWalls(edgeColliders2D, leftBorderWorld - 0.5f, rightBorderWorld + 0.5f, screenHeightWorld * 2, (-1) * screenHeightWorld);
+        SetUpWalls(edgeColliders2D, leftBorderWorld - wallsOffset, rightBorderWorld + wallsOffset, screenHeightWorld * 2, (-1) * screenHeightWorld);
         point.screenHeightWorld = screenHeightWorld;
         point.leftBorderWorld = leftBorderWorld;
         point.rightBorderWorld = rightBorderWorld;

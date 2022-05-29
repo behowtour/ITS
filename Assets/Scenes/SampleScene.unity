@@ -475,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
+  wallsOffset: 1
   scoreText: {fileID: 1527627180}
   lastCoordinateY: 0
   leftBorderWorld: 0
