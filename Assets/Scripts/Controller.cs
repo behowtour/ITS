@@ -27,15 +27,14 @@ public class Controller : MonoBehaviour
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
-
             lastHittedAnchor = hittedAnchor;
-
-            rigidbody.AddForce(ropeLengthVec.normalized * Time.deltaTime * force - ropeLengthVec * Time.deltaTime * force * 0.05f, ForceMode2D.Force);
+            rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - 0.05f * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
         }
-
-       
-        if (ropeLengthVec.y < 0) { ropeLengthVec = Vector2.zero; isMouseHoldOnAnchor = false; }
-
+        if (ropeLengthVec.y < 0) 
+        { 
+            ropeLengthVec = Vector2.zero; 
+            isMouseHoldOnAnchor = false;
+        }
         if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
         {
             Destroy(lastHittedAnchor);

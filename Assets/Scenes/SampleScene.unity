@@ -225,8 +225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.85615647}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 336, y: -12}
-  m_SizeDelta: {x: -806.0605, y: -214.1305}
+  m_AnchoredPosition: {x: 421.35547, y: 22.839111}
+  m_SizeDelta: {x: -976.7715, y: -283.8084}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373920123
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 2
@@ -453,8 +453,8 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  greenLeafChance: 10000
-  orangeLeafChance: 10000
+  greenLeafChance: 55000
+  orangeLeafChance: 30000
   isDestroyLeaf: 1
   lastLeaf: {fileID: 0}
   redLeafChance: 0
@@ -475,6 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
+  wallsOffset: 1
   scoreText: {fileID: 1527627180}
   lastCoordinateY: 0
   leftBorderWorld: 0
