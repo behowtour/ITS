@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
-    private LeafGenerator point;
+    private LeafGenerator pointsGenerator;
     private bool onPlay;
     private CameraFollow cameraFollow;  
     private Camera cam;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         hero = GameObject.Find("Hero");
         cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
         controller = hero.transform.gameObject.GetComponent<Controller>();
-        point = GetComponent<LeafGenerator>();
+        pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
         gameOver = GetComponent<GameOver>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
@@ -44,10 +44,11 @@ public class GameManager : MonoBehaviour
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, leftBorderWorld - wallsOffset, rightBorderWorld + wallsOffset, screenHeightWorld * 2, (-1) * screenHeightWorld);
-        point.screenHeightWorld = screenHeightWorld;
-        point.leftBorderWorld = leftBorderWorld;
-        point.rightBorderWorld = rightBorderWorld;
-        point.GenerateFirstPoint();
+        pointsGenerator.screenHeightWorld = screenHeightWorld;
+        pointsGenerator.leftBorderWorld = leftBorderWorld;
+        pointsGenerator.rightBorderWorld = rightBorderWorld;
+        pointsGenerator.GenerateFirstPoint();
+        ChangeDifficulty(0);
         onPlay = true;
     }
 
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if (onPlay)
         {
-            point.GenerateNextPoint();
+            pointsGenerator.GenerateNextPoint();
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {
@@ -64,7 +65,7 @@ public class GameManager : MonoBehaviour
             }
             cameraFollow.Follow();
             controller.HitPoint();
-            onPlay = !(gameOver.CheckGameOver(transform.position.y, point.lastLeaf.transform.position.y, screenHeightWorld)
+            onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
                 || gameOver.CheckGameOver(controller.hittedAnchor));
             if (!onPlay)
             {
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
         int scoreCount;
         scoreCount = int.Parse(scoreText.text) + score;
         scoreText.text = scoreCount.ToString();
+        ChangeDifficulty(scoreCount);
     }
 
     private void SetUpWalls(EdgeCollider2D[] edgeColliders2D, float left, float right, float up, float down) 
@@ -93,5 +95,27 @@ public class GameManager : MonoBehaviour
 
         edgeColliders2D[0].SetPoints(pointsLeftWall);
         edgeColliders2D[1].SetPoints(pointsRightWall);
+    }
+
+    private void ChangeDifficulty(int scoreCount)
+    {
+        if (scoreCount>200)
+        {
+            pointsGenerator.greenLeafChance     = 35000;
+            pointsGenerator.orangeLeafChance    = 35000;
+            pointsGenerator.redLeafChance       = 30000;
+        }
+        else if (scoreCount>100)
+        {
+            pointsGenerator.greenLeafChance     = 55000;
+            pointsGenerator.orangeLeafChance    = 30000;
+            pointsGenerator.redLeafChance       = 15000;
+        }
+        else
+        {
+            pointsGenerator.greenLeafChance     = 80000;
+            pointsGenerator.orangeLeafChance    = 15000;
+            pointsGenerator.redLeafChance       = 5000;
+        }
     }
 }
