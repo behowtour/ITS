@@ -24,21 +24,18 @@ public class Controller : MonoBehaviour
     
     public void HitPoint()
     {
-        if (hittedAnchor)
+        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
-        }
-        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
-        {
             rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - 0.05f * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
         }
         if (ropeLengthVec.y < 0) 
         { 
-            ropeLengthVec = Vector2.zero; isMouseHoldOnAnchor = false;
-            hittedAnchor = null;
+            ropeLengthVec = Vector2.zero; 
+            isMouseHoldOnAnchor = false;
         }
-        if (!hittedAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
+        if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
         {
             Destroy(lastHittedAnchor);
         }
