@@ -7,6 +7,7 @@ public class Controller : MonoBehaviour
     [Header("Static variables")]
     public bool isMouseHoldOnAnchor;
     public float force;
+    public float sparrowRatio;
 
     [Header("Dynamic variables")]
     public GameObject hittedAnchor, lastHittedAnchor;
@@ -28,7 +29,7 @@ public class Controller : MonoBehaviour
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
-            rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - 0.05f * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+            rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
         }
         if (ropeLengthVec.y < 0) 
         { 

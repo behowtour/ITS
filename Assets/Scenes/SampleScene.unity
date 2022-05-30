@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: power
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 8080675940338543379, guid: d5e8504387542144da16612072a16894, type: 3}
+      propertyPath: sparrowRatio
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5e8504387542144da16612072a16894, type: 3}
 --- !u!4 &1340040160 stripped
