@@ -827,8 +827,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543369, guid: d5e8504387542144da16612072a16894, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080675940338543369, guid: d5e8504387542144da16612072a16894, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080675940338543369, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543371, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_Name
@@ -880,17 +888,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543379, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: force
-      value: 1350
+      value: 1450
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543379, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: power
-      value: 1000
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543379, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: sparrowRatio
       value: 0.08
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8080675940338543373, guid: d5e8504387542144da16612072a16894, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d5e8504387542144da16612072a16894, type: 3}
 --- !u!4 &1340040160 stripped
 Transform:
