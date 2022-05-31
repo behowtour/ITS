@@ -7,8 +7,8 @@ public class Anchor : MonoBehaviour
     private Controller mainController;
     public float impulsePower;
     public GameObject particleObjectPrefab;
-    private GameObject particleObject;
-    private ParticleSystem particles;
+    public GameObject particleObject;
+    public ParticleSystem particles;
 
     private void Start()
     {
@@ -32,7 +32,15 @@ public class Anchor : MonoBehaviour
     {
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
-        particles.Stop();
-        Destroy(particleObject, 0.5f);
+        StopParticlesAndDestroy();
+    }
+
+    public void StopParticlesAndDestroy()
+    {
+        
+        
+            particles?.Stop();
+            Destroy(particleObject, 0.5f);
+        
     }
 }

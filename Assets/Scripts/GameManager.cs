@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
             }
             cameraFollow.Follow();
             controller.HitPoint();
+
             onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
                 || gameOver.CheckGameOver(controller.hittedAnchor));
             if (!onPlay)
@@ -74,6 +75,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
 
     private void ScoreUp(int score)
     {
