@@ -6,10 +6,15 @@ public class Anchor : MonoBehaviour
 {
     private Controller mainController;
     public float impulsePower;
+    public GameObject particleObjectPrefab;
+    private GameObject particleObject;
+    private ParticleSystem particles;
 
     private void Start()
     {
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
+     
+        
     }
 
 
@@ -18,11 +23,16 @@ public class Anchor : MonoBehaviour
         mainController.hittedAnchor = gameObject;
         mainController.isMouseHoldOnAnchor = true;
         mainController.power = impulsePower;
+        particleObject =  Instantiate(particleObjectPrefab, transform.position, transform.rotation);
+        particles = particleObject.GetComponent<ParticleSystem>();
+        particles.Play();
     }
 
     private void OnMouseUp()
     {
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
+        particles.Stop();
+        Destroy(particleObject, 0.5f);
     }
 }
