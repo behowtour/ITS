@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
     public bool CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
     {
         isGameOver = false;
-        if (camPositionY < lastPointy - screenHeightWorld * 2)
+        if (camPositionY < lastPointy - screenHeightWorld * 3)
         {
             isGameOver = true;
         }
