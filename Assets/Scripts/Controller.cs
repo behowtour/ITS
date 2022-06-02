@@ -8,12 +8,13 @@ public class Controller : MonoBehaviour
     public bool isMouseHoldOnAnchor;
     public float force;
     public float sparrowRatio;
+    public float maxDownSpeedY;
 
     [Header("Dynamic variables")]
     public GameObject hittedAnchor, lastHittedAnchor;
     public Vector2 ropeLengthVec;
     public float power;
-    
+    public float xSpeed, ySpeed, velMagnSpeed;
 
     private new Rigidbody2D rigidbody;
 
@@ -23,11 +24,20 @@ public class Controller : MonoBehaviour
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        
     }
 
 
-   
+    private void Update()
+    {
+        xSpeed = rigidbody.velocity.x;
+        ySpeed = rigidbody.velocity.y;
+        velMagnSpeed = rigidbody.velocity.magnitude;
+        if (rigidbody.velocity.y <= (-1)*maxDownSpeedY)
+        {
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, (-1) * maxDownSpeedY);
+        }
+        
+    }
 
 
     public void HitPoint()
@@ -37,17 +47,13 @@ public class Controller : MonoBehaviour
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
             rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
-           
 
-           
-           
+
         }
         if (ropeLengthVec.y < 0) 
         { 
             ropeLengthVec = Vector2.zero; 
             isMouseHoldOnAnchor = false;
-            lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
-            
         }
         if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
         {
