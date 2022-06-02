@@ -41,6 +41,8 @@ public class Anchor : MonoBehaviour
         
             particles?.Stop();
             Destroy(particleObject, 0.5f);
+        }
         
     }
+    
 }

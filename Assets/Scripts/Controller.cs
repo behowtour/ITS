@@ -16,7 +16,9 @@ public class Controller : MonoBehaviour
     
 
     private new Rigidbody2D rigidbody;
-    
+
+
+    public float angularVelocity;
 
     void Awake()
     {
@@ -24,7 +26,9 @@ public class Controller : MonoBehaviour
         
     }
 
-  
+
+   
+
 
     public void HitPoint()
     {
@@ -33,7 +37,7 @@ public class Controller : MonoBehaviour
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
             rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
-
+           
 
            
            
