@@ -650,10 +650,14 @@ MonoBehaviour:
   isMouseHoldOnAnchor: 0
   force: 1400
   sparrowRatio: 0.06
+  maxDownSpeedY: 9
   hittedAnchor: {fileID: 0}
   lastHittedAnchor: {fileID: 0}
   ropeLengthVec: {x: 0, y: 0}
   power: 0
+  xSpeed: 0
+  ySpeed: 0
+  velMagnSpeed: 0
   angularVelocity: 0
 --- !u!50 &625285349
 Rigidbody2D:
