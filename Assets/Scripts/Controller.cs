@@ -58,6 +58,7 @@ public class Controller : MonoBehaviour
         if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
         {
             Destroy(lastHittedAnchor);
+            lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
         }
     }
 }
