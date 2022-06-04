@@ -7,7 +7,8 @@
 ### [Обсуждения](https://github.com/behowtour/ITS/discussions)
 ### [Скрипты](https://github.com/behowtour/ITS/tree/main/Assets/Scripts)
 
-
+## Полезные статьи:
+[Как откатить до коммита](http://gearmobile.github.io/git/github-fallback-commit/)
 
 ## Терминология
 
