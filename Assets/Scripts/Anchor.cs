@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Anchor : MonoBehaviour
 {
-    private Controller mainController;
+    public Controller mainController;
     public float impulsePower;
     public GameObject particleObjectPrefab;
     public GameObject particleObject;
