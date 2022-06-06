@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CoinsCounter
+public class CoinsPanel
 {
     private Bank bank;
     private Text textCoinsCount;
     
-    public CoinsCounter(Bank bank, Text textCoinsCount)
+    public CoinsPanel(Bank bank, Text textCoinsCount)
     {
         this.bank = bank;
         this.bank.OnCoinsValueChangedEvent += OnCoinsValueChanged;

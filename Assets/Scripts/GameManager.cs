@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     public float wallsOffset;
 
     [Header("Dynamic variables")]
-    public Text scoreText;
+    //public Text scoreText;
+    public ScoreController scoreController;
     public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         rightBorderWorld = topRightWorld.x;
         screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
         heroTransform = hero.transform;
-        scoreText.text = "0";
+        //scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
@@ -60,7 +61,8 @@ public class GameManager : MonoBehaviour
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {
-                ScoreUp(coordDiff);
+                //ScoreUp(coordDiff);
+                scoreController.AddScore(this, 1);
                 lastCoordinateY = heroTransform.position.y;
             }
             cameraFollow.Follow();
@@ -78,13 +80,13 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void ScoreUp(int score)
-    {
-        int scoreCount;
-        scoreCount = int.Parse(scoreText.text) + score;
-        scoreText.text = scoreCount.ToString();
-        ChangeDifficulty(scoreCount);
-    }
+    //private void ScoreUp(int score)
+    //{
+    //    int scoreCount;
+    //    scoreCount = int.Parse(scoreText.text) + score;
+    //    scoreText.text = scoreCount.ToString();
+    //    ChangeDifficulty(scoreCount);
+    //}
 
     private void SetUpWalls(EdgeCollider2D[] edgeColliders2D, float left, float right, float up, float down) 
     {

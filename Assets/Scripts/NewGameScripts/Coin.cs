@@ -5,28 +5,27 @@ using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {
-    private Bank bank;
+    [Header("Static variables")]
     public GameObject coinsCount;
-    private CoinsCounter coinsCounter;
+    public ScoreController scoreController;
+    public int scoreCost;
+
+    private Bank bank;
+    private CoinsPanel coinsPanel;
+
 
     private void Awake()
     {
         this.bank = new Bank();
-        this.coinsCounter = new CoinsCounter(this.bank, coinsCount.GetComponent<Text>());
+        this.coinsPanel = new CoinsPanel(this.bank, coinsCount.GetComponent<Text>());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            this.bank.AddCoins(this, 1);
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             this.bank.AddCoins(this, 1);
+            this.scoreController.AddScore(this, scoreCost);
             Destroy(this.transform.gameObject);
         }
     }

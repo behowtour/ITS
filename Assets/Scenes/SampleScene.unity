@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4983989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4983991}
+  - component: {fileID: 4983990}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4983990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730ea8bb2477ac94b9a10398786f0afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreCount: {fileID: 1527627178}
+--- !u!4 &4983991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1148367, y: -9.6826725, z: -0.30724725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353185073
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +601,7 @@ MonoBehaviour:
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
   wallsOffset: 1
-  scoreText: {fileID: 1527627180}
+  scoreController: {fileID: 4983990}
   lastCoordinateY: 0
   leftBorderWorld: 0
   rightBorderWorld: 0
@@ -1198,7 +1243,7 @@ GameObject:
   - component: {fileID: 1527627181}
   - component: {fileID: 1527627180}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1476,5 +1521,9 @@ PrefabInstance:
       propertyPath: coinsCount
       value: 
       objectReference: {fileID: 441535539}
+    - target: {fileID: 1134173768740514731, guid: 6cbfbd210cdeb8c41a20e425f84f2f1f, type: 3}
+      propertyPath: scoreController
+      value: 
+      objectReference: {fileID: 4983990}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cbfbd210cdeb8c41a20e425f84f2f1f, type: 3}

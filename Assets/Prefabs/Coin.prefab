@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsCount: {fileID: 0}
+  scoreController: {fileID: 0}
+  scoreCost: 10
 --- !u!70 &1134173768740514732
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
