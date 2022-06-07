@@ -7,6 +7,7 @@ public class ScorePanel
 {
     private Score score;
     private Text textScoreValue;
+    
 
     public ScorePanel(Score score, Text textScoreValue)
     {
