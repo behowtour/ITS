@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             if (coordDiff > 0)
             {
                 //ScoreUp(coordDiff);
-                scoreController.AddScore(this, 1);
+                //scoreController.AddScore(this, 1);
                 lastCoordinateY = heroTransform.position.y;
             }
             cameraFollow.Follow();

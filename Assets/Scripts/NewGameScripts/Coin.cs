@@ -25,7 +25,7 @@ public class Coin : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             this.bank.AddCoins(this, 1);
-            this.scoreController.AddScore(this, scoreCost);
+            this.scoreController.score.AddScore(this, scoreCost);
             Destroy(this.transform.gameObject);
         }
     }
