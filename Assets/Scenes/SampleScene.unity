@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 519420039}
   - component: {fileID: 519420038}
   - component: {fileID: 519420034}
-  - component: {fileID: 519420030}
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
   - component: {fileID: 519420037}
@@ -431,20 +430,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62bcb1b623b706a4db94a3bec4b50a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1340040160}
-  camPositionOffset: 1.5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -601,6 +586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
+  cameraMain: {fileID: 519420028}
+  camPositionOffset: 1.5
   wallsOffset: 1
   scoreController: {fileID: 4983990}
   lastCoordinateY: 0
@@ -1036,11 +1023,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8080675940338543373, guid: d5e8504387542144da16612072a16894, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d5e8504387542144da16612072a16894, type: 3}
---- !u!4 &1340040160 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8080675940338543375, guid: d5e8504387542144da16612072a16894, type: 3}
-  m_PrefabInstance: {fileID: 1115095778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394995897
 GameObject:
   m_ObjectHideFlags: 0
