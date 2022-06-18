@@ -9,16 +9,18 @@ public class GameManager : MonoBehaviour
     [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
+    public GameObject cameraMain;
+    public float camPositionOffset;
     public float wallsOffset;
 
     [Header("Dynamic variables")]
-    public Text scoreText;
+    public ScoreController scoreController;
     public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
     private LeafGenerator pointsGenerator;
     private bool onPlay;
-    private CameraFollow cameraFollow;  
+    private GoFollow goFollow;  
     private Camera cam;
     private Controller controller;
     private GameOver gameOver;
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
-        cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
+        this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
@@ -39,7 +41,6 @@ public class GameManager : MonoBehaviour
         rightBorderWorld = topRightWorld.x;
         screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
         heroTransform = hero.transform;
-        scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
@@ -60,10 +61,9 @@ public class GameManager : MonoBehaviour
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {
-                ScoreUp(coordDiff);
                 lastCoordinateY = heroTransform.position.y;
             }
-            cameraFollow.Follow();
+            goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
 
             onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
@@ -74,16 +74,6 @@ public class GameManager : MonoBehaviour
                 Destroy(hero);
             }
         }
-    }
-
-
-
-    private void ScoreUp(int score)
-    {
-        int scoreCount;
-        scoreCount = int.Parse(scoreText.text) + score;
-        scoreText.text = scoreCount.ToString();
-        ChangeDifficulty(scoreCount);
     }
 
     private void SetUpWalls(EdgeCollider2D[] edgeColliders2D, float left, float right, float up, float down) 
