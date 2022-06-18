@@ -28,7 +28,6 @@ ExportedObj/
 *.dwlt
 *.log
 *.DS_Store
-*.dwlt
 
 # Unity3D generated meta files
 *.pidb.meta
