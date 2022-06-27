@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int coordDiff = (int)(this.transform.position.y - lastOrdValue);
+        var coordDiff = (int)(this.transform.position.y - lastOrdValue);
         if (coordDiff >= 1)
         {
             //ScoreUp(coordDiff);

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class Coin : MonoBehaviour
 {
-    [Header("Static variables")]
-    public GameObject coinsCount;
+    [Header("Static variables")] public GameObject coinsCount;
     public ScoreController scoreController;
     public int scoreCost;
 
