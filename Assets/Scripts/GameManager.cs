@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject cameraMain;
     public float camPositionOffset;
     public float wallsOffset;
+    
 
     [Header("Dynamic variables")]
     public ScoreController scoreController;

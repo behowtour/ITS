@@ -9,13 +9,13 @@ public class Controller : MonoBehaviour
     public float force;
     public float sparrowRatio;
     public float maxDownSpeedY;
+    public AnimationController animationController;
 
     [Header("Dynamic variables")]
     public GameObject hittedAnchor, lastHittedAnchor;
     public Vector2 ropeLengthVec;
     public float power;
     public float xSpeed, ySpeed, velMagnSpeed;
-
     private new Rigidbody2D rigidbody;
     
 
