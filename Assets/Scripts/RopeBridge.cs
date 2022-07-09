@@ -33,29 +33,29 @@ public class RopeBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-       
-    }
-
-    private void FixedUpdate()
-    {
         DrawRope();
-        this.Simulate();
-        if (controller.isMouseHoldOnAnchor) { this.Simulate(); }
+        //this.Simulate();
+        if (controller.isMouseHoldOnAnchor) { this.Simulate(this.StartPoint.position, controller.hittedAnchor.transform.position); }
         else
         {
             // lineRenderer.positionCount = 0;
             for (int i = 0; i < this.segmentLength; i++)
             {
                 RopeSegment firstSegment = this.ropeSegments[i];
-                firstSegment.posNow = StartPoint.position;                firstSegment.posOld = firstSegment.posNow;
-                
-               
+                firstSegment.posNow = StartPoint.position;
+                firstSegment.posOld = firstSegment.posNow;
             }
-            }
+            this.Simulate(this.StartPoint.position, this.StartPoint.position);
+        }
+
     }
 
-    private void Simulate()
+    private void FixedUpdate()
+    {
+        
+    }
+
+    private void Simulate(Vector3 StartPosition, Vector3 EndPosition)
     {
         // SIMULATION
         Vector2 forceGravity = new Vector2(0f, -1f);
@@ -73,22 +73,22 @@ public class RopeBridge : MonoBehaviour
         //CONSTRAINTS
         for (int i = 0; i < 50; i++)
         {
-            this.ApplyConstraint();
+            this.ApplyConstraint( StartPosition,  EndPosition);
         }
     }
 
-    private void ApplyConstraint()
+    private void ApplyConstraint(Vector3 StartPosition, Vector3 EndPosition)
     {
         //Constrant to First Point 
         RopeSegment firstSegment = this.ropeSegments[0];
-        firstSegment.posNow = this.StartPoint.position;
+        firstSegment.posNow = StartPosition;
         this.ropeSegments[0] = firstSegment;
 
 
         //Constrant to Second Point 
         RopeSegment endSegment = this.ropeSegments[this.ropeSegments.Count - 1];
-        EndPoint = controller.hittedAnchor.transform;
-        endSegment.posNow = this.EndPoint.position;
+        //EndPoint = controller.hittedAnchor.transform;
+        endSegment.posNow = EndPosition;
         this.ropeSegments[this.ropeSegments.Count - 1] = endSegment;
 
         for (int i = 0; i < this.segmentLength - 1; i++)
