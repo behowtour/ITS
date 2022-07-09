@@ -33,31 +33,23 @@ public class RopeBridge : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (controller.isMouseHoldOnAnchor) { this.DrawRope(); }
-        else
-        {
-            lineRenderer.positionCount = 0;
-            RopeSegment endSegment = this.ropeSegments[this.ropeSegments.Count - 1];
-            EndPoint = StartPoint;
-            endSegment.posNow = this.EndPoint.position;
-            endSegment.posOld = this.EndPoint.position;
-            endSegment.posNow = this.EndPoint.position;
-            this.ropeSegments[this.ropeSegments.Count - 1] = endSegment;
-
-        }
+       
+       
     }
 
     private void FixedUpdate()
     {
+        DrawRope();
+        this.Simulate();
         if (controller.isMouseHoldOnAnchor) { this.Simulate(); }
         else
         {
-            lineRenderer.positionCount = 0;
-            for (int i = 1; i < this.segmentLength; i++)
+            // lineRenderer.positionCount = 0;
+            for (int i = 0; i < this.segmentLength; i++)
             {
                 RopeSegment firstSegment = this.ropeSegments[i];
-                firstSegment.posNow = StartPoint.position;
-                firstSegment.posOld = firstSegment.posNow;
+                firstSegment.posNow = StartPoint.position;                firstSegment.posOld = firstSegment.posNow;
+                
                
             }
             }
