@@ -2525,7 +2525,7 @@ GameObject:
   - component: {fileID: 1620574418589689548}
   - component: {fileID: 5878904402101869471}
   m_Layer: 0
-  m_Name: hand copy
+  m_Name: hand right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3126,7 +3126,7 @@ GameObject:
   - component: {fileID: 3318430892368935531}
   - component: {fileID: 4196658062759878529}
   m_Layer: 0
-  m_Name: hand
+  m_Name: hand left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
