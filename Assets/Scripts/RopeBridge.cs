@@ -37,20 +37,30 @@ public class RopeBridge : MonoBehaviour
         else
         {
             lineRenderer.positionCount = 0;
-           
+            RopeSegment endSegment = this.ropeSegments[this.ropeSegments.Count - 1];
+            EndPoint = StartPoint;
+            endSegment.posNow = this.EndPoint.position;
+            endSegment.posOld = this.EndPoint.position;
+            endSegment.posNow = this.EndPoint.position;
+            this.ropeSegments[this.ropeSegments.Count - 1] = endSegment;
+
         }
     }
 
     private void FixedUpdate()
     {
-        if (controller.isMouseHoldOnAnchor) this.Simulate();
+        if (controller.isMouseHoldOnAnchor) { this.Simulate(); }
         else
         {
-            RopeSegment endSegment = this.ropeSegments[this.ropeSegments.Count - 1];
-            EndPoint = StartPoint;
-            endSegment.posNow = this.EndPoint.position;
-            this.ropeSegments[this.ropeSegments.Count - 1] = endSegment;
-        }
+            lineRenderer.positionCount = 0;
+            for (int i = 1; i < this.segmentLength; i++)
+            {
+                RopeSegment firstSegment = this.ropeSegments[i];
+                firstSegment.posNow = StartPoint.position;
+                firstSegment.posOld = firstSegment.posNow;
+               
+            }
+            }
     }
 
     private void Simulate()
