@@ -10,6 +10,7 @@ public class Anchor : MonoBehaviour
     public GameObject particleObject;
     public ParticleSystem particles;
 
+
     private void Start()
     {
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
