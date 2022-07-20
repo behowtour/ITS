@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private Transform heroTransform;
     private LeafGenerator pointsGenerator;
     private bool onPlay;
-    private GoFollow goFollow;  
+    private CameraFollow cameraFollow;  
     private Camera cam;
     private Controller controller;
     private GameOver gameOver;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
-        this.goFollow = new GoFollow();
+        this.cameraFollow = new CameraFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
@@ -58,13 +58,15 @@ public class GameManager : MonoBehaviour
     {
         if (onPlay)
         {
-            pointsGenerator.GenerateNextPoint();
+            
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
-            if (coordDiff > 0)
+            if (coordDiff > 1)
             {
                 lastCoordinateY = heroTransform.position.y;
+                pointsGenerator.GenerateNextPoint();
+
             }
-            goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
+            cameraFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
 
             onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
