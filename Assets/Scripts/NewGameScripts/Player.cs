@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     {
         lastOrdValue = this.transform.position.y;
         lastVelocity = 0;
-        InitPlayerStates();
-        SetPlayerStateByDefault();
+        //InitPlayerStates();
+        //SetPlayerStateByDefault();
     }
 
     // Update is called once per frame
