@@ -11,7 +11,7 @@ public class PlayerStateFallDown:IPlayerState
         
     }
 
-    public void Update(Player player, int coordDiff)
+    public void Update(Player player, float velocity, float accelerate)
     {
         if (player.controller.isMouseHoldOnAnchor)
         {

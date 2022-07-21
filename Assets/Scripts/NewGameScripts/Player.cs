@@ -6,17 +6,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator animator;
+    public PlayerAnimator playerAnimator;
     public Controller controller;
     public delegate void PlayerHandler(object sender, int ordDiff);
     public event PlayerHandler OnOrdinateChangedEvent;
 
-    private float lastOrdValue;
+    private float lastOrdValue, lastVelocity, maxOrdValue;
     private Dictionary<Type, IPlayerState> playerStatesMap;
     private IPlayerState playerStateCurrent;
 
     void Start()
     {
         lastOrdValue = this.transform.position.y;
+        lastVelocity = 0;
         InitPlayerStates();
         SetPlayerStateByDefault();
     }
@@ -24,18 +26,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int coordDiff = (int)(this.transform.position.y - lastOrdValue);
-        if (coordDiff >= 1)
+        float velocity = (this.transform.position.y - lastOrdValue);
+        float accelerate = velocity - lastVelocity;
+        if (this.transform.position.y >= maxOrdValue + 1)
         {
             //ScoreUp(coordDiff);
-            this.OnOrdinateChangedEvent?.Invoke(this, coordDiff);
-            lastOrdValue = this.transform.position.y;
+            this.OnOrdinateChangedEvent?.Invoke(this, 1);
+            maxOrdValue = this.transform.position.y;
+            
         }
-
-        if (this.playerStateCurrent != null)
-        {
-            this.playerStateCurrent.Update(this, coordDiff);
-        }
+        lastOrdValue = this.transform.position.y;
+        lastVelocity = velocity;
+        this.animator.SetFloat("velocity", velocity);
+        this.animator.SetFloat("accelerate", accelerate);
+        Debug.Log( "Velocity = " +this.animator.GetFloat("velocity")+" | Accelerate = "+ this.animator.GetFloat("accelerate"));
+        //this.playerAnimator.SetVelocity(velocity);
+        //this.playerAnimator.SetAccelerate(accelerate);
+        //if (this.playerStateCurrent != null)
+        //{
+        //    this.playerStateCurrent.Update(this, velocity,accelerate);
+        //}
     }
 
     private void SetPlayerState(IPlayerState newPlayerState)

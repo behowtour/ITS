@@ -11,7 +11,7 @@ public class PlayerStateClickPoint : IPlayerState
         //throw new NotImplementedException();
     }
 
-    public void Update(Player player, int coordDiff)
+    public void Update(Player player, float velocity, float accelerate)
     {
         if (!player.controller.isMouseHoldOnAnchor)
         {
