@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         float accelerate = velocity - lastVelocity;
         if (this.transform.position.y >= maxOrdValue + 1)
         {
+            
             //ScoreUp(coordDiff);
             this.OnOrdinateChangedEvent?.Invoke(this, 1);
             maxOrdValue = this.transform.position.y;
