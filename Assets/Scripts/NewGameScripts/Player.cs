@@ -14,11 +14,13 @@ public class Player : MonoBehaviour
     private float lastOrdValue, lastVelocity, maxOrdValue;
     private Dictionary<Type, IPlayerState> playerStatesMap;
     private IPlayerState playerStateCurrent;
+    private bool isStartJump;
 
     void Start()
     {
         lastOrdValue = this.transform.position.y;
         lastVelocity = 0;
+        isStartJump = false;
         //InitPlayerStates();
         //SetPlayerStateByDefault();
     }
@@ -30,7 +32,11 @@ public class Player : MonoBehaviour
         float accelerate = velocity - lastVelocity;
         if (this.transform.position.y >= maxOrdValue + 1)
         {
-            
+            if (!isStartJump)
+            {
+                this.animator.SetBool("isStartJump", true);
+                isStartJump = true;
+            }
             //ScoreUp(coordDiff);
             this.OnOrdinateChangedEvent?.Invoke(this, 1);
             maxOrdValue = this.transform.position.y;
@@ -40,7 +46,7 @@ public class Player : MonoBehaviour
         lastVelocity = velocity;
         this.animator.SetFloat("velocity", velocity);
         this.animator.SetFloat("accelerate", accelerate);
-        Debug.Log( "Velocity = " +this.animator.GetFloat("velocity")+" | Accelerate = "+ this.animator.GetFloat("accelerate"));
+        //Debug.Log( "Velocity = " +this.animator.GetFloat("velocity")+" | Accelerate = "+ this.animator.GetFloat("accelerate"));
         //this.playerAnimator.SetVelocity(velocity);
         //this.playerAnimator.SetAccelerate(accelerate);
         //if (this.playerStateCurrent != null)
