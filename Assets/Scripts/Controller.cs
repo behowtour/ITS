@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     public float force;
     public float sparrowRatio;
     public float maxDownSpeedY;
-    public AnimationController animationController;
+    public AnimationController2 animationController;
 
     [Header("Dynamic variables")]
     public GameObject hittedAnchor, lastHittedAnchor;

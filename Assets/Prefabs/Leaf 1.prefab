@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 500
+  m_SortingOrder: 450
   m_Sprite: {fileID: 21300000, guid: 216feeb4ec731864cbf35dd5e71353bb, type: 3}
   m_Color: {r: 1, g: 0.50889754, b: 0.043137252, a: 1}
   m_FlipX: 0
@@ -131,3 +131,4 @@ MonoBehaviour:
   particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
   particleObject: {fileID: 0}
   particles: {fileID: 0}
+  animController: {fileID: 0}
