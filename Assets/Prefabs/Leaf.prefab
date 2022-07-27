@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5997551165494692163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: -0.39, z: 0}
-  m_LocalScale: {x: 0.026483849, y: 0.026483849, z: 0.026483849}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,13 +75,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 150
-  m_Sprite: {fileID: 21300000, guid: 216feeb4ec731864cbf35dd5e71353bb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 450
+  m_Sprite: {fileID: 21300000, guid: 88dfa9fef754e424c9e53db0691a02f8, type: 3}
+  m_Color: {r: 0.9056604, g: 0.8031328, b: 0.764685, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 39.009525, y: 26}
+  m_Size: {x: 3.72, y: 5.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 19.504763
+  m_Radius: 0.90568435
 --- !u!114 &2693316329251020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulsePower: 0
   particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
+  particleObject: {fileID: 0}
+  particles: {fileID: 0}
+  animController: {fileID: 0}

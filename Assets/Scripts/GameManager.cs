@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject restartButtonObject;
     public GameObject hero;
     public float wallsOffset;
+    
 
     [Header("Dynamic variables")]
     public Text scoreText;
@@ -28,7 +29,9 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
-        cameraFollow = transform.gameObject.GetComponent<CameraFollow>();
+
+        this.cameraFollow = new CameraFollow();
+
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
@@ -56,14 +59,18 @@ public class GameManager : MonoBehaviour
     {
         if (onPlay)
         {
-            pointsGenerator.GenerateNextPoint();
+            
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
-            if (coordDiff > 0)
+            if (coordDiff > 1)
             {
                 ScoreUp(coordDiff);
                 lastCoordinateY = heroTransform.position.y;
+                pointsGenerator.GenerateNextPoint();
+
             }
-            cameraFollow.Follow();
+
+            cameraFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
+
             controller.HitPoint();
 
             onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)

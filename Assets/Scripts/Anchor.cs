@@ -9,10 +9,13 @@ public class Anchor : MonoBehaviour
     public GameObject particleObjectPrefab;
     public GameObject particleObject;
     public ParticleSystem particles;
+    public AnimationController2 animController;
+
 
     private void Start()
     {
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
+        animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
      
         
     }
@@ -26,6 +29,7 @@ public class Anchor : MonoBehaviour
         particleObject =  Instantiate(particleObjectPrefab, transform.position, transform.rotation);
         particles = particleObject.GetComponent<ParticleSystem>();
         particles.Play();
+        animController.animator.SetBool("isThrowing", true);
     }
 
     private void OnMouseUp()
@@ -33,6 +37,7 @@ public class Anchor : MonoBehaviour
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
         StopParticlesAndDestroy();
+        animController.animator.SetBool("isThrowing", false);
     }
 
     public void StopParticlesAndDestroy()

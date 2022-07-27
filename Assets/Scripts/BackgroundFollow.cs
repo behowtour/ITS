@@ -21,7 +21,7 @@ public class BackgroundFollow : MonoBehaviour
     
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, target.position.y-target.position.y*0.1f+backgroundOffsetToCam, transform.position.z); 
+        Vector3 newPos = new Vector3(transform.position.x, target.position.y-target.position.y*0.010f+backgroundOffsetToCam, transform.position.z); 
         transform.position = newPos;
     }
 }

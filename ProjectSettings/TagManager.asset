@@ -8,6 +8,7 @@ TagManager:
   - GreenLeaf
   - OrangeLeaf
   - RedLeaf
+  - Body
   layers:
   - Default
   - TransparentFX
