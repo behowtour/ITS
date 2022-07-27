@@ -9,13 +9,11 @@ public class GameManager : MonoBehaviour
     [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
-    public GameObject cameraMain;
-    public float camPositionOffset;
     public float wallsOffset;
     
 
     [Header("Dynamic variables")]
-    public ScoreController scoreController;
+    public Text scoreText;
     public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
@@ -31,7 +29,9 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
+
         this.cameraFollow = new CameraFollow();
+
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         rightBorderWorld = topRightWorld.x;
         screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
         heroTransform = hero.transform;
+        scoreText.text = "0";
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
@@ -62,11 +63,14 @@ public class GameManager : MonoBehaviour
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 1)
             {
+                ScoreUp(coordDiff);
                 lastCoordinateY = heroTransform.position.y;
                 pointsGenerator.GenerateNextPoint();
 
             }
+
             cameraFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
+
             controller.HitPoint();
 
             onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
@@ -77,6 +81,16 @@ public class GameManager : MonoBehaviour
                 Destroy(hero);
             }
         }
+    }
+
+
+
+    private void ScoreUp(int score)
+    {
+        int scoreCount;
+        scoreCount = int.Parse(scoreText.text) + score;
+        scoreText.text = scoreCount.ToString();
+        ChangeDifficulty(scoreCount);
     }
 
     private void SetUpWalls(EdgeCollider2D[] edgeColliders2D, float left, float right, float up, float down) 

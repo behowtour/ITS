@@ -17,12 +17,15 @@ public class Controller : MonoBehaviour
     public float power;
     public float xSpeed, ySpeed, velMagnSpeed;
     private new Rigidbody2D rigidbody;
-    
+
+
+    public float angularVelocity;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
+
 
     private void Update()
     {
@@ -36,6 +39,7 @@ public class Controller : MonoBehaviour
         
     }
 
+
     public void HitPoint()
     {
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
@@ -43,6 +47,8 @@ public class Controller : MonoBehaviour
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
             rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+
+
         }
         if (ropeLengthVec.y < 0) 
         { 
