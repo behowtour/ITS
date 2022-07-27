@@ -42,13 +42,10 @@ public class Anchor : MonoBehaviour
 
     public void StopParticlesAndDestroy()
     {
-
-        if (particles != null)
-        {
-            particles.Stop();
+        
+        
+            particles?.Stop();
             Destroy(particleObject, 0.5f);
-        }
         
     }
-    
 }
