@@ -1369,6 +1369,7 @@ GameObject:
   - component: {fileID: 887195329}
   - component: {fileID: 887195327}
   - component: {fileID: 887195330}
+  - component: {fileID: 887195331}
   m_Layer: 0
   m_Name: Body
   m_TagString: Body
@@ -1479,6 +1480,21 @@ MonoBehaviour:
   vel: {x: 0, y: 0}
   animator: {fileID: 0}
   isThrowing: 0
+--- !u!114 &887195331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887195325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05197d3a6b7ace24e862abdde9bf01fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero: {fileID: 1810417135}
+  vel: {x: 0, y: 0}
+  newRot: {x: 0, y: 0, z: 0}
 --- !u!1 &955146554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,13 +2155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05197d3a6b7ace24e862abdde9bf01fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
   hero: {fileID: 2034824343}
   vel: {x: 0, y: 0}
-  velN: {x: 0, y: 0}
   newRot: {x: 0, y: 0, z: 0}
-  glassesPos: {x: 0, y: 0, z: 0}
-  glasses: {fileID: 5140803873875522987}
 --- !u!114 &1642619781
 MonoBehaviour:
   m_ObjectHideFlags: 0
