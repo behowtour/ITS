@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
-        gameOver = GetComponent<GameOver>();
+        //gameOver = GetComponent<GameOver>();
+        gameOver = new GameOver();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         leftBorderWorld = botLeftWorld.x;
@@ -66,9 +67,10 @@ public class GameManager : MonoBehaviour
             }
             goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
-
-            onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
-                || gameOver.CheckGameOver(controller.hittedAnchor));
+            gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld);
+            //onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
+            //    || gameOver.CheckGameOver(controller.hittedAnchor));
+            onPlay = !gameOver.isGameOver;
             if (!onPlay)
             {
                 restartButtonObject.SetActive(true);
@@ -107,9 +109,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            pointsGenerator.greenLeafChance     = 80000;
+            pointsGenerator.greenLeafChance     = 10000;
             pointsGenerator.orangeLeafChance    = 15000;
-            pointsGenerator.redLeafChance       = 5000;
+            pointsGenerator.redLeafChance       = 75000;
         }
     }
 }
