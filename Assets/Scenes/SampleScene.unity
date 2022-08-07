@@ -830,7 +830,6 @@ GameObject:
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
-  - component: {fileID: 519420037}
   - component: {fileID: 519420040}
   m_Layer: 0
   m_Name: Main Camera
@@ -981,7 +980,7 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  greenLeafChance: 55000
+  greenLeafChance: 10000
   orangeLeafChance: 30000
   isDestroyLeaf: 1
   lastLeaf: {fileID: 0}
@@ -1021,18 +1020,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47a10ccda770db84594f0736d7fb54b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &519420037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a0088491020e548b4b2e82ed545cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!68 &519420038

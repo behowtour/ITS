@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour
     private GoFollow goFollow;  
     private Camera cam;
     private Controller controller;
-    private GameOver gameOver;
     
 
     void Start()
@@ -35,8 +34,6 @@ public class GameManager : MonoBehaviour
         controller = hero.transform.gameObject.GetComponent<Controller>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
-        //gameOver = GetComponent<GameOver>();
-        gameOver = new GameOver();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         leftBorderWorld = botLeftWorld.x;
@@ -67,10 +64,8 @@ public class GameManager : MonoBehaviour
             }
             goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
-            gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld);
-            //onPlay = !(gameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld)
-            //    || gameOver.CheckGameOver(controller.hittedAnchor));
-            onPlay = !gameOver.isGameOver;
+            GameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld);
+            onPlay = !GameOver.isGameOver;
             if (!onPlay)
             {
                 restartButtonObject.SetActive(true);

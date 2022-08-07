@@ -1,9 +1,9 @@
 
 
-public class GameOver
+public static class GameOver
 {
-    public bool isGameOver = false;
-    public void CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
+    public static bool isGameOver = false;
+    public static void CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
     {
         //isGameOver = false;
         if (camPositionY < lastPointy - screenHeightWorld * 3)
@@ -13,7 +13,7 @@ public class GameOver
         //return isGameOver;
     }
 
-    public void CheckGameOver(string tag)
+    public static void CheckGameOver(string tag)
     {
         //isGameOver = false;
         if (tag == "RedLeaf")
