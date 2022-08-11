@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5997551165494692166}
   - component: {fileID: 2693316329251020}
   - component: {fileID: 5586995668048663310}
+  - component: {fileID: 3383617412518094991}
   m_Layer: 6
   m_Name: Leaf 1
   m_TagString: OrangeLeaf
@@ -97,7 +98,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -132,3 +133,15 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
+--- !u!114 &3383617412518094991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997551165494692163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017264a2a4eefd04293a6302e32d8c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

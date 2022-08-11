@@ -291,12 +291,16 @@ PrefabInstance:
       value: Hero
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543371, guid: d5e8504387542144da16612072a16894, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080675940338543371, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543372, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_Radius
-      value: 2.230042
+      value: 2.1839287
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543372, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_Offset.x
@@ -304,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543372, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_Offset.y
-      value: 4.38
+      value: 0.8097666
       objectReference: {fileID: 0}
     - target: {fileID: 8080675940338543375, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_RootOrder
@@ -830,7 +834,6 @@ GameObject:
   - component: {fileID: 519420034}
   - component: {fileID: 519420035}
   - component: {fileID: 519420036}
-  - component: {fileID: 519420037}
   - component: {fileID: 519420040}
   m_Layer: 0
   m_Name: Main Camera
@@ -981,8 +984,8 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  greenLeafChance: 55000
-  orangeLeafChance: 30000
+  greenLeafChance: 80000
+  orangeLeafChance: 10000
   isDestroyLeaf: 1
   lastLeaf: {fileID: 0}
   redLeafChance: 0
@@ -1004,6 +1007,7 @@ MonoBehaviour:
   restartButtonObject: {fileID: 1911222447}
   hero: {fileID: 2034824343}
   cameraMain: {fileID: 519420028}
+  rope: {fileID: 330053433}
   camPositionOffset: 1.5
   wallsOffset: 0.5
   scoreController: {fileID: 4983990}
@@ -1021,18 +1025,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47a10ccda770db84594f0736d7fb54b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &519420037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a0088491020e548b4b2e82ed545cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!68 &519420038
@@ -1335,7 +1327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791187362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VineHandPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1362,7 @@ GameObject:
   - component: {fileID: 887195327}
   - component: {fileID: 887195330}
   - component: {fileID: 887195331}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Body
   m_Icon: {fileID: 0}

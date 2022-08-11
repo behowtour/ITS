@@ -1,27 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class GameOver : MonoBehaviour
+
+public static class GameOver
 {
-    private bool isGameOver;
-    public bool CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
+    public static bool isGameOver = false;
+    public static void CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
     {
-        isGameOver = false;
+        //isGameOver = false;
         if (camPositionY < lastPointy - screenHeightWorld * 3)
         {
             isGameOver = true;
         }
-        return isGameOver;
+        //return isGameOver;
     }
 
-    public bool CheckGameOver(GameObject hittedAnchor)
+    public static void CheckGameOver(string tag)
     {
-        isGameOver = false;
-        if (hittedAnchor && hittedAnchor.tag.Contains("RedLeaf"))
+        //isGameOver = false;
+        if (tag == "RedLeaf")
         {
             isGameOver = true;
         }
-        return isGameOver;
+        //return isGameOver;
     }
 }
