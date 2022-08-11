@@ -6,27 +6,15 @@ public class TapPointFade : MonoBehaviour, ITapPoint
 {
     public void OnCollision()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnRelease()
     {
-        throw new System.NotImplementedException();
+        Destroy(this.transform.gameObject);
     }
 
     public void OnTap()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
