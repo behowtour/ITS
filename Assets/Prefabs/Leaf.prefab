@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5997551165494692166}
   - component: {fileID: 2693316329251020}
   - component: {fileID: 8199327362711613422}
-  - component: {fileID: -1980031420558480052}
+  - component: {fileID: 7849707243735912099}
   m_Layer: 6
   m_Name: Leaf
   m_TagString: GreenLeaf
@@ -133,7 +133,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
---- !u!114 &-1980031420558480052
+--- !u!114 &7849707243735912099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

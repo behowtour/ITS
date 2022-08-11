@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject restartButtonObject;
     public GameObject hero;
     public GameObject cameraMain;
+    public GameObject rope;
     public float camPositionOffset;
     public float wallsOffset;
     
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     private GoFollow goFollow;  
     private Camera cam;
     private Controller controller;
+    private RopeBridge ropeBridge;
     
 
     void Start()
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
         hero = GameObject.Find("Hero");
         this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
+        ropeBridge = rope.transform.gameObject.GetComponent<RopeBridge>();
         pointsGenerator = GetComponent<LeafGenerator>();
         cam = GetComponent<Camera>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
             }
             goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
+            ropeBridge.RopeUpdate();
             GameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld);
             onPlay = !GameOver.isGameOver;
             if (!onPlay)
@@ -104,9 +108,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            pointsGenerator.greenLeafChance     = 10000;
-            pointsGenerator.orangeLeafChance    = 15000;
-            pointsGenerator.redLeafChance       = 75000;
+            pointsGenerator.greenLeafChance     = 80000;
+            pointsGenerator.orangeLeafChance    = 10000;
+            pointsGenerator.redLeafChance       = 10000;
         }
     }
 }

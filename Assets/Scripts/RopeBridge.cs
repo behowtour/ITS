@@ -31,7 +31,7 @@ public class RopeBridge : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void RopeUpdate()
     {
         DrawRope();
         //this.Simulate();
