@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         pointsGenerator.rightBorderWorld = rightBorderWorld;
         pointsGenerator.GenerateFirstPoint();
         ChangeDifficulty(0);
+        GameOver.isGameOver = false;
         onPlay = true;
     }
 
@@ -59,7 +60,9 @@ public class GameManager : MonoBehaviour
     {
         if (onPlay)
         {
+            //pointsGenerator.GenerateNextPoint();
             pointsGenerator.GenerateNextPoint();
+            pointsGenerator.DestroyOldPoint();
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {

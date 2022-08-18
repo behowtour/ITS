@@ -863,6 +863,8 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
+  pointsRate: 6400000023000000070000000f000000
   greenLeafChance: 80000
   orangeLeafChance: 10000
   isDestroyLeaf: 1

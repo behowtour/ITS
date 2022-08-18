@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 5997551165494692164}
   - component: {fileID: 5997551165494692166}
   - component: {fileID: 2693316329251020}
-  - component: {fileID: 1026724254723288397}
-  - component: {fileID: -2097855830504605393}
-  - component: {fileID: -4962602473007300100}
+  - component: {fileID: 8199327362711613422}
+  - component: {fileID: 7849707243735912099}
   m_Layer: 6
-  m_Name: Leaf 2
-  m_TagString: RedLeaf
+  m_Name: Point_Normal
+  m_TagString: GreenLeaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 450
-  m_Sprite: {fileID: 21300000, guid: 94b8f9f50c0c93b42b3f15a08c526709, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 88dfa9fef754e424c9e53db0691a02f8, type: 3}
+  m_Color: {r: 0.9056604, g: 0.8031328, b: 0.764685, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 39.009525, y: 26}
+  m_Size: {x: 3.72, y: 5.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.12}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.44
+  m_Radius: 0.90568435
 --- !u!114 &2693316329251020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f6cf62a7c77a246b8bd1e5624333b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1026724254723288397
+--- !u!114 &8199327362711613422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +133,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
---- !u!114 &-2097855830504605393
+--- !u!114 &7849707243735912099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,27 +142,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5997551165494692163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4154c54ebfa666748b7e0bab8a12c41b, type: 3}
+  m_Script: {fileID: 11500000, guid: aa5961ebc17c461478b697ccb698502d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &-4962602473007300100
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5997551165494692163}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 3

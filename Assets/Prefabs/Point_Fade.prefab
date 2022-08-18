@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5586995668048663310}
   - component: {fileID: 3383617412518094991}
   m_Layer: 6
-  m_Name: Leaf 1
+  m_Name: Point_Fade
   m_TagString: OrangeLeaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
