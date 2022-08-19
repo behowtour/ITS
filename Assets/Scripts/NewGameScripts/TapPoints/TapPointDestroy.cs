@@ -2,29 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapPointDestroy : MonoBehaviour, ITapPoint
+public class TapPointDestroy : Anchor
 {
 
-    public void OnCollision()
+    public override void OnCollision(Collider2D collision)
     {
-        GameOver.CheckGameOver(this.transform.gameObject.tag);
+        if (collision.gameObject.tag == "Player")
+        {
+            //<start animation>
+            GameOver.CheckGameOver(this.transform.gameObject.tag);
+        }
     }
 
-    public void OnRelease()
+    public override void OnRelease()
     {
         
     }
 
-    public void OnTap()
+    public override void OnTap()
     { 
         GameOver.CheckGameOver(this.transform.gameObject.tag);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            OnCollision();
-        }
+            OnCollision(collision);
     }
 }

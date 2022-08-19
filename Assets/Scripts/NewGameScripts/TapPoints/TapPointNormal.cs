@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapPointNormal : MonoBehaviour,ITapPoint
+public class TapPointNormal : Anchor
 {
-    public void OnCollision()
+    public override void OnCollision(Collider2D collision)
     {
     }
 
-    public void OnRelease()
+    public override void OnRelease()
     {
     }
 
-    public void OnTap()
+    public override void OnTap()
     {
 
     }

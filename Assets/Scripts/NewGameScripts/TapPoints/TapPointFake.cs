@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapPointFake : MonoBehaviour
+public class TapPointFake : Anchor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnCollision(Collider2D collision)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnRelease()
     {
-        
+    }
+
+    public override void OnTap()
+    {
+        //<start animation>
+        Destroy(this.transform.gameObject);
+        base.OnMouseUp();
     }
 }
