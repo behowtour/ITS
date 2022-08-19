@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TapPointAccelerate : MonoBehaviour,  ITapPoint
+public class TapPointAccelerate : Anchor
 {
     public float forceAccelerate;
 
-    public void OnCollision()
+    public override void OnCollision(Collider2D collision)
     {
 
     }
 
-    public void OnRelease()
+    public override void OnRelease()
     {
 
     }
 
-    public void OnTap()
+    public override void OnTap()
     {
 
     }
