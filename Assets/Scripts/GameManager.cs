@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Transform heroTransform;
-    private LeafGenerator pointsGenerator;
+    private PointsGenerator pointsGenerator;
     private bool onPlay;
     private GoFollow goFollow;  
     private Camera cam;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         ropeBridge = rope.transform.gameObject.GetComponent<RopeBridge>();
-        pointsGenerator = GetComponent<LeafGenerator>();
+        pointsGenerator = GetComponent<PointsGenerator>();
         cam = GetComponent<Camera>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
