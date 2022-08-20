@@ -11,7 +11,6 @@ public class PointsGenerator : MonoBehaviour
 
     [Header("Dynamic variables")]
     public GameObject lastLeaf;
-    public float leftBorderWorld, rightBorderWorld, screenHeightWorld;
 
     private Camera cam;
     private int numberOfLeaf;
@@ -32,7 +31,7 @@ public class PointsGenerator : MonoBehaviour
     {
         GameObject newLeaf;
         newLeaf = Instantiate(leafPrefab[0]);
-        newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld,rightBorderWorld),0,0);
+        newLeaf.transform.position = new Vector3(Random.Range(ConstantSettings.leftBorderWorld, ConstantSettings.rightBorderWorld),0,0);
         newLeaf.name = "Point_" + numberOfLeaf;
         numberOfLeaf++;
         lastLeaf = newLeaf;
@@ -40,7 +39,7 @@ public class PointsGenerator : MonoBehaviour
 
     public void GenerateNextPoint()
     {
-        if (lastLeaf.transform.position.y < cam.transform.position.y + screenHeightWorld / 2)
+        if (lastLeaf.transform.position.y < cam.transform.position.y + ConstantSettings.screenHeightWorld / 2)
         {
             int typeOfNextLeaf, nextLeafFinder = 0;
             GameObject newLeaf;
@@ -57,7 +56,7 @@ public class PointsGenerator : MonoBehaviour
                     }
                     newLeaf = Instantiate(leafPrefab[i]);
                     newLeaf.name = "Point_" + numberOfLeaf;
-                    newLeaf.transform.position = new Vector3(Random.Range(leftBorderWorld, rightBorderWorld), lastLeaf.transform.position.y + Mathf.Max(Random.Range(0, screenHeightWorld / 2), screenHeightWorld / 10), 0);
+                    newLeaf.transform.position = new Vector3(Random.Range(ConstantSettings.leftBorderWorld, ConstantSettings.rightBorderWorld), lastLeaf.transform.position.y + Mathf.Max(Random.Range(0, ConstantSettings.screenHeightWorld / 2), ConstantSettings.screenHeightWorld / 10), 0);
                     lastLeaf = newLeaf;
                     numberOfLeaf++;
                     break;
