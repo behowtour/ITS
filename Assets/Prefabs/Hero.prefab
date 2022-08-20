@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8080675940338543372}
   - component: {fileID: 8080675940338543379}
   - component: {fileID: 1810417136}
+  - component: {fileID: 1810417154}
   m_Layer: 7
   m_Name: Hero
   m_TagString: Player
@@ -319,6 +320,7 @@ MonoBehaviour:
   xSpeed: 0
   ySpeed: 0
   velMagnSpeed: 0
+  isLiftUp: 0
 --- !u!114 &1810417136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,3 +333,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d03a11e1dc10284d8caa0fffc75267a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!232 &1810417154
+DistanceJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080675940338543371}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 1
+  m_MaxDistanceOnly: 0

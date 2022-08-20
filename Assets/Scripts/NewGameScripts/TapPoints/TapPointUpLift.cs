@@ -16,6 +16,7 @@ public class TapPointUpLift : Anchor
     {
         mainController.isLiftUp = false;
         isMoving = false;
+        mainController.ResetDistanceJoint();
         Destroy(this.transform.gameObject);
     }
 
@@ -23,6 +24,7 @@ public class TapPointUpLift : Anchor
     {
         mainController.isLiftUp = true;
         isMoving = true;
+        mainController.SetConnectedRB(rb);
     }
 
     private void Awake()

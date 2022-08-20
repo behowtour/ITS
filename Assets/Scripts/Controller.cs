@@ -20,11 +20,14 @@ public class Controller : MonoBehaviour
     public bool isLiftUp;
 
     private new Rigidbody2D rigidbody;
+    private DistanceJoint2D distanceJoint2D;
     private Vector3 heroStartOffset;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        distanceJoint2D = GetComponent<DistanceJoint2D>();
+        distanceJoint2D.enabled = false;
         isLiftUp = false;
     }
 
@@ -69,7 +72,17 @@ public class Controller : MonoBehaviour
 
     public void GetStartHeroOffset()
     {
-
         heroStartOffset = hittedAnchor.transform.position - transform.position;
+    }
+
+    public void SetConnectedRB(Rigidbody2D rb2d)
+    {
+        distanceJoint2D.connectedBody = rb2d;
+        distanceJoint2D.enabled = true; 
+    }
+    public void ResetDistanceJoint()
+    {
+        distanceJoint2D.enabled = false;
+        distanceJoint2D.connectedBody = null;
     }
 }
