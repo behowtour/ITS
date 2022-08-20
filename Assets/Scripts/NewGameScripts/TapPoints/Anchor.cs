@@ -4,12 +4,17 @@ using UnityEngine;
 
 public abstract class Anchor : MonoBehaviour
 {
-    private Controller mainController;
+    [Header("Manual variables")]
     public float impulsePower;
     public GameObject particleObjectPrefab;
+
+    [Header("Dynamic variables")]
     public GameObject particleObject;
     public ParticleSystem particles;
     public AnimationController2 animController;
+    
+
+    protected Controller mainController;
 
     private void Start()
     {
@@ -23,6 +28,7 @@ public abstract class Anchor : MonoBehaviour
         mainController.hittedAnchor = gameObject;
         mainController.isMouseHoldOnAnchor = true;
         mainController.power = impulsePower;
+        mainController.GetStartHeroOffset();
         OnTap();
         particleObject =  Instantiate(particleObjectPrefab, transform.position, transform.rotation);
         particles = particleObject.GetComponent<ParticleSystem>();

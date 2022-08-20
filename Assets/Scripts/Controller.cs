@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [Header("Static variables")]
+    [Header("Manual variables")]
     public bool isMouseHoldOnAnchor;
     public float force;
     public float sparrowRatio;
@@ -17,13 +17,18 @@ public class Controller : MonoBehaviour
     public Vector2 ropeLengthVec;
     public float power;
     public float xSpeed, ySpeed, velMagnSpeed;
+    public bool isLiftUp;
 
     private new Rigidbody2D rigidbody;
-    
+    private DistanceJoint2D distanceJoint2D;
+    private Vector3 heroStartOffset;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        distanceJoint2D = GetComponent<DistanceJoint2D>();
+        distanceJoint2D.enabled = false;
+        isLiftUp = false;
     }
 
     private void Update()
@@ -42,10 +47,16 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
         {
-            
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
-            rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+            if (isLiftUp)
+            {
+               // transform.position = hittedAnchor.transform.position - heroStartOffset;
+            }
+            else
+            {
+                rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+            }
         }
         if (ropeLengthVec.y < 0) 
         { 
@@ -57,5 +68,21 @@ public class Controller : MonoBehaviour
             Destroy(lastHittedAnchor);
             lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
         }
+    }
+
+    public void GetStartHeroOffset()
+    {
+        heroStartOffset = hittedAnchor.transform.position - transform.position;
+    }
+
+    public void SetConnectedRB(Rigidbody2D rb2d)
+    {
+        distanceJoint2D.connectedBody = rb2d;
+        distanceJoint2D.enabled = true; 
+    }
+    public void ResetDistanceJoint()
+    {
+        distanceJoint2D.enabled = false;
+        distanceJoint2D.connectedBody = null;
     }
 }
