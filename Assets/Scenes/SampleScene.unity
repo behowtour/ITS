@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreCount: {fileID: 1527627178}
-  player: {fileID: 2034824348}
+  player: {fileID: 1810417143}
 --- !u!4 &4983991
 Transform:
   m_ObjectHideFlags: 0
@@ -867,9 +867,6 @@ MonoBehaviour:
   wallsOffset: 0.5
   scoreController: {fileID: 4983990}
   lastCoordinateY: 0
-  leftBorderWorld: 0
-  rightBorderWorld: 0
-  screenHeightWorld: 0
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,9 +958,6 @@ MonoBehaviour:
   pointsRate: 640000001e000000070000001100000055000000
   isDestroyLeaf: 1
   lastLeaf: {fileID: 0}
-  leftBorderWorld: 0
-  rightBorderWorld: 0
-  screenHeightWorld: 0
 --- !u!1 &698276292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +1913,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65b4313ec922a154c8a54c9cd7a1bfb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1810417143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1810417136, guid: d5e8504387542144da16612072a16894, type: 3}
+  m_PrefabInstance: {fileID: 276278914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d03a11e1dc10284d8caa0fffc75267a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1911222447
