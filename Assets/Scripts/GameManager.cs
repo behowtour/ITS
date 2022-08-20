@@ -17,10 +17,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Dynamic variables")]
     public ScoreController scoreController;
-    public float lastCoordinateY, leftBorderWorld, rightBorderWorld, screenHeightWorld;
+    public float lastCoordinateY;
 
     private Transform heroTransform;
-    private LeafGenerator pointsGenerator;
+    private PointsGenerator pointsGenerator;
     private bool onPlay;
     private GoFollow goFollow;  
     private Camera cam;
@@ -35,21 +35,21 @@ public class GameManager : MonoBehaviour
         this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         ropeBridge = rope.transform.gameObject.GetComponent<RopeBridge>();
-        pointsGenerator = GetComponent<LeafGenerator>();
+        pointsGenerator = GetComponent<PointsGenerator>();
         cam = GetComponent<Camera>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        leftBorderWorld = botLeftWorld.x;
-        rightBorderWorld = topRightWorld.x;
-        screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
+        ConstantSettings.leftBorderWorld = botLeftWorld.x;
+        ConstantSettings.rightBorderWorld = topRightWorld.x;
+        ConstantSettings.screenHeightWorld = Mathf.Abs(botLeftWorld.y) + Mathf.Abs(topRightWorld.y);
         heroTransform = hero.transform;
         lastCoordinateY = heroTransform.position.y;
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
-        SetUpWalls(edgeColliders2D, leftBorderWorld - wallsOffset, rightBorderWorld + wallsOffset, screenHeightWorld * 2, (-1) * screenHeightWorld);
-        pointsGenerator.screenHeightWorld = screenHeightWorld;
-        pointsGenerator.leftBorderWorld = leftBorderWorld;
-        pointsGenerator.rightBorderWorld = rightBorderWorld;
+        SetUpWalls(edgeColliders2D, ConstantSettings.leftBorderWorld - wallsOffset, ConstantSettings.rightBorderWorld + wallsOffset, ConstantSettings.screenHeightWorld * 2, (-1) * ConstantSettings.screenHeightWorld);
+        //pointsGenerator.screenHeightWorld = screenHeightWorld;
+        //pointsGenerator.leftBorderWorld = leftBorderWorld;
+        //pointsGenerator.rightBorderWorld = rightBorderWorld;
         pointsGenerator.GenerateFirstPoint();
         ChangeDifficulty(0);
         GameOver.isGameOver = false;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
             controller.HitPoint();
             ropeBridge.RopeUpdate();
-            GameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, screenHeightWorld);
+            GameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, ConstantSettings.screenHeightWorld);
             onPlay = !GameOver.isGameOver;
             if (!onPlay)
             {
@@ -97,23 +97,6 @@ public class GameManager : MonoBehaviour
 
     private void ChangeDifficulty(int scoreCount)
     {
-        if (scoreCount>200)
-        {
-            pointsGenerator.greenLeafChance     = 35000;
-            pointsGenerator.orangeLeafChance    = 35000;
-            pointsGenerator.redLeafChance       = 30000;
-        }
-        else if (scoreCount>100)
-        {
-            pointsGenerator.greenLeafChance     = 55000;
-            pointsGenerator.orangeLeafChance    = 30000;
-            pointsGenerator.redLeafChance       = 15000;
-        }
-        else
-        {
-            pointsGenerator.greenLeafChance     = 80000;
-            pointsGenerator.orangeLeafChance    = 10000;
-            pointsGenerator.redLeafChance       = 10000;
-        }
+        
     }
 }
