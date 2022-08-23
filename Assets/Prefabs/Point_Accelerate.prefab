@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5997551165494692166}
   - component: {fileID: 2693316329251020}
   - component: {fileID: -7805120386997566697}
+  - component: {fileID: 9214427896716106492}
   m_Layer: 6
   m_Name: Point_Accelerate
   m_TagString: GreenLeaf
@@ -133,3 +134,23 @@ MonoBehaviour:
   particles: {fileID: 0}
   animController: {fileID: 0}
   forceAccelerate: 200
+--- !u!95 &9214427896716106492
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997551165494692163}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9769ebd5738fff44790cf955ce6cfe1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
