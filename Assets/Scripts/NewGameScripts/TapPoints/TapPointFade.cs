@@ -11,11 +11,18 @@ public class TapPointFade : Anchor
 
     public override void OnRelease()
     {
-        Destroy(this.transform.gameObject);
+        SetTriggerParameter();
+        //DestroyThisAnchor();
     }
 
     public override void OnTap()
     {
         
+    }
+
+    public void SetTriggerParameter()
+    {
+        Animator animator = transform.GetComponent<Animator>();
+        animator.SetTrigger("TriggerFade");
     }
 }

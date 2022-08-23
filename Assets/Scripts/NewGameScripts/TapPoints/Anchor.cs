@@ -51,6 +51,11 @@ public abstract class Anchor : MonoBehaviour
             Destroy(particleObject, 0.5f);        
     }
 
+    protected void DestroyThisAnchor()
+    {
+        Destroy(this.transform.gameObject);
+    }
+
     public abstract void OnTap();
     public abstract void OnRelease();
     public abstract void OnCollision(Collider2D collision);
