@@ -63,11 +63,11 @@ public class Controller : MonoBehaviour
             ropeLengthVec = Vector2.zero; 
             isMouseHoldOnAnchor = false;
         }
-        if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
-        {
-            Destroy(lastHittedAnchor);
-            lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
-        }
+        //if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
+        //{
+        //    Destroy(lastHittedAnchor);
+        //    lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
+        //}
     }
 
     public void GetStartHeroOffset()
