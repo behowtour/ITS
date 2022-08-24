@@ -7,6 +7,7 @@ public abstract class Anchor : MonoBehaviour
     [Header("Manual variables")]
     public float impulsePower;
     public GameObject particleObjectPrefab;
+    public bool reusable;
 
     [Header("Dynamic variables")]
     public GameObject particleObject;
@@ -15,29 +16,36 @@ public abstract class Anchor : MonoBehaviour
     
 
     protected Controller mainController;
+    protected bool used;
 
     private void Start()
     {
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
+        used = false;
     }
     
 
     private void OnMouseDown()
     {
-        mainController.hittedAnchor = gameObject;
-        mainController.isMouseHoldOnAnchor = true;
-        mainController.power = impulsePower;
-        mainController.GetStartHeroOffset();
-        OnTap();
-        particleObject =  Instantiate(particleObjectPrefab, transform.position, transform.rotation);
-        particles = particleObject.GetComponent<ParticleSystem>();
-        particles.Play();
-        animController.animator.SetBool("isThrowing", true);
+        if (!used)
+        {
+            mainController.hittedAnchor = gameObject;
+            mainController.isMouseHoldOnAnchor = true;
+            mainController.power = impulsePower;
+            mainController.GetStartHeroOffset();
+            OnTap();
+            particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
+            particles = particleObject.GetComponent<ParticleSystem>();
+            particles.Play();
+            animController.animator.SetBool("isThrowing", true);
+        }
+        
     }
 
     protected void OnMouseUp()
     {
+        UsePoint();
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
         StopParticlesAndDestroy();
@@ -56,6 +64,13 @@ public abstract class Anchor : MonoBehaviour
         Destroy(this.transform.gameObject);
     }
 
+    protected void UsePoint()
+    {
+        if (!reusable)
+        {
+            used = true;
+        }
+    }
     public abstract void OnTap();
     public abstract void OnRelease();
     public abstract void OnCollision(Collider2D collision);
