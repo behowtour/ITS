@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulsePower: 0
   particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
+  reusable: 1
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
