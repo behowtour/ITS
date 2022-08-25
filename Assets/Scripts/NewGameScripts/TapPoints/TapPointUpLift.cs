@@ -35,9 +35,14 @@ public class TapPointUpLift : Anchor
     }
     private void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (isMoving)
         {
-            rb.MovePosition(rb.position + velocity * Time.deltaTime);
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
     }
 }
