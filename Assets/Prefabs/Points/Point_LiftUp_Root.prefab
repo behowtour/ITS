@@ -43,8 +43,9 @@ GameObject:
   m_Component:
   - component: {fileID: 515856033241390265}
   - component: {fileID: 4713432066414733109}
+  - component: {fileID: 561952281803004865}
   m_Layer: 0
-  m_Name: LiftPoint_1
+  m_Name: Point_LiftUp_Leafs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,6 +118,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &561952281803004865
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5014913263055287449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 141520716bedd4ea19a5d0f02f6376c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4183547340306891000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7602339853131112473}
     m_Modifications:
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: delayTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3368276304342729007, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -2.514737
@@ -139,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 5997551165494692165, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997551165494692165, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5997551165494692165, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_LocalPosition.x

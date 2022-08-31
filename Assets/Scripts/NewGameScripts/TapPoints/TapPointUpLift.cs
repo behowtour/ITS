@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TapPointUpLift : Anchor
 {
+    public float delayTime;
     private Rigidbody2D rb;
     private Vector2 velocity;
     private bool isMoving;
@@ -25,6 +26,7 @@ public class TapPointUpLift : Anchor
         mainController.isLiftUp = true;
         isMoving = true;
         mainController.SetConnectedRB(rb);
+        StartCoroutine(DestroyPoint());
     }
 
     private void Awake()
@@ -44,5 +46,11 @@ public class TapPointUpLift : Anchor
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
+    }
+
+    IEnumerator DestroyPoint()
+    {
+        yield return new WaitForSeconds(delayTime);
+        OnMouseUp();
     }
 }

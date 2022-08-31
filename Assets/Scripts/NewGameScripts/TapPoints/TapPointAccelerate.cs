@@ -32,12 +32,12 @@ public class TapPointAccelerate : Anchor
                 Vector2 vectorForceAccelerate = new Vector2(forceAccelerate, forceAccelerate);
                 Rigidbody2D rigidbody;
                 rigidbody = collision.transform.GetComponent<Rigidbody2D>();
-                rigidbody.AddForce(vectorDirection.normalized * vectorForceAccelerate, ForceMode2D.Force);
+                rigidbody.AddForce(vectorDirection.normalized * vectorForceAccelerate, ForceMode2D.Impulse);
             }                   
         }
     }
 
-    //Этот метод надо вызвать также в конце анимации касания, по ивенту анимации
+    //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public void SetTriggerParameter()
     {
         Animator animator = transform.GetComponent<Animator>();
