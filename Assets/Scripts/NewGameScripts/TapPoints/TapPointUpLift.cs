@@ -8,6 +8,8 @@ public class TapPointUpLift : Anchor
     private Rigidbody2D rb;
     private Vector2 velocity;
     private bool isMoving;
+    private float timeStart;
+    private Vector3 positionCurrent, positionStart;
 
     public override void OnCollision(Collider2D collision)
     {
@@ -25,6 +27,8 @@ public class TapPointUpLift : Anchor
     {
         mainController.isLiftUp = true;
         isMoving = true;
+        timeStart = Time.time;
+        positionStart = this.transform.position;
         mainController.SetConnectedRB(rb);
         StartCoroutine(DestroyPoint());
     }
@@ -37,15 +41,25 @@ public class TapPointUpLift : Anchor
     }
     private void Update()
     {
+        if (isMoving)
+        {
+            float u = (Time.time - timeStart) / delayTime;
+            if (u>=0)
+            {
+                isMoving = false;
+            }
+            this.transform.position = (1 - u) * positionStart + u * (new Vector3(positionStart.x, positionStart.y+5, positionStart.z));
+        }
         
     }
 
     private void FixedUpdate()
     {
-        if (isMoving)
-        {
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
-        }
+        //if (isMoving)
+        //{
+        //    rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+            
+        //}
     }
 
     IEnumerator DestroyPoint()
