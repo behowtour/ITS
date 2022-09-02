@@ -135,6 +135,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
+  delayTime: 3
 --- !u!50 &7566805142767482241
 Rigidbody2D:
   serializedVersion: 4

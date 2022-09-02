@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2371679356617664173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3737369, y: 6.7487435, z: -0.3378046}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -147,15 +147,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: delayTime
-      value: 1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: upDistance
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3368276304342729007, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -2.514737
+      value: -0.14100003
       objectReference: {fileID: 0}
     - target: {fileID: 3368276304342729007, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 6.7487435
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5997551165494692163, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_Name
