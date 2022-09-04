@@ -23,6 +23,7 @@ public class TapPointAccelerate : Anchor
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        audioSource.PlayOneShot(audioClip_Collision);
         if (collision.gameObject.tag == "Player")
         {         
             Vector2 vectorDirection = this.transform.position - collision.transform.position;

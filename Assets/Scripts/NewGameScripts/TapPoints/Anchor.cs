@@ -4,15 +4,19 @@ using UnityEngine;
 
 public abstract class Anchor : MonoBehaviour
 {
-    [Header("Manual variables")]
+    [Header("Manual common variables")]
     public float impulsePower;
     public GameObject particleObjectPrefab;
     public bool reusable;
+    public AudioClip audioClip_Tap;
+    public AudioClip audioClip_Release;
+    public AudioClip audioClip_Collision;
 
     [Header("Dynamic variables")]
     public GameObject particleObject;
     public ParticleSystem particles;
     public AnimationController2 animController;
+    protected AudioSource audioSource;
     
 
     protected Controller mainController;
@@ -23,6 +27,7 @@ public abstract class Anchor : MonoBehaviour
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
         used = false;
+        audioSource = this.transform.gameObject.GetComponent<AudioSource>();
     }
     
 
@@ -34,6 +39,7 @@ public abstract class Anchor : MonoBehaviour
             mainController.isMouseHoldOnAnchor = true;
             mainController.power = impulsePower;
             mainController.GetStartHeroOffset();
+            audioSource.PlayOneShot(audioClip_Tap);
             OnTap();
             particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
             particles = particleObject.GetComponent<ParticleSystem>();
@@ -49,6 +55,7 @@ public abstract class Anchor : MonoBehaviour
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
         StopParticlesAndDestroy();
+        audioSource.PlayOneShot(audioClip_Release);
         OnRelease();
         animController.animator.SetBool("isThrowing", false);
     }
