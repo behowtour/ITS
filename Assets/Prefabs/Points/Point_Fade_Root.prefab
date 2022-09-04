@@ -39,6 +39,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 138067431658704608}
     m_Modifications:
+    - target: {fileID: 3383617412518094991, guid: 921c382420752274f8516da6235af590, type: 3}
+      propertyPath: audioClip_Tap
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b07250d785236c49ba7e9a0e0bd85a2, type: 3}
+    - target: {fileID: 3383617412518094991, guid: 921c382420752274f8516da6235af590, type: 3}
+      propertyPath: audioClip_Release
+      value: 
+      objectReference: {fileID: 8300000, guid: e432541df79af964da24d2b455e45e05, type: 3}
     - target: {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
       propertyPath: m_Name
       value: Point_Fade

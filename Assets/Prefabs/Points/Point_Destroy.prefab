@@ -130,6 +130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impulsePower: 0
   particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
+  reusable: 0
+  audioClip_Tap: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
+  audioClip_Release: {fileID: 0}
+  audioClip_Collision: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}

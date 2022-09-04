@@ -153,6 +153,18 @@ PrefabInstance:
       propertyPath: upDistance
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: audioClip_Tap
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b07250d785236c49ba7e9a0e0bd85a2, type: 3}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: audioClip_UpLift
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bc281862b327614fa2baa2c1fa4d3d6, type: 3}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: audioClip_Release
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d02685940b92b2428ee583efb3856a8, type: 3}
     - target: {fileID: 3368276304342729007, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.14100003

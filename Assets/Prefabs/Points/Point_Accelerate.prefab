@@ -131,6 +131,9 @@ MonoBehaviour:
   impulsePower: 0
   particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
   reusable: 1
+  audioClip_Tap: {fileID: 8300000, guid: 8b07250d785236c49ba7e9a0e0bd85a2, type: 3}
+  audioClip_Release: {fileID: 8300000, guid: 9d02685940b92b2428ee583efb3856a8, type: 3}
+  audioClip_Collision: {fileID: 8300000, guid: c48a972d3d024c2408a3331750786a29, type: 3}
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}

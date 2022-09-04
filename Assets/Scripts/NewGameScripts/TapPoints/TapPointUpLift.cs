@@ -6,6 +6,8 @@ public class TapPointUpLift : Anchor
 {
     public float delayTime;
     public float upDistance;
+    public AudioClip audioClip_UpLift;
+
     private Rigidbody2D rb;
     private Vector2 velocity;
     private bool isMoving;
@@ -27,6 +29,9 @@ public class TapPointUpLift : Anchor
 
     public override void OnTap()
     {
+        audioSource.volume = 0.5f;
+        audioSource.PlayOneShot(audioClip_UpLift);
+
         mainController.isLiftUp = true;
         isMoving = true;
         timeStart = Time.time;

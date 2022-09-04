@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TapPointFake : Anchor
 {
+    private SpriteRenderer spriteRenderer;
     public override void OnCollision(Collider2D collision)
     {
     }
@@ -15,7 +16,11 @@ public class TapPointFake : Anchor
     public override void OnTap()
     {
         //<start animation>
+
+        //transform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
         Destroy(this.transform.gameObject);
         base.OnMouseUp();
+
     }
 }

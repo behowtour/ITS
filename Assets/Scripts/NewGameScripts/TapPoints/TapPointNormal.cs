@@ -10,10 +10,15 @@ public class TapPointNormal : Anchor
 
     public override void OnRelease()
     {
+        
     }
 
     public override void OnTap()
     {
-
+        
+    }
+    private void Awake()
+    {
+        
     }
 }
