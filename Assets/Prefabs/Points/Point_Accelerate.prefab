@@ -134,7 +134,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
-  forceAccelerate: 200
+  forceAccelerate: 5
 --- !u!95 &9214427896716106492
 Animator:
   serializedVersion: 4

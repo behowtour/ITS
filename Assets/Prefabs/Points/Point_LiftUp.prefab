@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 450
-  m_Sprite: {fileID: 21300000, guid: 7fa6bdf86b47649adac710d81ad2f22d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92668c4ba63ce534c9f4a30d108f3123, type: 3}
   m_Color: {r: 0.9056604, g: 0.8031328, b: 0.764685, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
+  delayTime: 3
 --- !u!50 &7566805142767482241
 Rigidbody2D:
   serializedVersion: 4
