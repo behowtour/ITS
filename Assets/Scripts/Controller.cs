@@ -19,6 +19,9 @@ public class Controller : MonoBehaviour
     public float xSpeed, ySpeed, velMagnSpeed;
     public bool isLiftUp;
 
+    public delegate void ControllerHandler();
+    public event ControllerHandler OnReleaseAnchor;
+
     private new Rigidbody2D rigidbody;
     private DistanceJoint2D distanceJoint2D;
     private Vector3 heroStartOffset;
@@ -58,16 +61,23 @@ public class Controller : MonoBehaviour
                 rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
             }
         }
-        if (ropeLengthVec.y < 0) 
-        { 
-            ropeLengthVec = Vector2.zero; 
-            isMouseHoldOnAnchor = false;
+        if (ropeLengthVec.y < 0)
+        {
+            ropeLengthVec = Vector2.zero;
+            ReleaseAnchor();
+            //isMouseHoldOnAnchor = false;
         }
         //if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
         //{
         //    Destroy(lastHittedAnchor);
         //    lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
         //}
+    }
+
+    public void ReleaseAnchor()
+    {
+        isMouseHoldOnAnchor = false;
+        this.OnReleaseAnchor?.Invoke();
     }
 
     public void GetStartHeroOffset()

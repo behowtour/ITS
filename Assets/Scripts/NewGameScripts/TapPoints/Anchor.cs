@@ -31,7 +31,7 @@ public abstract class Anchor : MonoBehaviour
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
         audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         used = false;
-         
+        //this.mainController.OnReleaseAnchor += ReleasePoint; 
         
         
     }
@@ -56,6 +56,12 @@ public abstract class Anchor : MonoBehaviour
     }
 
     protected void OnMouseUp()
+    {
+        //mainController.ReleaseAnchor();
+        ReleasePoint();
+    }
+
+    public void ReleasePoint()
     {
         UsePoint();
         mainController.hittedAnchor = null;
