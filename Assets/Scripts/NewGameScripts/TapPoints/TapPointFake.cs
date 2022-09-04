@@ -17,9 +17,10 @@ public class TapPointFake : Anchor
     {
         //<start animation>
 
-        transform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        //transform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
+        Destroy(this.transform.gameObject);
         base.OnMouseUp();
-        //Destroy(this.transform.gameObject);
 
     }
 }

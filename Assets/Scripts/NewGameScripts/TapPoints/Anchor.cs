@@ -11,23 +11,29 @@ public abstract class Anchor : MonoBehaviour
     public AudioClip audioClip_Tap;
     public AudioClip audioClip_Release;
     public AudioClip audioClip_Collision;
+   // public Camera mainCamera;
+    
 
     [Header("Dynamic variables")]
     public GameObject particleObject;
     public ParticleSystem particles;
     public AnimationController2 animController;
-    protected AudioSource audioSource;
+    
     
 
     protected Controller mainController;
     protected bool used;
+    protected AudioSource audioSource;
 
     private void Start()
     {
         mainController = GameObject.Find("Hero").transform.GetComponent<Controller>();
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
+        audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         used = false;
-        audioSource = this.transform.gameObject.GetComponent<AudioSource>();
+         
+        
+        
     }
     
 
