@@ -10,7 +10,6 @@ public class Controller : MonoBehaviour
     public float sparrowRatio;
     public float maxDownSpeedY;
     public AnimationController2 animationController;
-    //public ITapPoint tapPoint;
 
     [Header("Dynamic variables")]
     public GameObject hittedAnchor, lastHittedAnchor;
@@ -67,11 +66,6 @@ public class Controller : MonoBehaviour
             ReleaseAnchor();
             //isMouseHoldOnAnchor = false;
         }
-        //if (!isMouseHoldOnAnchor && lastHittedAnchor && lastHittedAnchor.tag.Contains("OrangeLeaf"))
-        //{
-        //    Destroy(lastHittedAnchor);
-        //    lastHittedAnchor.GetComponent<Anchor>().StopParticlesAndDestroy();
-        //}
     }
 
     public void ReleaseAnchor()
