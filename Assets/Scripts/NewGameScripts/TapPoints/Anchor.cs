@@ -11,7 +11,6 @@ public abstract class Anchor : MonoBehaviour
     public AudioClip audioClip_Tap;
     public AudioClip audioClip_Release;
     public AudioClip audioClip_Collision;
-   // public Camera mainCamera;
     
 
     [Header("Dynamic variables")]
