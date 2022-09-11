@@ -47,12 +47,12 @@ public abstract class Anchor : MonoBehaviour
             mainController.power = impulsePower;
             mainController.GetStartHeroOffset();
             audioSource.PlayOneShot(audioClip_Tap);
-            OnTap();
             particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
             particles = particleObject.GetComponent<ParticleSystem>();
             particles.Play();
             animController.animator.SetBool("isThrowing", true);
             this.mainController.OnReleaseAnchor += ReleasePoint;
+            OnTap();
         }
         
     }
@@ -65,15 +65,24 @@ public abstract class Anchor : MonoBehaviour
 
     public void ReleasePoint()
     {
+        this.mainController.OnReleaseAnchor -= ReleasePoint;
         inUse = false;
         UsePoint();
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
         StopParticlesAndDestroy();
-        audioSource.PlayOneShot(audioClip_Release);
+        if (audioClip_Release)
+        {
+            audioSource.PlayOneShot(audioClip_Release);
+        }
+        else
+        {
+            Debug.Log(this.transform.gameObject.name);
+        }
+        
         OnRelease();
         animController.animator.SetBool("isThrowing", false);
-        this.mainController.OnReleaseAnchor -= ReleasePoint;
+        
     }
 
     public void StopParticlesAndDestroy()

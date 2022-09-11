@@ -18,9 +18,10 @@ public class TapPointFake : Anchor
         //<start animation>
 
         //transform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
+        //mainController.ReleaseAnchor();
+        ReleasePoint();
         Destroy(this.transform.gameObject);
-        base.OnMouseUp();
+        
 
     }
 }

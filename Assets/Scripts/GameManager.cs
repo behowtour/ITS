@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, ConstantSettings.leftBorderWorld - wallsOffset, ConstantSettings.rightBorderWorld + wallsOffset, ConstantSettings.screenHeightWorld * 2, (-1) * ConstantSettings.screenHeightWorld);
+        pointsGenerator.GenerateFirstPoint();
         ChangeDifficulty(0);
         GameOver.isGameOver = false;
         onPlay = true;
