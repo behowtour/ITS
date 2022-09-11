@@ -22,7 +22,7 @@ public abstract class Anchor : MonoBehaviour
     
 
     protected Controller mainController;
-    protected bool used;
+    protected bool used, inUse;
     protected AudioSource audioSource;
 
     private void Start()
@@ -31,7 +31,8 @@ public abstract class Anchor : MonoBehaviour
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
         audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         used = false;
-        //this.mainController.OnReleaseAnchor += ReleasePoint; 
+        inUse = false;
+        
         
         
     }
@@ -39,8 +40,9 @@ public abstract class Anchor : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!used)
+        if (!used && !inUse)
         {
+            inUse = true;
             mainController.hittedAnchor = gameObject;
             mainController.isMouseHoldOnAnchor = true;
             mainController.power = impulsePower;
@@ -51,18 +53,20 @@ public abstract class Anchor : MonoBehaviour
             particles = particleObject.GetComponent<ParticleSystem>();
             particles.Play();
             animController.animator.SetBool("isThrowing", true);
+            this.mainController.OnReleaseAnchor += ReleasePoint;
         }
         
     }
 
     protected void OnMouseUp()
     {
-        //mainController.ReleaseAnchor();
-        ReleasePoint();
+        mainController.ReleaseAnchor();
+        //ReleasePoint();
     }
 
     public void ReleasePoint()
     {
+        inUse = false;
         UsePoint();
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
@@ -70,6 +74,7 @@ public abstract class Anchor : MonoBehaviour
         audioSource.PlayOneShot(audioClip_Release);
         OnRelease();
         animController.animator.SetBool("isThrowing", false);
+        this.mainController.OnReleaseAnchor -= ReleasePoint;
     }
 
     public void StopParticlesAndDestroy()
