@@ -7,7 +7,9 @@ public class TapPointUpLift : Anchor
     public float delayTime;
     public float upDistance;
     public AudioClip audioClip_UpLift;
+    public float startspeed;
 
+    private float speed;
     private Rigidbody2D rb;
     private Vector2 velocity;
     private bool isMoving;
@@ -46,6 +48,10 @@ public class TapPointUpLift : Anchor
         rb = this.GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 5);
         isMoving = false;
+        if (startspeed == 0)
+        {
+            startspeed = 7;
+        }
     }
     private void Update()
     {
@@ -58,19 +64,13 @@ public class TapPointUpLift : Anchor
                 isMoving = false;
             }
             //this.transform.position = (1 - u) * positionStart + u * (new Vector3(positionStart.x, positionStart.y + 5, positionStart.z));
-            rb.position = (1 - u) * positionStart2 + u * new Vector2(positionStart2.x, positionStart2.y + upDistance);
+            //rb.position = (1 - u) * positionStart2 + u * new Vector2(positionStart2.x, positionStart2.y + upDistance);
+            speed = Mathf.Pow(startspeed, 1 + (u * 1.5f));
+            rb.velocity = Vector2.up * speed;
         }
-
     }
 
-    private void FixedUpdate()
-    {
-        //if (isMoving)
-        //{
-        //    rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
-        //}
-    }
-
+ 
     IEnumerator DestroyPoint()
     {
         yield return new WaitForSeconds(delayTime);
