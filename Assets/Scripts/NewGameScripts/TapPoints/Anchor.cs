@@ -11,7 +11,6 @@ public abstract class Anchor : MonoBehaviour
     public AudioClip audioClip_Tap;
     public AudioClip audioClip_Release;
     public AudioClip audioClip_Collision;
-   // public Camera mainCamera;
     
 
     [Header("Dynamic variables")]
@@ -22,7 +21,7 @@ public abstract class Anchor : MonoBehaviour
     
 
     protected Controller mainController;
-    protected bool used;
+    protected bool used, inUse;
     protected AudioSource audioSource;
 
     private void Start()
@@ -31,7 +30,8 @@ public abstract class Anchor : MonoBehaviour
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
         audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         used = false;
-         
+        inUse = false;
+        
         
         
     }
@@ -39,31 +39,50 @@ public abstract class Anchor : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!used)
+        if (!used && !inUse)
         {
+            inUse = true;
             mainController.hittedAnchor = gameObject;
             mainController.isMouseHoldOnAnchor = true;
             mainController.power = impulsePower;
             mainController.GetStartHeroOffset();
             audioSource.PlayOneShot(audioClip_Tap);
-            OnTap();
             particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
             particles = particleObject.GetComponent<ParticleSystem>();
             particles.Play();
             animController.animator.SetBool("isThrowing", true);
+            this.mainController.OnReleaseAnchor += ReleasePoint;
+            OnTap();
         }
         
     }
 
     protected void OnMouseUp()
     {
+        mainController.ReleaseAnchor();
+        //ReleasePoint();
+    }
+
+    public void ReleasePoint()
+    {
+        this.mainController.OnReleaseAnchor -= ReleasePoint;
+        inUse = false;
         UsePoint();
         mainController.hittedAnchor = null;
         mainController.isMouseHoldOnAnchor = false;
         StopParticlesAndDestroy();
-        audioSource.PlayOneShot(audioClip_Release);
+        if (audioClip_Release)
+        {
+            audioSource.PlayOneShot(audioClip_Release);
+        }
+        else
+        {
+            Debug.Log(this.transform.gameObject.name);
+        }
+        
         OnRelease();
         animController.animator.SetBool("isThrowing", false);
+        
     }
 
     public void StopParticlesAndDestroy()

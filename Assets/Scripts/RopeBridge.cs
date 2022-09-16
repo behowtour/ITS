@@ -17,7 +17,6 @@ public class RopeBridge : MonoBehaviour
     [SerializeField]
     private float lineWidth = 0.1f;
 
-    // Use this for initialization
     void Start()
     {
         this.lineRenderer = this.GetComponent<LineRenderer>();
@@ -30,7 +29,6 @@ public class RopeBridge : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void RopeUpdate()
     {
         DrawRope();

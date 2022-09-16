@@ -146,8 +146,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 7602339853131112473}
     m_Modifications:
     - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: delayTime
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
+      propertyPath: startspeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3017659807032068597, guid: 4b89482e70ba644b2816ace93f00df89, type: 3}
       propertyPath: upDistance
