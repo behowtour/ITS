@@ -16,6 +16,7 @@ public class TapPointUpLift : Anchor
     private float timeStart;
     private Vector3 positionCurrent, positionStart;
     private Vector2 positionCurrent2, positionStart2;
+    private Animator animator;
 
     public override void OnCollision(Collider2D collision)
     {
@@ -26,14 +27,16 @@ public class TapPointUpLift : Anchor
         mainController.isLiftUp = false;
         isMoving = false;
         mainController.ResetDistanceJoint();
-        Destroy(this.transform.gameObject);
+        
+        animator.SetTrigger("TriggerFade");
+        //Destroy(this.transform.gameObject);
     }
 
     public override void OnTap()
     {
         audioSource.volume = 0.5f;
         audioSource.PlayOneShot(audioClip_UpLift);
-
+        animator.enabled = true;
         mainController.isLiftUp = true;
         isMoving = true;
         timeStart = Time.time;
@@ -45,6 +48,8 @@ public class TapPointUpLift : Anchor
 
     private void Awake()
     {
+        animator = transform.GetComponent<Animator>();
+        animator.enabled = false;
         rb = this.GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 5);
         isMoving = false;
