@@ -9,6 +9,7 @@ TagManager:
   - OrangeLeaf
   - RedLeaf
   - Body
+  - LiftUpPoint
   layers:
   - Default
   - TransparentFX
