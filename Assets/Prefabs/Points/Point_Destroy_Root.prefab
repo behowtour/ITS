@@ -81,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.26
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.26
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -152,6 +152,14 @@ PrefabInstance:
       value: 450
       objectReference: {fileID: 0}
     - target: {fileID: -3243222839056983934, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3243222839056983934, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3243222839056983934, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.31000003
       objectReference: {fileID: 0}
@@ -190,6 +198,10 @@ PrefabInstance:
     - target: {fileID: 6117419626160142565, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_SortingOrder
       value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940156632021742404, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8940156632021742404, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -240,6 +252,26 @@ PolygonCollider2D:
     - - {x: 0.15286249, y: 0.72850955}
       - {x: 0.32034123, y: 0.49094594}
       - {x: 1.674936, y: 1.6225293}
+--- !u!95 &7520557134996984748
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892875345721823958}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 541a89203686044d1b63932420dbcfe6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5367034862923037848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
@@ -323,6 +355,26 @@ PolygonCollider2D:
     - - {x: -0.71074474, y: -0.15293512}
       - {x: -0.7034559, y: 0.185}
       - {x: -2.8578382, y: 0.2283936}
+--- !u!95 &2807061119786077998
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746949846945833462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fe9b5c8432780d49a1c745ef3586fa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6409257466261256561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7679191864914664364, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}
@@ -359,6 +411,26 @@ PolygonCollider2D:
     - - {x: -0.07449792, y: 2.717011}
       - {x: 0.16759953, y: 0.44884416}
       - {x: -0.27113473, y: 0.4481964}
+--- !u!95 &2348211547891721066
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409257466261256561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a256aaca77bd3f5449c983e4c9f2cc2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &6535725888831579387 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 05dd9edb05c9246c8bed2e59e17f7dd1, type: 3}

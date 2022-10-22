@@ -89,6 +89,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: "\u0424\u043E\u043D"
@@ -111,7 +112,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -219, y: 501}
+    uvTransform: {x: 4, y: 560}
+    spritePosition: {x: 223, y: 59}
   - name: "\u0424\u043E\u043D"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +134,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -3, y: 694}
+    uvTransform: {x: 4, y: 884}
+    spritePosition: {x: 7, y: 190}
   - name: "\u0424\u043E\u043D"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +156,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 290, y: 2}
+    uvTransform: {x: 590, y: 4}
+    spritePosition: {x: 300, y: 2}
   - name: "\u0424\u043E\u043D"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -175,6 +179,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []
@@ -209,7 +214,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 3ff678cf95279f5409d7b0bc507ddeb9
     layerID: 10
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -229,7 +234,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 25cc277ce4171994ca10b8d3b5c596c9
     layerID: 7
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -249,7 +254,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 7d539de18db9a7244908fd3dde026916
     layerID: 4
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
