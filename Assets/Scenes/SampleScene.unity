@@ -860,7 +860,7 @@ MonoBehaviour:
   leafPrefab:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
   - {fileID: 721389414873873703, guid: 342ae1be7efe1d04f9cdd5146a328915, type: 3}
-  - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: 3873247211605372650, guid: 84afc1a10f7f5469d9a553033fc4e46a, type: 3}
   - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
   - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
   - {fileID: 2371679356617664173, guid: b4a61d4924e8a364181408d78eaaa211, type: 3}
