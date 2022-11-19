@@ -17,6 +17,7 @@ public class DandellionPoint : Anchor
 
     public override void OnRelease()
     {
+        if (distanceJoint2D!=null)
         distanceJoint2D.enabled = false;
     }
 

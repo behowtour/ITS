@@ -35,7 +35,12 @@ public abstract class Anchor : MonoBehaviour
         
         
     }
-    
+
+    private void Update()
+    {
+        if (particles != null) particles.transform.position = transform.position;
+    }
+
 
     private void OnMouseDown()
     {
