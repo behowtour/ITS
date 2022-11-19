@@ -7,6 +7,8 @@ public class BackgroundFollow : MonoBehaviour
     [Header("Static variables")]
     public Camera cam;
     public Transform target;
+    public Transform blackLayer;
+    public Transform midLayer;
 
     private float backgroundOffsetToCam;
 
@@ -21,7 +23,11 @@ public class BackgroundFollow : MonoBehaviour
     
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, target.position.y-target.position.y*0.010f+backgroundOffsetToCam, transform.position.z); 
+        Vector3 newPos = new Vector3(transform.position.x, target.position.y-target.position.y*0.060f+backgroundOffsetToCam, transform.position.z); 
         transform.position = newPos;
+        Vector3 newPosBlack = new Vector3(transform.position.x, target.position.y - target.position.y * 1.5f + backgroundOffsetToCam, transform.position.z);
+        blackLayer.position = newPosBlack;
+        Vector3 newPosMid = new Vector3(transform.position.x, target.position.y - target.position.y * 0.6f + backgroundOffsetToCam, transform.position.z);
+        blackLayer.position = newPosMid;
     }
 }
