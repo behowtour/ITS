@@ -35,7 +35,9 @@ public abstract class Anchor : MonoBehaviour
         
         
     }
-    
+
+   
+
 
     private void OnMouseDown()
     {
@@ -81,6 +83,7 @@ public abstract class Anchor : MonoBehaviour
         }
         
         OnRelease();
+        if (animController.animator!=null)
         animController.animator.SetBool("isThrowing", false);
         
     }

@@ -33,7 +33,7 @@ public class RopeBridge : MonoBehaviour
     {
         DrawRope();
         //this.Simulate();
-        if (controller.isMouseHoldOnAnchor)
+        if (controller.isMouseHoldOnAnchor && controller.hittedAnchor)
         {
             this.Simulate(this.StartPoint.position, controller.hittedAnchor.transform.position);
         }
