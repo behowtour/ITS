@@ -36,6 +36,7 @@ public class CameraManager : MonoBehaviour
   
     void Update()
     {
+     
         FollowTheTarget();
     }
 
@@ -55,15 +56,19 @@ public class CameraManager : MonoBehaviour
 
       
         Vector3 newPos;
-        float coordDiff = Mathf.Abs(hero.position.y - transform.position.y);
-        if (hero.position.y < startCameraPosition.y)
+
+        if (hero != null)
         {
-            newPos = Vector3.Lerp(transform.position, startCameraPosition, Time.deltaTime * coordDiff);
-        }
-        else
-        {
-            newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, hero.position.y + camPositionOffset, transform.position.z), Time.deltaTime * coordDiff);
-        }
-        transform.position = newPos;
+            float coordDiff = Mathf.Abs(hero.position.y - transform.position.y);
+            if (hero.position.y < startCameraPosition.y)
+            {
+                newPos = Vector3.Lerp(transform.position, startCameraPosition, Time.deltaTime * coordDiff);
+            }
+            else
+            {
+                newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, hero.position.y + camPositionOffset, transform.position.z), Time.deltaTime * coordDiff);
+            }
+            transform.position = newPos;
+        } else { Debug.Log("Hero is NULL"); }
     }
 }

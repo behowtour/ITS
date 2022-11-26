@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
+    //HERO
+    [SerializeField]
+    private Transform cam;
+
     //LAYERS REFS
     [SerializeField]
-    GameObject mainBackgroundLayer;
+    Transform mainBackgroundLayer;
+    public float mainBackgroundScrollingSpeed = 0.060f;
+
     [SerializeField]
-    GameObject shadowBackgroundLayer;
+    Transform shadowBackgroundLayer;
+    public float shadowBackgroundScrollingSpeed = 1.5f;
+
     [SerializeField]
-    GameObject middleBackgroundLayer;
+    Transform middleBackgroundLayer;
+    public float middleBackgroundScrollingSpeed = 0.6f;
+
     [SerializeField]
-    GameObject lightBackgroundLayer;
+    Transform lightBackgroundLayer;
+    public float lightBackgroundScrollingSpeed = 0.6f;
 
 
     void Start()
@@ -20,9 +31,27 @@ public class BackgroundManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
-        
+        BackgroundLayersTranslate();
+    }
+
+    private void BackgroundLayersTranslate() {
+
+        Vector3 newPosMain = new Vector3(mainBackgroundLayer.position.x, cam.position.y - (cam.position.y * mainBackgroundScrollingSpeed), mainBackgroundLayer.position.z);
+        mainBackgroundLayer.position = newPosMain;
+
+
+       Vector3 newPosShadow = new Vector3(shadowBackgroundLayer.position.x, cam.position.y - cam.position.y * shadowBackgroundScrollingSpeed, shadowBackgroundLayer.position.z);
+       shadowBackgroundLayer.position = newPosShadow;
+
+
+       Vector3 newPosLight = new Vector3(lightBackgroundLayer.position.x, cam.position.y - cam.position.y * lightBackgroundScrollingSpeed, lightBackgroundLayer.position.z);
+       lightBackgroundLayer.position = newPosLight;
+
+
+       Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
+       middleBackgroundLayer.position = newPosMid;
     }
 }
