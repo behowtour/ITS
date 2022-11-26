@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
 
 
-         //   goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
+       //   goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
 
 
 

@@ -6,6 +6,8 @@ public class GoFollow
 {
     public void Follow(Transform target, Transform followObject, float camPositionOffset)
     {
+
+        // target = Hero          FollowObject = Camera    CamPositionOffset = 1.5f (24//11//22)
         Vector3 newPos;
         float coordDiff = Mathf.Abs(target.position.y - followObject.position.y);
         if (target.position.y < 0)
