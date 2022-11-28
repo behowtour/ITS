@@ -3,10 +3,10 @@
 public static class GameOver
 {
     public static bool isGameOver = false;
-    public static void CheckGameOver(float camPositionY, float lastPointy, float screenHeightWorld)
+    public static void CheckGameOver(float heroPositionY, float lastPointy, float screenHeightWorld)
     {
         //isGameOver = false;
-        if (camPositionY < lastPointy - screenHeightWorld * 3)
+        if (heroPositionY < lastPointy - screenHeightWorld)
         {
             isGameOver = true;
         }

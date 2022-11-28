@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,15 +27,11 @@ public class BackgroundManager : MonoBehaviour
     public float lightBackgroundScrollingSpeed = 0.6f;
 
 
-    void Start()
-    {
-        
-    }
-
- 
     void Update()
     {
         BackgroundLayersTranslate();
+        BackgroundLayersRepeat();
+        BackgroundLayersDestroy();
     }
 
     private void BackgroundLayersTranslate() {
@@ -53,5 +50,17 @@ public class BackgroundManager : MonoBehaviour
 
        Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
        middleBackgroundLayer.position = newPosMid;
+    }
+
+    private void BackgroundLayersRepeat()
+    {
+      // Main background
+
+    
+    }
+
+    private void BackgroundLayersDestroy()
+    {
+       
     }
 }
