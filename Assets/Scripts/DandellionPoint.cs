@@ -9,7 +9,18 @@ public class DandellionPoint : Anchor
     ParticleSystem dandellionParticle;
     DistanceJoint2D distanceJoint2D;
     Rigidbody2D rigid;
-    
+
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        dandellionParticle = GetComponent<ParticleSystem>();
+        distanceJoint2D = GetComponent<DistanceJoint2D>();
+        rigid = GetComponent<Rigidbody2D>();
+
+    }
+
+
     public override void OnCollision(Collider2D collision)
     {
         
@@ -34,14 +45,7 @@ public class DandellionPoint : Anchor
 
     
 
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-        dandellionParticle = GetComponent<ParticleSystem>();
-        distanceJoint2D = GetComponent<DistanceJoint2D>();
-        rigid = GetComponent<Rigidbody2D>();
-     
-    }
+    
 
 
   
