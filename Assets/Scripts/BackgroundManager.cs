@@ -1,17 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
-    //HERO
+   
+   
+
+    //MAIN CAMERA
+    [SerializeField]
+    Camera mainCam;
     [SerializeField]
     private Transform cam;
+    float cameraYLastPos = 0f;
+  
 
     //LAYERS REFS
-    [SerializeField]
+   [SerializeField]
     Transform mainBackgroundLayer;
-    public float mainBackgroundScrollingSpeed = 0.060f;
+    [SerializeField]
+    Transform mainBackgroundLayerTop;
+    [SerializeField]
+    Transform mainBackgroundLayerBottom;
+    public float mainBackgroundScrollingSpeed = 0.96f;
 
     [SerializeField]
     Transform shadowBackgroundLayer;
@@ -25,33 +37,64 @@ public class BackgroundManager : MonoBehaviour
     Transform lightBackgroundLayer;
     public float lightBackgroundScrollingSpeed = 0.6f;
 
+  
+   
+   
 
-    void Start()
-    {
-        
-    }
 
- 
+   
     void Update()
     {
-        BackgroundLayersTranslate();
+       
+        BackgroundLayersMove();
+       
     }
 
-    private void BackgroundLayersTranslate() {
+    private void BackgroundLayersMove() {
 
-        Vector3 newPosMain = new Vector3(mainBackgroundLayer.position.x, cam.position.y - (cam.position.y * mainBackgroundScrollingSpeed), mainBackgroundLayer.position.z);
+        // Cam Frame Step
+        float cameraFrameStep = cam.position.y - cameraYLastPos;
+        cameraYLastPos = cam.position.y;
+
+        // MAIN BG INFINETE MOVE
+
+        // BG Move
+        Vector3 newPosMain = new Vector3(mainBackgroundLayer.position.x, mainBackgroundLayer.position.y +  cameraFrameStep * mainBackgroundScrollingSpeed, mainBackgroundLayer.position.z);
         mainBackgroundLayer.position = newPosMain;
+            // BG Relocate 
+        if (cam.position.y > mainBackgroundLayerTop.position.y) {
+            mainBackgroundLayer.position = new Vector3(mainBackgroundLayer.position.x, cam.position.y + mainBackgroundLayerTop.localPosition.y, mainBackgroundLayer.position.z);
+        }
 
+        // SHADOW BG INFINITE MOVE
 
-       Vector3 newPosShadow = new Vector3(shadowBackgroundLayer.position.x, cam.position.y - cam.position.y * shadowBackgroundScrollingSpeed, shadowBackgroundLayer.position.z);
-       shadowBackgroundLayer.position = newPosShadow;
+            // Shadow move
+        Vector3 newPosShadow = new Vector3(shadowBackgroundLayer.position.x,shadowBackgroundLayer.position.y  + cameraFrameStep * shadowBackgroundScrollingSpeed, shadowBackgroundLayer.position.z);
+        shadowBackgroundLayer.position = newPosShadow;
+        // Shadow Relocate
+        if (cam.position.y > shadowBackgroundLayer.GetChild(0).transform.position.y) {
+            
+            shadowBackgroundLayer.position = new Vector3(shadowBackgroundLayer.position.x, shadowBackgroundLayer.position.y + shadowBackgroundLayer.GetChild(0).transform.localPosition.y - shadowBackgroundLayer.GetChild(shadowBackgroundLayer.childCount - 1).transform.localPosition.y, shadowBackgroundLayer.position.z);
+        }
 
+        // LIGHT BG INFINITE MOVE
 
-       Vector3 newPosLight = new Vector3(lightBackgroundLayer.position.x, cam.position.y - cam.position.y * lightBackgroundScrollingSpeed, lightBackgroundLayer.position.z);
-       lightBackgroundLayer.position = newPosLight;
+            // Light BG Move
+        Vector3 newPosLight = new Vector3(lightBackgroundLayer.position.x, lightBackgroundLayer.position.y + cameraFrameStep * lightBackgroundScrollingSpeed, lightBackgroundLayer.position.z);
+        lightBackgroundLayer.position = newPosLight;
+        // Light BG Relocate
+        if (cam.position.y > lightBackgroundLayer.GetChild(0).transform.position.y)
+        {
 
+            lightBackgroundLayer.position = new Vector3(lightBackgroundLayer.position.x, lightBackgroundLayer.position.y + lightBackgroundLayer.GetChild(0).transform.localPosition.y - lightBackgroundLayer.GetChild(lightBackgroundLayer.childCount - 1).transform.localPosition.y, lightBackgroundLayer.position.z);
+        }
 
-       Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
-       middleBackgroundLayer.position = newPosMid;
+        // MIDDLE BG INFINITE MOVE
+
+        // Middle BG Move
+        Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
+        middleBackgroundLayer.position = newPosMid;
+            // Middle BG Relocate
     }
+
 }
