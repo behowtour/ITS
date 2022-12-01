@@ -53,6 +53,13 @@ public class GameManager : MonoBehaviour
         onPlay = true;
     }
 
+
+    private void FixedUpdate()
+    {
+        controller.HitPoint();
+        ropeBridge.RopeUpdate();
+    }
+
     void Update()
     {
         if (onPlay)
@@ -71,8 +78,8 @@ public class GameManager : MonoBehaviour
 
 
 
-            controller.HitPoint();
-            ropeBridge.RopeUpdate();
+            
+          
             GameOver.CheckGameOver(hero.transform.position.y, transform.position.y, ConstantSettings.screenHeightWorld);
             onPlay = !GameOver.isGameOver;
             if (!onPlay)

@@ -33,7 +33,7 @@ public class Controller : MonoBehaviour
         isLiftUp = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         xSpeed = rigidbody.velocity.x;
         ySpeed = rigidbody.velocity.y;
@@ -57,7 +57,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-                rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+                rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.fixedDeltaTime * ropeLengthVec, ForceMode2D.Force);
             }
         }
         if (ropeLengthVec.y < 0)

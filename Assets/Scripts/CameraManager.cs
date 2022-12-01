@@ -40,7 +40,7 @@ public class CameraManager : MonoBehaviour
         lastCameraMaxHeightPosition =startCameraPosition.y;
     }
 
-    void Update()
+    void FixedUpdate()
     {
      
         FollowTheTarget();
@@ -72,11 +72,11 @@ public class CameraManager : MonoBehaviour
             float coordDiff = Mathf.Abs(hero.position.y - transform.position.y);
             if (transform.position.y < startCameraPosition.y)
             {
-                newPos = Vector3.Lerp(transform.position, startCameraPosition, Time.deltaTime * coordDiff);
+                newPos = Vector3.Lerp(transform.position, startCameraPosition, Time.fixedDeltaTime * coordDiff);
             }
             else
             {
-                newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, Mathf.Clamp(hero.position.y + camPositionOffset, Mathf.Clamp(lastCameraMaxHeightPosition - mainCamera.orthographicSize * camFadingValue, startCameraPosition.y, transform.position.y), hero.position.y + camPositionOffset), transform.position.z), Time.deltaTime * coordDiff);
+                newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, Mathf.Clamp(hero.position.y + camPositionOffset, Mathf.Clamp(lastCameraMaxHeightPosition - mainCamera.orthographicSize * camFadingValue, startCameraPosition.y, transform.position.y), hero.position.y + camPositionOffset), transform.position.z), Time.fixedDeltaTime * coordDiff);
             }
             transform.position = newPos;
         } else { Debug.Log("Hero is NULL"); }

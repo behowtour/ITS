@@ -26,7 +26,7 @@ public class DandellionPoint : Anchor
         animator.SetBool("isUp", true);
         dandellionParticle.Play();
         distanceJoint2D.enabled = true;
-        GetComponent<Rigidbody2D>().velocity = Vector2.up*200*Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = Vector2.up* 5f;
         distanceJoint2D.connectedBody = mainController.transform.GetComponent<Rigidbody2D>();
        
 
