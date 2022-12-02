@@ -53,6 +53,13 @@ public class GameManager : MonoBehaviour
         onPlay = true;
     }
 
+
+    private void FixedUpdate()
+    {
+        controller.HitPoint();
+        ropeBridge.RopeUpdate();
+    }
+
     void Update()
     {
         if (onPlay)
@@ -64,10 +71,16 @@ public class GameManager : MonoBehaviour
             {
                 lastCoordinateY = heroTransform.position.y;
             }
-            goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);
-            controller.HitPoint();
-            ropeBridge.RopeUpdate();
-            GameOver.CheckGameOver(transform.position.y, pointsGenerator.lastLeaf.transform.position.y, ConstantSettings.screenHeightWorld);
+
+
+
+       //   goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);  --to DELETE
+
+
+
+            
+          
+            GameOver.CheckGameOver(hero.transform.position.y, transform.position.y, ConstantSettings.screenHeightWorld);
             onPlay = !GameOver.isGameOver;
             if (!onPlay)
             {

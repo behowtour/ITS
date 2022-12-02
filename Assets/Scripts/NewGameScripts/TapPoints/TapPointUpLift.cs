@@ -26,30 +26,31 @@ public class TapPointUpLift : Anchor
     {
         mainController.isLiftUp = false;
         isMoving = false;
-        mainController.ResetDistanceJoint();
+      
         
-        animator.SetTrigger("TriggerFade");
+      
         //Destroy(this.transform.gameObject);
     }
 
     public override void OnTap()
     {
+        animator.SetBool("isUp", true);
         audioSource.volume = 0.5f;
         audioSource.PlayOneShot(audioClip_UpLift);
-        animator.enabled = true;
+       
         mainController.isLiftUp = true;
         isMoving = true;
         timeStart = Time.time;
         positionStart = this.transform.position;
         positionStart2 = rb.position;
-        mainController.SetConnectedRB(rb);
+       
         StartCoroutine(DestroyPoint());
     }
 
     private void Awake()
     {
         animator = transform.GetComponent<Animator>();
-        animator.enabled = false;
+   
         rb = this.GetComponent<Rigidbody2D>();
         velocity = new Vector2(0, 5);
         isMoving = false;

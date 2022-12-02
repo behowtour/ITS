@@ -22,18 +22,18 @@ public class Controller : MonoBehaviour
     public event ControllerHandler OnReleaseAnchor;
 
     private new Rigidbody2D rigidbody;
-    private DistanceJoint2D distanceJoint2D;
+   
     private Vector3 heroStartOffset;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        distanceJoint2D = GetComponent<DistanceJoint2D>();
-        distanceJoint2D.enabled = false;
+      
+       
         isLiftUp = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         xSpeed = rigidbody.velocity.x;
         ySpeed = rigidbody.velocity.y;
@@ -47,7 +47,7 @@ public class Controller : MonoBehaviour
 
     public void HitPoint()
     {
-        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor)
+        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor && hittedAnchor)
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;
@@ -57,7 +57,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-                rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.deltaTime * ropeLengthVec, ForceMode2D.Force);
+                rigidbody.AddForce(force * Time.deltaTime * ropeLengthVec.normalized - sparrowRatio * force * Time.fixedDeltaTime * ropeLengthVec, ForceMode2D.Force);
             }
         }
         if (ropeLengthVec.y < 0)
@@ -79,14 +79,6 @@ public class Controller : MonoBehaviour
         heroStartOffset = hittedAnchor.transform.position - transform.position;
     }
 
-    public void SetConnectedRB(Rigidbody2D rb2d)
-    {
-        distanceJoint2D.connectedBody = rb2d;
-        distanceJoint2D.enabled = true; 
-    }
-    public void ResetDistanceJoint()
-    {
-        distanceJoint2D.enabled = false;
-        distanceJoint2D.connectedBody = null;
-    }
+   
+    
 }
