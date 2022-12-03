@@ -36,11 +36,18 @@ public class DandellionPoint : Anchor
     {
         animator.SetBool("isUp", true);
         dandellionParticle.Play();
+        StartCoroutine(DandellionDestroy());
         distanceJoint2D.enabled = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.up* 5f;
         distanceJoint2D.connectedBody = mainController.transform.GetComponent<Rigidbody2D>();
        
 
+    }
+
+    IEnumerator DandellionDestroy() {
+
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 
     
