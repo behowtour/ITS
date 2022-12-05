@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4348719428662675446}
   - component: {fileID: 3231445276412843851}
   - component: {fileID: 7434800828938480981}
+  - component: {fileID: 5250485672052484834}
   - component: {fileID: 6701525008387676334}
   - component: {fileID: 1893118325603283941}
   - component: {fileID: 1159427600364721803}
@@ -107,7 +108,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.54
---- !u!114 &6701525008387676334
+--- !u!114 &5250485672052484834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +116,31 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9207061245609889603}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d959213bed0c4d94bafa96438e378b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impulsePower: 0
+  particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
+  reusable: 0
+  audioClip_Tap: {fileID: 8300000, guid: 8b07250d785236c49ba7e9a0e0bd85a2, type: 3}
+  audioClip_Release: {fileID: 8300000, guid: 9d02685940b92b2428ee583efb3856a8, type: 3}
+  audioClip_Collision: {fileID: 0}
+  particleObject: {fileID: 0}
+  particles: {fileID: 0}
+  animController: {fileID: 0}
+  delayTime: 2
+  upDistance: 15
+  audioClip_UpLift: {fileID: 8300000, guid: 8bc281862b327614fa2baa2c1fa4d3d6, type: 3}
+  startspeed: 2.5
+--- !u!114 &6701525008387676334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207061245609889603}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd2b87880cbc8064f8cd29d004391fef, type: 3}
   m_Name: 
