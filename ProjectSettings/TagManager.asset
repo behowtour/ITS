@@ -59,3 +59,6 @@ TagManager:
   - name: New Layer 4
     uniqueID: 3249818161
     locked: 0
+  - name: Enemy
+    uniqueID: 1006261161
+    locked: 0
