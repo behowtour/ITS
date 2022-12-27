@@ -28,8 +28,6 @@ public class Controller : MonoBehaviour
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-      
-       
         isLiftUp = false;
     }
 

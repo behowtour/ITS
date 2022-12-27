@@ -11,14 +11,11 @@ public abstract class Anchor : MonoBehaviour
     public AudioClip audioClip_Tap;
     public AudioClip audioClip_Release;
     public AudioClip audioClip_Collision;
-    
 
     [Header("Dynamic variables")]
     public GameObject particleObject;
     public ParticleSystem particles;
     public AnimationController2 animController;
-    
-    
 
     protected Controller mainController;
     protected bool used, inUse;
@@ -30,14 +27,8 @@ public abstract class Anchor : MonoBehaviour
         animController = GameObject.FindGameObjectWithTag("Body").GetComponent<AnimationController2>();
         audioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         used = false;
-        inUse = false;
-        
-        
-        
+        inUse = false; 
     }
-
-   
-
 
     private void OnMouseDown()
     {
@@ -56,7 +47,6 @@ public abstract class Anchor : MonoBehaviour
             this.mainController.OnReleaseAnchor += ReleasePoint;
             OnTap();
         }
-        
     }
 
     protected void OnMouseUp()
