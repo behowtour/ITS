@@ -85,7 +85,6 @@ public class RopeBridge : MonoBehaviour
         firstSegment.posNow = StartPosition;
         this.ropeSegments[0] = firstSegment;
 
-
         //Constrant to Second Point 
         RopeSegment endSegment = this.ropeSegments[this.ropeSegments.Count - 1];
         //EndPoint = controller.hittedAnchor.transform;

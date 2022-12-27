@@ -71,15 +71,6 @@ public class GameManager : MonoBehaviour
             {
                 lastCoordinateY = heroTransform.position.y;
             }
-
-
-
-       //   goFollow.Follow(heroTransform, cameraMain.transform, camPositionOffset);  --to DELETE
-
-
-
-            
-          
             GameOver.CheckGameOver(hero.transform.position.y, transform.position.y, ConstantSettings.screenHeightWorld);
             onPlay = !GameOver.isGameOver;
             if (!onPlay)
