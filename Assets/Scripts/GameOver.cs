@@ -16,7 +16,7 @@ public static class GameOver
     public static void CheckGameOver(string tag)
     {
         //isGameOver = false;
-        if (tag == "RedLeaf")
+        if (tag == "RedLeaf" || tag == "Enemy")
         {
             isGameOver = true;
         }

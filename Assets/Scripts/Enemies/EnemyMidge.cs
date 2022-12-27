@@ -33,9 +33,19 @@ public class EnemyMidge : Enemy
 
     private void OnTriggerEnter2D(Collider2D collisionCollider)
     {
+        Debug.Log("—толкновение со стеной");
         if (collisionCollider.CompareTag("MainCamera"))
         {
             transform.localScale = new Vector2(transform.localScale.x * (-1), transform.localScale.y);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collisionCollider)
+    {
+        Debug.Log("игрок попал в зону мухи");
+        if (collisionCollider.transform.gameObject.CompareTag("Player"))
+        {
+            GameOver.CheckGameOver(this.transform.gameObject.tag);
         }
     }
 }
