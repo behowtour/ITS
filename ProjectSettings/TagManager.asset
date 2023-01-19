@@ -10,6 +10,7 @@ TagManager:
   - RedLeaf
   - Body
   - LiftUpPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX

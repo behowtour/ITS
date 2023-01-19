@@ -23,8 +23,8 @@ public class CameraManager : MonoBehaviour
     Transform ground;
 
     // HERO
-    [SerializeField]
-    Transform hero;
+    //[SerializeField]
+    public Transform hero;
    
 
     private void Awake()
@@ -79,7 +79,10 @@ public class CameraManager : MonoBehaviour
                 newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, Mathf.Clamp(hero.position.y + camPositionOffset, Mathf.Clamp(lastCameraMaxHeightPosition - mainCamera.orthographicSize * camFadingValue, startCameraPosition.y, transform.position.y), hero.position.y + camPositionOffset), transform.position.z), Time.fixedDeltaTime * coordDiff);
             }
             transform.position = newPos;
-        } else { Debug.Log("Hero is NULL"); }
+        } else 
+        { 
+            //Debug.Log("Hero is NULL"); 
+        }
 
         
         

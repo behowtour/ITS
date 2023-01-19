@@ -19,8 +19,13 @@ public class GameManager : MonoBehaviour
     public ScoreController scoreController;
     public float lastCoordinateY;
 
+    [SerializeField]
+    private float heroSpeed;
+
     private Transform heroTransform;
+    private Rigidbody2D heroRigidbody2D;
     private PointsGenerator pointsGenerator;
+    private EnemiesGenerator enemiesGenerator;
     private bool onPlay;
     private GoFollow goFollow;  
     private Camera cam;
@@ -32,10 +37,12 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
+        heroRigidbody2D = hero.GetComponent<Rigidbody2D>();
         this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         ropeBridge = rope.transform.gameObject.GetComponent<RopeBridge>();
         pointsGenerator = GetComponent<PointsGenerator>();
+        enemiesGenerator = GetComponent<EnemiesGenerator>();
         cam = GetComponent<Camera>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector3 topRightWorld = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
@@ -56,16 +63,21 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.HitPoint();
-        ropeBridge.RopeUpdate();
+        if (onPlay)
+        {
+            controller.HitPoint();
+            ropeBridge.RopeUpdate();
+        }
     }
 
     void Update()
     {
         if (onPlay)
         {
+            heroSpeed = heroRigidbody2D.velocity.y;
             pointsGenerator.GenerateNextPoint();
             pointsGenerator.DestroyOldPoint();
+            enemiesGenerator.GenerateEnemy(heroSpeed);
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
             {
