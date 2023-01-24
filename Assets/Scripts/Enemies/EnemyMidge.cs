@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class EnemyMidge : Enemy
@@ -9,10 +10,13 @@ public class EnemyMidge : Enemy
     Rigidbody2D myRigodbody;
     BoxCollider2D myBoxCollider;
 
-    void Start()
+    void Awake()
     {
         myRigodbody = GetComponent<Rigidbody2D>();
         myBoxCollider = GetComponent<BoxCollider2D>();
+        
+        spanwRoll = spawnRate + 1;
+        canSpawn = true;
     }
 
     void Update()
@@ -26,6 +30,31 @@ public class EnemyMidge : Enemy
         }
     }
 
+    public override bool IsNeedGenerate(float heroSpeed)
+    {
+        spanwRoll = spawnRate + 1;
+        if (heroSpeed < 4.3 && canSpawn)
+        {
+            //todo: после каждой проверки отправл€ть ожидать таймер на 5 секунд.
+            spanwRoll = Random.Range(0, 100);
+            canSpawn = false;
+            Invoke("SetCanSpawn", 3);
+        }
+        return spanwRoll < spawnRate;
+    }
+    // protected bool IsNeedGenerate(float heroSpeed)
+    // {
+    //     if (heroSpeed < 4.3)
+    //     {
+    //         spanwRoll = Random.Range(0, 100);
+    //     }
+    //     return spanwRoll < spawnRate;
+    // }
+
+    void SetCanSpawn()
+    {
+        canSpawn = true;
+    }
     private bool IsFacingRight()
     {
         return transform.localScale.x < Mathf.Epsilon;
@@ -33,7 +62,7 @@ public class EnemyMidge : Enemy
 
     private void OnTriggerEnter2D(Collider2D collisionCollider)
     {
-        Debug.Log("—толкновение со стеной");
+        // Debug.Log("—толкновение со стеной");
         if (collisionCollider.CompareTag("MainCamera"))
         {
             transform.localScale = new Vector2(transform.localScale.x * (-1), transform.localScale.y);
@@ -42,7 +71,7 @@ public class EnemyMidge : Enemy
 
     private void OnCollisionEnter2D(Collision2D collisionCollider)
     {
-        Debug.Log("игрок попал в зону мухи");
+        Debug.Log("игрок столкнулс€ с мухой");
         if (collisionCollider.transform.gameObject.CompareTag("Player"))
         {
             GameOver.CheckGameOver(this.transform.gameObject.tag);
