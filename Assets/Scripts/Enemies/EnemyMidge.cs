@@ -16,7 +16,7 @@ public class EnemyMidge : Enemy
         myBoxCollider = GetComponent<BoxCollider2D>();
         
         spanwRoll = spawnRate + 1;
-        canSpawn = true;
+        //canSpawn = true;
     }
 
     void Update()
@@ -38,7 +38,12 @@ public class EnemyMidge : Enemy
             //todo: после каждой проверки отправлять ожидать таймер на 5 секунд.
             spanwRoll = Random.Range(0, 100);
             canSpawn = false;
-            Invoke("SetCanSpawn", 3);
+            //Invoke("SetCanSpawn", 3);
+        }
+
+        if (heroSpeed > 4.3 && !canSpawn)
+        {
+            canSpawn = true;
         }
         return spanwRoll < spawnRate;
     }
@@ -51,10 +56,10 @@ public class EnemyMidge : Enemy
     //     return spanwRoll < spawnRate;
     // }
 
-    void SetCanSpawn()
-    {
-        canSpawn = true;
-    }
+    // void SetCanSpawn()
+    // {
+    //     canSpawn = true;
+    // }
     private bool IsFacingRight()
     {
         return transform.localScale.x < Mathf.Epsilon;

@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected bool needSpawn;
     protected bool needCheckRoll;
-    protected bool canSpawn = true;
+    public bool canSpawn;
 
     public abstract bool IsNeedGenerate(float heroSpeed);
     // Start is called before the first frame update
