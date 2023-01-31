@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 9003234803820418882}
   - component: {fileID: 9003234803820418883}
   - component: {fileID: 9003234803820418909}
+  - component: {fileID: 2081288246}
+  - component: {fileID: 1620661233254953016}
   m_Layer: 0
   m_Name: Midge
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,4 +148,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad898b686221044ab9967681cda6344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnRate: 25
+  canSpawn: 0
   moveSpeed: 1
+--- !u!58 &2081288246
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003234803820418886}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.10032445, y: -0.090536594}
+  serializedVersion: 2
+  m_Radius: 0.4737379
+--- !u!68 &1620661233254953016
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003234803820418886}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.10367954, y: 0.70222545}
+  - {x: 0.5513791, y: 0.59638023}
+  - {x: 0.5699214, y: 0.21181098}
+  - {x: 0.45381606, y: -0.034553975}
+  - {x: 0.52848744, y: -0.30413795}
+  - {x: 0.18888736, y: -0.49952388}
+  - {x: -0.09672439, y: -0.40693706}
+  - {x: -0.5632888, y: -0.21734071}
+  - {x: -0.07028341, y: 0.099655494}
+  - {x: -0.084135294, y: 0.3410189}
+  - {x: -0.029608846, y: 0.56488436}
+  - {x: 0.1036795, y: 0.7022254}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

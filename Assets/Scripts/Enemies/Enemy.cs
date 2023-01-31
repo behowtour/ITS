@@ -4,6 +4,16 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    protected float spawnRate;
+
+    protected float spanwRoll;
+
+    protected bool needSpawn;
+    protected bool needCheckRoll;
+    public bool canSpawn;
+
+    public abstract bool IsNeedGenerate(float heroSpeed);
     // Start is called before the first frame update
     void Start()
     {
