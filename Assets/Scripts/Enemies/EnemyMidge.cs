@@ -33,7 +33,7 @@ public class EnemyMidge : Enemy
     public override bool IsNeedGenerate(float heroSpeed)
     {
         spanwRoll = spawnRate + 1;
-        if (heroSpeed < 4.3 && canSpawn)
+        if (heroSpeed < 5 && canSpawn)
         {
             //todo: после каждой проверки отправлять ожидать таймер на 5 секунд.
             spanwRoll = Random.Range(0, 100);
@@ -41,7 +41,7 @@ public class EnemyMidge : Enemy
             //Invoke("SetCanSpawn", 3);
         }
 
-        if (heroSpeed > 4.3 && !canSpawn)
+        if (heroSpeed > 5 && !canSpawn)
         {
             canSpawn = true;
         }
