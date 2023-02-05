@@ -74,4 +74,22 @@ public class PointsGenerator : MonoBehaviour
             Destroy(oldLeaf);
         }
     }
+
+    public void InitPointArrays()
+    {
+        int numberOfPoint = 0;
+        foreach (GameObject pointPrefab in leafPrefab)
+        {
+            GameObject newLeaf;
+            for (int i = 0; i < 5; i++)
+            {
+                newLeaf = Instantiate(pointPrefab);
+                newLeaf.name = pointPrefab.name + numberOfPoint;
+                newLeaf.transform.position = new Vector3(ConstantSettings.leftBorderWorld - 10, 0, 0);
+                numberOfPoint++;
+            }
+            
+            
+        }    
+    }
 }
