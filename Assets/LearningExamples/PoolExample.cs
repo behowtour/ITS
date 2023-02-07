@@ -34,7 +34,7 @@ public class PoolExample : MonoBehaviour
         var rY = Random.Range(-5f, 5f);
 
         var rPosition = new Vector3(rX, rY, rZ);
-        var cube = this.pool.GetFreeElement();
-        cube.transform.position = rPosition;
+        // var cube = this.pool.GetFreeElement();
+        // cube.transform.position = rPosition;
     }
 }

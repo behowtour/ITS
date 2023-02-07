@@ -29,8 +29,27 @@ public class PoolMono<T> where T : MonoBehaviour
         this.CreatePool(count);
 
     }
+    
+    public PoolMono(T[] prefabs, int count, Transform container)
+    {
+        CreatePool();
+        this.container = container;
+        foreach (T prefab in prefabs)
+        {
+            this.prefab = prefab;
+            
+            for (int i = 0; i < count; i++)
+            {
+                this.CreateObject();
+            }
+        }
+        
+        
+        this.CreatePool(count);
 
-    private void CreatePool(int count)
+    }
+
+    private void CreatePool(int count = 0)
     {
         this.pool = new List<T>();
 
@@ -48,24 +67,27 @@ public class PoolMono<T> where T : MonoBehaviour
         return createdObject;
     }
 
-    private T AddObject(T prefab, int count, Transform container, bool isActiveByDefault = false)
-    {
-       // this.prefab = prefab;
-        var AddedObject = Object.Instantiate(prefab, this.container);
-        createdObject.gameObject.SetActive(isActiveByDefault);
-        this.pool.Add(createdObject);
-        return createdObject;
-    }
+    // private T AddObject(T prefab, int count, Transform container, bool isActiveByDefault = false)
+    // {
+    //    // this.prefab = prefab;
+    //     var AddedObject = Object.Instantiate(prefab, this.container);
+    //     createdObject.gameObject.SetActive(isActiveByDefault);
+    //     this.pool.Add(createdObject);
+    //     return createdObject;
+    // }
 
-    public bool HasFreeElement(out T element)
+    public bool HasFreeElement(string tag, out T element)
     {
         foreach (var mono in pool)
         {
-            if (!mono.gameObject.activeInHierarchy)
+            if (mono.tag == tag)
             {
-                element = mono;
-                mono.gameObject.SetActive(true);
-                return true;
+                if (!mono.gameObject.activeInHierarchy)
+                {
+                    element = mono;
+                    mono.gameObject.SetActive(true);
+                    return true;
+                }
             }
         }
 
@@ -73,9 +95,9 @@ public class PoolMono<T> where T : MonoBehaviour
         return false;
     }
 
-    public T GetFreeElement()
+    public T GetFreeElement(T prefab)
     {
-        if (this.HasFreeElement(out var element))
+        if (this.HasFreeElement(prefab.tag, out var element))
         {
             return element; 
         }
@@ -84,6 +106,8 @@ public class PoolMono<T> where T : MonoBehaviour
         {
             return this.CreateObject(true);
         }
+       
+        
 
         throw new Exception($"These is no free elements in pool of type {typeof(T)}");
     }
