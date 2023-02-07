@@ -48,6 +48,15 @@ public class PoolMono<T> where T : MonoBehaviour
         return createdObject;
     }
 
+    private T AddObject(T prefab, int count, Transform container, bool isActiveByDefault = false)
+    {
+       // this.prefab = prefab;
+        var AddedObject = Object.Instantiate(prefab, this.container);
+        createdObject.gameObject.SetActive(isActiveByDefault);
+        this.pool.Add(createdObject);
+        return createdObject;
+    }
+
     public bool HasFreeElement(out T element)
     {
         foreach (var mono in pool)
@@ -68,7 +77,7 @@ public class PoolMono<T> where T : MonoBehaviour
     {
         if (this.HasFreeElement(out var element))
         {
-            return element;
+            return element; 
         }
 
         if (this.autoExpand)

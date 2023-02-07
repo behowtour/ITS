@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class PoolExample : MonoBehaviour
 {
 
-    [SerializeField] private int poolCount = 3;
+    [SerializeField] private int poolCount = 5;
     [SerializeField] private bool autoExpand = false;
     [SerializeField] private SquareL cubePrefab;
 
