@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 877408727550836072}
-  - component: {fileID: 5380906112478264494}
+  - component: {fileID: 2403274595256330192}
   m_Layer: 0
   m_Name: PointGenerator
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5380906112478264494
+--- !u!114 &2403274595256330192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccb3ee7e382b4d948bf748b43d50543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSize: 5
+  poolSize: 0
   autoExpand: 1
   pointsPrefab:
-  - {fileID: 7849707243735912099, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
-  - {fileID: -2097855830504605393, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  - {fileID: -7805120386997566697, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
-  - {fileID: 7850330532974749713, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
-  - {fileID: 6701525008387676334, guid: 1ff132b95d025e9449e4a582cac8eade, type: 3}
-  pointsRate: 820000000700000011000000410000000f000000
+  - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
+  - {fileID: 721389414873873703, guid: 342ae1be7efe1d04f9cdd5146a328915, type: 3}
+  - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
+  - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
+  - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: 9207061245609889603, guid: 1ff132b95d025e9449e4a582cac8eade, type: 3}
+  pointsRate: 640000000a00000005000000030000000300000007000000
   cam: {fileID: 0}
   lastPoint: {fileID: 0}

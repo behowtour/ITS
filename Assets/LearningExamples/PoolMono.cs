@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public class PoolMono<T> where T : MonoBehaviour
+public class PoolMono 
 {
     
-    public T prefab { get; }
+    public GameObject prefab { get; }
     public bool autoExpand { get; set; }
     public Transform container { get; }
 
-    private List<T> pool;
+    private List<GameObject> pool;
 
-    public PoolMono(T prefab, int count)
+    public PoolMono(GameObject prefab, int count)
     {
         this.prefab = prefab;
         this.container = null;
@@ -21,7 +21,7 @@ public class PoolMono<T> where T : MonoBehaviour
         this.CreatePool(count);
     }
 
-    public PoolMono(T prefab, int count, Transform container)
+    public PoolMono(GameObject prefab, int count, Transform container)
     {
         this.prefab = prefab;
         this.container = container;
@@ -30,17 +30,17 @@ public class PoolMono<T> where T : MonoBehaviour
 
     }
     
-    public PoolMono(T[] prefabs, int count, Transform container)
+    public PoolMono(GameObject[] prefabs, int count, Transform container)
     {
         CreatePool();
         this.container = container;
-        foreach (T prefab in prefabs)
+        foreach (GameObject prefab in prefabs)
         {
             this.prefab = prefab;
             
             for (int i = 0; i < count; i++)
             {
-                this.CreateObject();
+                this.CreateObject(prefab);
             }
         }
         
@@ -51,18 +51,18 @@ public class PoolMono<T> where T : MonoBehaviour
 
     private void CreatePool(int count = 0)
     {
-        this.pool = new List<T>();
+        this.pool = new List<GameObject>();
 
         for (int i = 0; i < count; i++)
         {
-            this.CreateObject();
+            this.CreateObject(prefab);
         }
     }
 
-    private T CreateObject(bool isActiveByDefault = false)
+    private GameObject CreateObject(GameObject prefab, bool isActiveByDefault = false)
     {
-        var createdObject = Object.Instantiate(this.prefab, this.container);
-        createdObject.gameObject.SetActive(isActiveByDefault);
+        var createdObject = Object.Instantiate(prefab, this.container);
+        createdObject.SetActive(isActiveByDefault);
         this.pool.Add(createdObject);
         return createdObject;
     }
@@ -76,11 +76,11 @@ public class PoolMono<T> where T : MonoBehaviour
     //     return createdObject;
     // }
 
-    public bool HasFreeElement(string tag, out T element)
+    public bool HasFreeElement(string tag, out GameObject element)
     {
         foreach (var mono in pool)
         {
-            if (mono.transform.gameObject.tag == tag)
+            if (mono.tag == tag)
             {
                 if (!mono.gameObject.activeInHierarchy)
                 {
@@ -95,7 +95,7 @@ public class PoolMono<T> where T : MonoBehaviour
         return false;
     }
 
-    public T GetFreeElement(T prefab)
+    public GameObject GetFreeElement(GameObject prefab)
     {
         if (this.HasFreeElement(prefab.tag, out var element))
         {
@@ -104,11 +104,21 @@ public class PoolMono<T> where T : MonoBehaviour
 
         if (this.autoExpand)
         {
-            return this.CreateObject(true);
+            return this.CreateObject(prefab,true);
         }
        
-        
+        throw new Exception($"These is no free elements in pool of type {typeof(GameObject)}");
+    }
 
-        throw new Exception($"These is no free elements in pool of type {typeof(T)}");
+    public void CheckOutFromScreen(float yComparePosition)
+    {
+        foreach (GameObject elementGameObject in pool)
+        {
+            if (elementGameObject.activeInHierarchy && elementGameObject.transform.position.y < yComparePosition - ConstantSettings.screenHeightWorld)
+            {
+                elementGameObject.SetActive(false);
+            }
+        }
+        
     }
 }

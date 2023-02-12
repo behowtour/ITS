@@ -1,34 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PointsGeneratorPool : MonoBehaviour
 {
     [SerializeField] private int poolSize;
     [SerializeField] private bool autoExpand = false;
-    [SerializeField] private Anchor[] pointsPrefab;
+    [SerializeField] private GameObject[] pointsPrefab;
     [SerializeField] private int[] pointsRate;
     [SerializeField] private Camera cam;
     
     [Header("Dynamic variables")]
-    public Anchor lastPoint;
+    public GameObject lastPoint;
 
-    private PoolMono<Anchor> pool;
+    private PoolMono pool;
     private int sumOfRate = 0;
     
     void Start()
     {
-        this.pool = new PoolMono<Anchor>(pointsPrefab, poolSize, this.transform);
+        this.pool = new PoolMono(pointsPrefab, poolSize, this.transform);
         this.pool.autoExpand = this.autoExpand;
         foreach (int rate in pointsRate)
         {
             sumOfRate += rate;
         }
     }
-    
+
+    private void Update()
+    {
+        pool.CheckOutFromScreen(cam.transform.position.y);
+    }
+
     public void GenerateFirstPoint()
     {
-        Anchor newPoint;
+        GameObject newPoint;
         newPoint = pool.GetFreeElement(pointsPrefab[0]);
         newPoint.transform.position = new Vector3(Random.Range(ConstantSettings.leftBorderWorld, ConstantSettings.rightBorderWorld),0,0);
         //newLeaf.name = "Point_" + numberOfLeaf;
@@ -41,7 +48,7 @@ public class PointsGeneratorPool : MonoBehaviour
         if (lastPoint.transform.position.y < cam.transform.position.y + ConstantSettings.screenHeightWorld / 2)
         {
             int typeOfNextPoint, nextPointFinder = 0;
-            Anchor newPoint;
+            GameObject newPoint;
             typeOfNextPoint = Random.Range(0, sumOfRate);
             for (int i = 0; i < pointsRate.Length; i++)
             {
