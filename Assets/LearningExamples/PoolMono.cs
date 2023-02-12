@@ -80,7 +80,7 @@ public class PoolMono<T> where T : MonoBehaviour
     {
         foreach (var mono in pool)
         {
-            if (mono.tag == tag)
+            if (mono.transform.gameObject.tag == tag)
             {
                 if (!mono.gameObject.activeInHierarchy)
                 {

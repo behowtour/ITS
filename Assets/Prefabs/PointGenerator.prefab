@@ -48,11 +48,10 @@ MonoBehaviour:
   autoExpand: 1
   pointsPrefab:
   - {fileID: 7849707243735912099, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  pointsRate: 000000000000000000000000000000000000000000000000
+  - {fileID: -2097855830504605393, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: -7805120386997566697, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
+  - {fileID: 7850330532974749713, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
+  - {fileID: 6701525008387676334, guid: 1ff132b95d025e9449e4a582cac8eade, type: 3}
+  pointsRate: 820000000700000011000000410000000f000000
   cam: {fileID: 0}
   lastPoint: {fileID: 0}
