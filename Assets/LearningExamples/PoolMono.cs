@@ -36,7 +36,7 @@ public class PoolMono
         this.container = container;
         foreach (GameObject prefab in prefabs)
         {
-            this.prefab = prefab;
+            //this.prefab = prefab;
             
             for (int i = 0; i < count; i++)
             {
@@ -45,7 +45,7 @@ public class PoolMono
         }
         
         
-        this.CreatePool(count);
+        //this.CreatePool(count);
 
     }
 
@@ -62,6 +62,7 @@ public class PoolMono
     private GameObject CreateObject(GameObject prefab, bool isActiveByDefault = false)
     {
         var createdObject = Object.Instantiate(prefab, this.container);
+        createdObject.name = prefab.name;
         createdObject.SetActive(isActiveByDefault);
         this.pool.Add(createdObject);
         return createdObject;
@@ -76,11 +77,11 @@ public class PoolMono
     //     return createdObject;
     // }
 
-    public bool HasFreeElement(string tag, out GameObject element)
+    public bool HasFreeElement(string name, out GameObject element)
     {
         foreach (var mono in pool)
         {
-            if (mono.tag == tag)
+            if (mono.name == name)
             {
                 if (!mono.gameObject.activeInHierarchy)
                 {
@@ -97,7 +98,7 @@ public class PoolMono
 
     public GameObject GetFreeElement(GameObject prefab)
     {
-        if (this.HasFreeElement(prefab.tag, out var element))
+        if (this.HasFreeElement(prefab.name, out var element))
         {
             return element; 
         }

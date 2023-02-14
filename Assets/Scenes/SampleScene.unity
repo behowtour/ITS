@@ -2949,7 +2949,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2ac0aaea8dff444aaba7caa0bcbc08c, type: 3}
   m_Name: 
@@ -9995,6 +9995,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2403274595256330192, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
+      propertyPath: poolSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5292172485916286277, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
       propertyPath: m_Name
       value: PointGenerator

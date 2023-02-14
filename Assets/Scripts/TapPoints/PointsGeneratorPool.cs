@@ -45,7 +45,7 @@ public class PointsGeneratorPool : MonoBehaviour
 
     public void GenerateNextPoint()
     {
-        if (lastPoint.transform.position.y < cam.transform.position.y + ConstantSettings.screenHeightWorld / 2)
+        if (lastPoint.transform.position.y < cam.transform.position.y + ConstantSettings.screenHeightWorld)
         {
             int typeOfNextPoint, nextPointFinder = 0;
             GameObject newPoint;
@@ -57,12 +57,14 @@ public class PointsGeneratorPool : MonoBehaviour
                 {
                     if (pointsPrefab[i].CompareTag("RedLeaf") && lastPoint.CompareTag("RedLeaf"))
                     {
-                        GenerateNextPoint();
+                        //GenerateNextPoint();
+                        typeOfNextPoint = Random.Range(0, sumOfRate);
                         break;
                     }
                     newPoint = pool.GetFreeElement(pointsPrefab[i]);
                     //newPoint.name = "Point_" + numberOfLeaf;
-                    newPoint.transform.position = new Vector3(Random.Range(ConstantSettings.leftBorderWorld, ConstantSettings.rightBorderWorld), lastPoint.transform.position.y + Mathf.Max(Random.Range(0, ConstantSettings.screenHeightWorld / 2), ConstantSettings.screenHeightWorld / 10), 0);
+                    newPoint.name = pointsPrefab[i].name;
+                    newPoint.transform.position = new Vector3(Random.Range(ConstantSettings.leftBorderWorld, ConstantSettings.rightBorderWorld), lastPoint.transform.position.y + Mathf.Max(Random.Range(0, ConstantSettings.screenHeightWorld / 3), ConstantSettings.screenHeightWorld / 10), 0);
                     lastPoint = newPoint;
                     break;
                 }
