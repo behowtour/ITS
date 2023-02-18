@@ -985,8 +985,8 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2403274595256330192, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
   m_PrefabInstance: {fileID: 6244582673891157596}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1988839288}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ccb3ee7e382b4d948bf748b43d50543, type: 3}
   m_Name: 
@@ -2872,6 +2872,7 @@ MonoBehaviour:
   lastCoordinateY: 0
   heroSpeed: 0
   pointsGeneratorPool: {fileID: 268166853}
+  pointsGeneratorModern: {fileID: 1988839289}
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9461,6 +9462,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1988839288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5292172485916286277, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
+  m_PrefabInstance: {fileID: 6244582673891157596}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1988839289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988839288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe78e7425c09d4347823e39e0859de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolSize: 3
+  autoExpand: 1
+  pointsPrefab:
+  - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
+  - {fileID: 721389414873873703, guid: 342ae1be7efe1d04f9cdd5146a328915, type: 3}
+  - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
+  - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
+  - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: 9207061245609889603, guid: 1ff132b95d025e9449e4a582cac8eade, type: 3}
+  pointsRate: 640000000a00000005000000030000000300000007000000
+  cam: {fileID: 519420031}
+  baseCount: 10
+  lastPoint: {fileID: 0}
+  basePointCounter: 0
 --- !u!1 &2005266731
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,6 +10030,10 @@ PrefabInstance:
     - target: {fileID: 2403274595256330192, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
       propertyPath: poolSize
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403274595256330192, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5292172485916286277, guid: cb888a6890fb82048835a0948471a0c2, type: 3}
       propertyPath: m_Name

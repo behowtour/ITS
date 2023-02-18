@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private PointsGeneratorPool pointsGeneratorPool;
 
+    [SerializeField] private PointsGeneratorModern pointsGeneratorModern;
+
     private Transform heroTransform;
     private Rigidbody2D heroRigidbody2D;
     private PointsGenerator pointsGenerator;
@@ -58,7 +60,8 @@ public class GameManager : MonoBehaviour
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, ConstantSettings.leftBorderWorld - wallsOffset, ConstantSettings.rightBorderWorld + wallsOffset, ConstantSettings.screenHeightWorld * 2, (-1) * ConstantSettings.screenHeightWorld);
         // pointsGenerator.GenerateFirstPoint();
-        pointsGeneratorPool.GenerateFirstPoint();
+        // pointsGeneratorPool.GenerateFirstPoint();
+        pointsGeneratorModern.GenerateFirstPoint();
         ChangeDifficulty(0);
         GameOver.isGameOver = false;
         onPlay = true;
@@ -81,7 +84,8 @@ public class GameManager : MonoBehaviour
             heroSpeed = heroRigidbody2D.velocity.y;
             // pointsGenerator.GenerateNextPoint();
             // pointsGenerator.DestroyOldPoint();
-            pointsGeneratorPool.GenerateNextPoint();
+            // pointsGeneratorPool.GenerateNextPoint();
+            pointsGeneratorModern.GenerateNextPoint();
             enemiesGenerator.GenerateEnemy(heroSpeed);
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
