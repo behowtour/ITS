@@ -47,6 +47,14 @@ PrefabInstance:
       propertyPath: audioClip_Release
       value: 
       objectReference: {fileID: 8300000, guid: e432541df79af964da24d2b455e45e05, type: 3}
+    - target: {fileID: 4180896033186612013, guid: 921c382420752274f8516da6235af590, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180896033186612013, guid: 921c382420752274f8516da6235af590, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1442380079
+      objectReference: {fileID: 0}
     - target: {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
       propertyPath: m_Name
       value: Point_Fade
