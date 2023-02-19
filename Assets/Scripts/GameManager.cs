@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject rope;
     public float camPositionOffset;
     public float wallsOffset;
-    
+
 
     [Header("Dynamic variables")]
     public ScoreController scoreController;
@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private float heroSpeed;
+
+    [SerializeField]
+    private PointsGeneratorPool pointsGeneratorPool;
+
+    [SerializeField] private PointsGeneratorModern pointsGeneratorModern;
 
     private Transform heroTransform;
     private Rigidbody2D heroRigidbody2D;
@@ -41,7 +46,7 @@ public class GameManager : MonoBehaviour
         this.goFollow = new GoFollow();
         controller = hero.transform.gameObject.GetComponent<Controller>();
         ropeBridge = rope.transform.gameObject.GetComponent<RopeBridge>();
-        pointsGenerator = GetComponent<PointsGenerator>();
+        // pointsGenerator = GetComponent<PointsGenerator>();
         enemiesGenerator = GetComponent<EnemiesGenerator>();
         cam = GetComponent<Camera>();
         Vector3 botLeftWorld = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
@@ -54,7 +59,9 @@ public class GameManager : MonoBehaviour
         restartButtonObject.SetActive(false);
         EdgeCollider2D[] edgeColliders2D = transform.gameObject.GetComponents<EdgeCollider2D>();
         SetUpWalls(edgeColliders2D, ConstantSettings.leftBorderWorld - wallsOffset, ConstantSettings.rightBorderWorld + wallsOffset, ConstantSettings.screenHeightWorld * 2, (-1) * ConstantSettings.screenHeightWorld);
-        pointsGenerator.GenerateFirstPoint();
+        // pointsGenerator.GenerateFirstPoint();
+        pointsGeneratorPool.GenerateFirstPoint();
+        //pointsGeneratorModern.GenerateFirstPoint();
         ChangeDifficulty(0);
         GameOver.isGameOver = false;
         onPlay = true;
@@ -75,8 +82,10 @@ public class GameManager : MonoBehaviour
         if (onPlay)
         {
             heroSpeed = heroRigidbody2D.velocity.y;
-            pointsGenerator.GenerateNextPoint();
-            pointsGenerator.DestroyOldPoint();
+            // pointsGenerator.GenerateNextPoint();
+            // pointsGenerator.DestroyOldPoint();
+            pointsGeneratorPool.GenerateNextPoint();
+            // pointsGeneratorModern.GenerateNextPoint();
             enemiesGenerator.GenerateEnemy(heroSpeed);
             int coordDiff = (int)(heroTransform.position.y - lastCoordinateY);
             if (coordDiff > 0)
