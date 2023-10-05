@@ -6,7 +6,6 @@ using UnityEngine;
 public class BackgroundManager : MonoBehaviour
 {
    
-   
 
     //MAIN CAMERA
     [SerializeField]
@@ -47,6 +46,8 @@ public class BackgroundManager : MonoBehaviour
     {
        
         BackgroundLayersMove();
+
+     
        
     }
 
@@ -64,6 +65,7 @@ public class BackgroundManager : MonoBehaviour
             // BG Relocate 
         if (cam.position.y > mainBackgroundLayerTop.position.y) {
             mainBackgroundLayer.position = new Vector3(mainBackgroundLayer.position.x, cam.position.y + mainBackgroundLayerTop.localPosition.y, mainBackgroundLayer.position.z);
+           
         }
 
         // SHADOW BG INFINITE MOVE

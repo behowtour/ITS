@@ -7,6 +7,13 @@ public class SceneLoader : MonoBehaviour
 {
     public void SceneLoad(int index)
     {
+        StartCoroutine(LoadScene(index));
+    }
+
+
+    IEnumerator LoadScene(int index) {
+
+        yield return new WaitForSeconds(2);
         SceneManager.LoadScene(index);
     }
 }

@@ -23,13 +23,13 @@ public class DandellionPoint : Anchor
 
     public override void OnCollision(Collider2D collision)
     {
-        
+
     }
 
     public override void OnRelease()
     {
-        if (distanceJoint2D!=null)
-        distanceJoint2D.enabled = false;
+        if (distanceJoint2D != null)
+            distanceJoint2D.enabled = false;
     }
 
     public override void OnTap()
@@ -38,9 +38,9 @@ public class DandellionPoint : Anchor
         dandellionParticle.Play();
         StartCoroutine(DandellionDestroy());
         distanceJoint2D.enabled = true;
-        GetComponent<Rigidbody2D>().velocity = Vector2.up* 5f;
+        GetComponent<Rigidbody2D>().velocity = Vector2.up * 5f;
         distanceJoint2D.connectedBody = mainController.transform.GetComponent<Rigidbody2D>();
-       
+
 
     }
 
@@ -50,12 +50,17 @@ public class DandellionPoint : Anchor
         Destroy(gameObject);
     }
 
-    
+    private new void OnMouseUp()
+    {
 
-    
+    }
 
 
-  
-   
-  
+
+
+
+
+
+
+
 }
