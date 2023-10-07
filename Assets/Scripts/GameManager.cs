@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameMode
+    {
+        onPlay, onTransition, onPause, onMenu
+
+    }
+
+    public static GameMode gameMode;
     [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
@@ -21,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private Transform heroTransform;
     private PointsGenerator pointsGenerator;
-    private bool onPlay;
+    public bool onPlay;
     private GoFollow goFollow;  
     private Camera cam;
     private Controller controller;
@@ -108,4 +115,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
 }

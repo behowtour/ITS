@@ -13,6 +13,9 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     private Transform cam;
     float cameraYLastPos = 0f;
+    public Transform targetToDownfall;
+
+    public bool isTransit;
   
 
     //LAYERS REFS
@@ -44,8 +47,10 @@ public class BackgroundManager : MonoBehaviour
    
     void Update()
     {
-       
-        BackgroundLayersMove();
+        
+            BackgroundLayersMove();
+        
+      
 
      
        
@@ -97,6 +102,11 @@ public class BackgroundManager : MonoBehaviour
         Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
         middleBackgroundLayer.position = newPosMid;
             // Middle BG Relocate
+    }
+
+    private void BackgroundDownfalltoChangeLvl() { 
+    
+    
     }
 
 }

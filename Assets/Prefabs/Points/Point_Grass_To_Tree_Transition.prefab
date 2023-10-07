@@ -136,12 +136,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impulsePower: 0
-  particleObjectPrefab: {fileID: 0}
+  particleObjectPrefab: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
   reusable: 0
-  audioClip_Tap: {fileID: 0}
-  audioClip_Release: {fileID: 0}
-  audioClip_Collision: {fileID: 0}
+  audioClip_Tap: {fileID: 8300000, guid: d9c4ea9e0d7a90b409fc82581e1fe875, type: 3}
+  audioClip_Release: {fileID: 8300000, guid: d9c4ea9e0d7a90b409fc82581e1fe875, type: 3}
+  audioClip_Collision: {fileID: 8300000, guid: d01b58f74136138488f6bded8c348913, type: 3}
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
-  pointsGenerator: {fileID: 0}
+  mainCamera: {fileID: 0}
+  hero: {fileID: 0}
+  heroYToMoveOffset: 5
+  targetPosition: {x: 0, y: 0, z: 0}
+  speed: 0.7
+  grassToTreeTransitionPrefab: {fileID: 3202291043228062465, guid: 7519534fbd6b30b4ebe150f76ea494e8, type: 3}
+  transitionAppearY_Offset: 20
+  maxDistanceBackgroundDownfallDelta: 0.1

@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 4375470685922610018}
   - component: {fileID: 4375470685922610019}
   m_Layer: 0
-  m_Name: backgroundTransition
+  m_Name: GrassToTreeTransitionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
