@@ -8,6 +8,7 @@ public abstract class Anchor : MonoBehaviour
     public float impulsePower;
     public GameObject particleObjectPrefab;
     public bool reusable;
+    public int baseCounterDecrease = 0;
     public AudioClip audioClip_Tap;
     public AudioClip audioClip_Release;
     public AudioClip audioClip_Collision;
