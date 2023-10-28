@@ -10,6 +10,10 @@ public class LevelUpTrigger : MonoBehaviour
     public GameObject pointPrefab;
     bool levelchanged;
     public int transitionPointPositionOffset;
+    private GameObject lvlSeparatePrefab;
+    public GameObject lvlPrefab;
+    private GameObject currentLvl;
+    private bool lvlAfterChanged;
 
     void Start()
     {
@@ -22,9 +26,10 @@ public class LevelUpTrigger : MonoBehaviour
           if (!levelchanged) { 
              if (hero.transform.position.y > heightPoint) {
                 Vector3 transitionTriggerPointPosition = new Vector3(0, hero.transform.position.y + transitionPointPositionOffset, 0);
-            Instantiate(pointPrefab, transitionTriggerPointPosition, transform.rotation);
+            lvlSeparatePrefab = Instantiate(pointPrefab, transitionTriggerPointPosition, transform.rotation);
                 levelchanged = true;
              }
           }
+       
     }
 }

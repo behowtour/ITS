@@ -19,7 +19,7 @@ TagManager:
   - UI
   - Anchor
   - Player
-  - 
+  - PostProccesing
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: New Layer 5
     uniqueID: 3636089153
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 748515185
     locked: 0

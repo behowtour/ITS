@@ -146,9 +146,11 @@ MonoBehaviour:
   animController: {fileID: 0}
   mainCamera: {fileID: 0}
   hero: {fileID: 0}
-  heroYToMoveOffset: 5
+  backgroundManager: {fileID: 0}
+  heroYToMoveOffset: 35
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 0.7
+  speed: 1
   grassToTreeTransitionPrefab: {fileID: 3202291043228062465, guid: 7519534fbd6b30b4ebe150f76ea494e8, type: 3}
-  transitionAppearY_Offset: 20
+  transitionAppearY_Offset: 20.8
   maxDistanceBackgroundDownfallDelta: 0.1
+  lvlPrefab: {fileID: 6660802260393638129, guid: 30d452c861442df4bb791276b93a0545, type: 3}

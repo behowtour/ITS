@@ -8,6 +8,7 @@ public class PointsGenerator : MonoBehaviour
     public GameObject[] leafPrefab;
     public int[] pointsRate;
     public bool isDestroyLeaf;
+    public Transform backgroundLayerForPoints;
 
     [Header("Dynamic variables")]
     public GameObject lastLeaf;

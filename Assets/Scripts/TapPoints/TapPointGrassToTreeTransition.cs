@@ -9,19 +9,25 @@ public class TapPointGrassToTreeTransition : Anchor
     public GameObject hero;
     Rigidbody2D heroRigid;
     private bool onTapMode;
+    public BackgroundManager backgroundManager;
     [Header("Hero setup")]
     public float heroYToMoveOffset;
     public Vector3 targetPosition;
     public float speed = 0.01f;
+    private GameObject toNextLevelObject;
     
     [Header("Grass To Tree Prefab")]
     public GameObject grassToTreeTransitionPrefab;
     public float transitionAppearY_Offset;
     [Header("current background")]
     private GameObject currentBackground;
-    private Vector3 downfallCurrentBackgroundPosition;
     private float currentBackgroundDownfallOffset;
     public float maxDistanceBackgroundDownfallDelta;
+    public GameObject lvlPrefab;
+    private bool finishMode;
+
+    [Header("Animation")]
+    private Animation animation;
 
     public override void OnCollision(Collider2D collision)
     {
@@ -40,11 +46,13 @@ public class TapPointGrassToTreeTransition : Anchor
         gameManager.onPlay = false;
         heroRigid.simulated = false;
         onTapMode = true;
-        Instantiate(grassToTreeTransitionPrefab, new Vector3(0, transform.position.y + transitionAppearY_Offset, 0), Quaternion.Euler(0, 0, 0));
+        toNextLevelObject =  Instantiate(grassToTreeTransitionPrefab, new Vector3(0, transform.position.y + transitionAppearY_Offset, 0), Quaternion.Euler(0, 0, 0));
+        backgroundManager.isTransit = true;
 
-        
-        
-        
+        targetPosition = new Vector3(0, this.transform.position.y + heroYToMoveOffset, 0);
+
+
+
     }
     private void Awake()
     {
@@ -52,9 +60,12 @@ public class TapPointGrassToTreeTransition : Anchor
         hero = GameObject.Find("Hero");
         gameManager = mainCamera.GetComponent<GameManager>();
         heroRigid = hero.GetComponent<Rigidbody2D>();
-        targetPosition = new Vector3(0,this.transform.position.y + heroYToMoveOffset,0);
+       
         currentBackground = GameObject.Find("CurrentBackground");
-        downfallCurrentBackgroundPosition = new Vector3(currentBackground.transform.position.x, currentBackground.transform.position.y - currentBackgroundDownfallOffset, 0);
+       
+        backgroundManager = GameObject.Find("BackgroundManager").GetComponent<BackgroundManager>();
+
+      
 
     }
 
@@ -64,12 +75,28 @@ public class TapPointGrassToTreeTransition : Anchor
        if (onTapMode) { 
        hero.transform.position = Vector3.Lerp(hero.transform.position, targetPosition, speed * Time.deltaTime);
             hero.transform.rotation = Quaternion.Lerp(hero.transform.rotation, Quaternion.Euler(0, 0, 0), speed * Time.deltaTime);
-            currentBackground.transform.position = Vector3.MoveTowards(currentBackground.transform.position, downfallCurrentBackgroundPosition, maxDistanceBackgroundDownfallDelta);
+            
+
+            if (hero.transform.position.y >= toNextLevelObject.transform.position.y && !finishMode)
+            {
+                Instantiate(lvlPrefab, currentBackground.transform.position, currentBackground.transform.rotation);
+                toNextLevelObject.GetComponent<Animator>().SetInteger("Trigger", 1);
+                Destroy(currentBackground);
+        
+                finishMode = true;
+            }
+            if (hero.transform.position.y >= targetPosition.y - 2) {
+
+                gameManager.onPlay = true;
+                heroRigid.velocity = Vector3.zero;
+                heroRigid.simulated = true;
+                onTapMode = false;
+            }
+
         }
        
 
-
-
-       
     }
+
+  
 }
