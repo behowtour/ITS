@@ -54,7 +54,7 @@ public class BackgroundManager : MonoBehaviour
             BackgroundLayersMove();
         if (isTransit) downfallSpeedForTransition = 0.1f;
         else downfallSpeedForTransition = 0;
-
+          
 
 
 
