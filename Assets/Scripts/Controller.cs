@@ -45,7 +45,7 @@ public class Controller : MonoBehaviour
 
     public void HitPoint()
     {
-        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor && hittedAnchor)
+        if (Input.GetMouseButton(0) && isMouseHoldOnAnchor && hittedAnchor )
         {
             ropeLengthVec = hittedAnchor.transform.position - transform.position;
             lastHittedAnchor = hittedAnchor;

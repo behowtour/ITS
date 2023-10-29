@@ -11,7 +11,7 @@ public class TapPointDestroy : Anchor
         if (collision.gameObject.tag == "Player")
         {
             //<start animation>
-            GameOver.CheckGameOver(this.transform.gameObject.tag);
+         //   GameOver.CheckGameOver(this.transform.gameObject.tag);
         }
     }
 

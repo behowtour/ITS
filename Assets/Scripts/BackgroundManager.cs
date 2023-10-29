@@ -6,7 +6,6 @@ using UnityEngine;
 public class BackgroundManager : MonoBehaviour
 {
    
-   
 
     //MAIN CAMERA
     [SerializeField]
@@ -14,6 +13,9 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     private Transform cam;
     float cameraYLastPos = 0f;
+ 
+
+    public bool isTransit;
   
 
     //LAYERS REFS
@@ -36,18 +38,28 @@ public class BackgroundManager : MonoBehaviour
     [SerializeField]
     Transform lightBackgroundLayer;
     public float lightBackgroundScrollingSpeed = 0.6f;
-
-  
-   
-   
+    private float downfallSpeedForTransition = 0f;
 
 
-   
-    void Update()
+    private void Awake()
     {
        
-        BackgroundLayersMove();
-       
+        cam = GameObject.Find("Main Camera").transform;
+    }
+
+
+    void Update()
+    {
+        
+            BackgroundLayersMove();
+        if (isTransit) downfallSpeedForTransition = 0.1f;
+        else downfallSpeedForTransition = 0;
+          
+
+
+
+
+
     }
 
     private void BackgroundLayersMove() {
@@ -59,17 +71,18 @@ public class BackgroundManager : MonoBehaviour
         // MAIN BG INFINETE MOVE
 
         // BG Move
-        Vector3 newPosMain = new Vector3(mainBackgroundLayer.position.x, mainBackgroundLayer.position.y +  cameraFrameStep * mainBackgroundScrollingSpeed, mainBackgroundLayer.position.z);
+        Vector3 newPosMain = new Vector3(mainBackgroundLayer.position.x, mainBackgroundLayer.position.y +  cameraFrameStep * mainBackgroundScrollingSpeed - downfallSpeedForTransition* mainBackgroundScrollingSpeed, mainBackgroundLayer.position.z);
         mainBackgroundLayer.position = newPosMain;
             // BG Relocate 
         if (cam.position.y > mainBackgroundLayerTop.position.y) {
             mainBackgroundLayer.position = new Vector3(mainBackgroundLayer.position.x, cam.position.y + mainBackgroundLayerTop.localPosition.y, mainBackgroundLayer.position.z);
+           
         }
 
         // SHADOW BG INFINITE MOVE
 
             // Shadow move
-        Vector3 newPosShadow = new Vector3(shadowBackgroundLayer.position.x,shadowBackgroundLayer.position.y  + cameraFrameStep * shadowBackgroundScrollingSpeed, shadowBackgroundLayer.position.z);
+        Vector3 newPosShadow = new Vector3(shadowBackgroundLayer.position.x,shadowBackgroundLayer.position.y  + cameraFrameStep * shadowBackgroundScrollingSpeed + downfallSpeedForTransition* shadowBackgroundScrollingSpeed, shadowBackgroundLayer.position.z);
         shadowBackgroundLayer.position = newPosShadow;
         // Shadow Relocate
         if (cam.position.y > shadowBackgroundLayer.GetChild(0).transform.position.y) {
@@ -80,7 +93,7 @@ public class BackgroundManager : MonoBehaviour
         // LIGHT BG INFINITE MOVE
 
             // Light BG Move
-        Vector3 newPosLight = new Vector3(lightBackgroundLayer.position.x, lightBackgroundLayer.position.y + cameraFrameStep * lightBackgroundScrollingSpeed, lightBackgroundLayer.position.z);
+        Vector3 newPosLight = new Vector3(lightBackgroundLayer.position.x, lightBackgroundLayer.position.y + cameraFrameStep * lightBackgroundScrollingSpeed - downfallSpeedForTransition* lightBackgroundScrollingSpeed, lightBackgroundLayer.position.z);
         lightBackgroundLayer.position = newPosLight;
         // Light BG Relocate
         if (cam.position.y > lightBackgroundLayer.GetChild(0).transform.position.y)
@@ -92,9 +105,15 @@ public class BackgroundManager : MonoBehaviour
         // MIDDLE BG INFINITE MOVE
 
         // Middle BG Move
-        Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, cam.position.y - cam.position.y * middleBackgroundScrollingSpeed, middleBackgroundLayer.position.z);
+        Vector3 newPosMid = new Vector3(middleBackgroundLayer.position.x, middleBackgroundLayer.position.y - downfallSpeedForTransition, middleBackgroundLayer.position.z);
         middleBackgroundLayer.position = newPosMid;
-            // Middle BG Relocate
+        // Light BG Relocate
+       
+    }
+
+    private void BackgroundDownfalltoChangeLvl() { 
+    
+    
     }
 
 }

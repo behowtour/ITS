@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameMode
+    {
+        onPlay, onTransition, onPause, onMenu
+
+    }
+
+    public static GameMode gameMode;
     [Header("Static variables")]
     public GameObject restartButtonObject;
     public GameObject hero;
@@ -31,7 +38,7 @@ public class GameManager : MonoBehaviour
     private Rigidbody2D heroRigidbody2D;
     private PointsGenerator pointsGenerator;
     private EnemiesGenerator enemiesGenerator;
-    private bool onPlay;
+    public bool onPlay;
     private GoFollow goFollow;  
     private Camera cam;
     private Controller controller;
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
+       Application.targetFrameRate = 60;
         hero = GameObject.Find("Hero");
         heroRigidbody2D = hero.GetComponent<Rigidbody2D>();
         this.goFollow = new GoFollow();
@@ -120,4 +127,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
 }

@@ -20,7 +20,7 @@ TagManager:
   - UI
   - Anchor
   - Player
-  - 
+  - PostProccesing
   - 
   - 
   - 
@@ -62,4 +62,6 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1006261161
+  - name: New Layer 6
+    uniqueID: 748515185
     locked: 0
