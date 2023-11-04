@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ccb3ee7e382b4d948bf748b43d50543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSize: 1
+  poolSize: 10
   autoExpand: 1
   pointsPrefab:
   - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
@@ -1247,7 +1247,7 @@ MonoBehaviour:
   - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
   - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
   - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
-  pointsRate: 
+  pointsRate: 010000000100000001000000010000000100000001000000
   cam: {fileID: 519420031}
   lastPoint: {fileID: 0}
 --- !u!4 &876112017
