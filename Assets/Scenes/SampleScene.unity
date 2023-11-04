@@ -183,11 +183,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 887195327, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_SortingLayer
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 887195327, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_SortingLayerID
-      value: -658878143
+      value: 748515185
       objectReference: {fileID: 0}
     - target: {fileID: 1810417136, guid: d5e8504387542144da16612072a16894, type: 3}
       propertyPath: m_Enabled
@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420042}
   - component: {fileID: 519420043}
+  - component: {fileID: 519420045}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -798,13 +799,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartButtonObject: {fileID: 1911222447}
-  hero: {fileID: 0}
+  hero: {fileID: 1835013056}
   cameraMain: {fileID: 519420028}
   rope: {fileID: 330053433}
   camPositionOffset: 1.5
   wallsOffset: 0.5
   scoreController: {fileID: 4983990}
   lastCoordinateY: 0
+  heroSpeed: 0
+  pointsGeneratorPool: {fileID: 876112015}
+  pointsGeneratorModern: {fileID: 0}
   onPlay: 0
 --- !u!114 &519420036
 MonoBehaviour:
@@ -1046,6 +1050,25 @@ MonoBehaviour:
   camFadingValue: 0.5
   ground: {fileID: 1394995899}
   hero: {fileID: 1810417152}
+--- !u!114 &519420045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9da962641b46943983afd3aed255df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  canSpawn: 1
+  enemyPrefabs:
+  - {fileID: 9003234803820418909, guid: 150167d65f8b5464ca453f5833b34239, type: 3}
+  enemyRate: 01000000
+  lastEnemy: {fileID: 0}
+  camSpeed: 0
 --- !u!1 &698276292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1209,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 791187362, guid: d5e8504387542144da16612072a16894, type: 3}
   m_PrefabInstance: {fileID: 276278914}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &876112014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876112017}
+  - component: {fileID: 876112015}
+  m_Layer: 0
+  m_Name: PointsGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876112015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876112014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccb3ee7e382b4d948bf748b43d50543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolSize: 1
+  autoExpand: 1
+  pointsPrefab:
+  - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
+  - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
+  - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
+  - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
+  - {fileID: 5997551165494692163, guid: 921c382420752274f8516da6235af590, type: 3}
+  - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
+  pointsRate: 
+  cam: {fileID: 519420031}
+  lastPoint: {fileID: 0}
+--- !u!4 &876112017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876112014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1812806, y: 3.8961716, z: 2.3701518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919904865
 GameObject:
   m_ObjectHideFlags: 0
