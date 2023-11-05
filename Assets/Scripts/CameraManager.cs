@@ -76,7 +76,7 @@ public class CameraManager : MonoBehaviour
             }
             else
             {
-                newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, Mathf.Clamp(hero.position.y + camPositionOffset, Mathf.Clamp(lastCameraMaxHeightPosition - mainCamera.orthographicSize * camFadingValue, startCameraPosition.y, transform.position.y), hero.position.y + camPositionOffset), transform.position.z), Time.fixedDeltaTime * coordDiff);
+                newPos = Vector3.Lerp(transform.position, new Vector3(transform.position.x, Mathf.Clamp(hero.position.y + camPositionOffset, Mathf.Clamp(lastCameraMaxHeightPosition - mainCamera.orthographicSize * camFadingValue, startCameraPosition.y, transform.position.y), hero.position.y + camPositionOffset), transform.position.z), Time.fixedDeltaTime * ( hero.transform.position.y - (transform.position.y- mainCamera.orthographicSize)));
             }
             transform.position = newPos;
         } else 
