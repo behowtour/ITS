@@ -22,7 +22,7 @@ public class TapPointDestroy : Anchor
 
     public override void OnTap()
     { 
-        GameOver.CheckGameOver(this.transform.gameObject.tag);
+      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
