@@ -105,7 +105,7 @@ CircleCollider2D:
   m_Radius: 0.90568435
 --- !u!95 &934314963
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,7 +122,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &535867323756297467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +145,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
+  mainController: {fileID: 0}
   mainCamera: {fileID: 0}
   hero: {fileID: 0}
   backgroundManager: {fileID: 0}
