@@ -10,7 +10,7 @@ public class Thorns : Anchor
     GameObject thornsAnchor;
     public override void OnCollision(Collider2D collision)
     {
-        
+      
     }
 
     public override void OnRelease()
@@ -35,7 +35,17 @@ public class Thorns : Anchor
         particleObject.transform.position = thornsAnchor.transform.position;
     }
 
-    
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        audioSource.PlayOneShot(audioClip_Collision);
+        if (collision.gameObject.tag == "Player")
+        {
+            //<start animation>
+            GameOver.CheckGameOver(this.transform.gameObject.tag);
+        }
+    }
+
+
+
 }
