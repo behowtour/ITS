@@ -55,12 +55,8 @@ public class DandellionPoint : Anchor
 
     }
 
-
-
-
-
-
-
-
-
+    public override void HittedAnchorReAttached()
+    {
+      
+    }
 }

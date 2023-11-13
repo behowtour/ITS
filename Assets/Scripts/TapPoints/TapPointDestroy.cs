@@ -25,6 +25,11 @@ public class TapPointDestroy : Anchor
       
     }
 
+    public override void HittedAnchorReAttached()
+    {
+   
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
             OnCollision(collision);

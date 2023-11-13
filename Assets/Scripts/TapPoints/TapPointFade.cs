@@ -20,6 +20,11 @@ public class TapPointFade : Anchor
         
     }
 
+    public override void HittedAnchorReAttached()
+    {
+        
+    }
+
     public void SetTriggerParameter()
     {
         Animator animator = transform.GetComponent<Animator>();

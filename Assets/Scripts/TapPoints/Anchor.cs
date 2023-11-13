@@ -17,7 +17,7 @@ public abstract class Anchor : MonoBehaviour
     public ParticleSystem particles;
     public AnimationController2 animController;
 
-    protected Controller mainController;
+public Controller mainController;
     protected bool used, inUse;
     protected AudioSource audioSource;
 
@@ -34,13 +34,15 @@ public abstract class Anchor : MonoBehaviour
     {
         if (!used && !inUse)
         {
+         
             inUse = true;
             mainController.hittedAnchor = gameObject;
+            particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
+            HittedAnchorReAttached();
             mainController.isMouseHoldOnAnchor = true;
             mainController.power = impulsePower;
             mainController.GetStartHeroOffset();
             audioSource.PlayOneShot(audioClip_Tap);
-            particleObject = Instantiate(particleObjectPrefab, transform.position, transform.rotation);
             particles = particleObject.GetComponent<ParticleSystem>();
             particles.Play();
             animController.animator.SetBool("isThrowing", true);
@@ -96,6 +98,7 @@ public abstract class Anchor : MonoBehaviour
             used = true;
         }
     }
+    public abstract void HittedAnchorReAttached();
     public abstract void OnTap();
     public abstract void OnRelease();
     public abstract void OnCollision(Collider2D collision);

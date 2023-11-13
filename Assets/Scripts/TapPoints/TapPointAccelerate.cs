@@ -45,4 +45,9 @@ public class TapPointAccelerate : Anchor
         Animator animator = transform.GetComponent<Animator>();
         animator.SetTrigger("Trigger");
     }
+
+    public override void HittedAnchorReAttached()
+    {
+        
+    }
 }

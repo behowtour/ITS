@@ -24,4 +24,9 @@ public class TapPointFake : Anchor
         
 
     }
+
+    public override void HittedAnchorReAttached()
+    {
+       
+    }
 }

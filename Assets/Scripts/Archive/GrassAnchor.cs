@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GrassAnchor : Anchor
 {
+    public override void HittedAnchorReAttached()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void OnCollision(Collider2D collision)
     {
     }

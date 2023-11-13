@@ -31,6 +31,8 @@ public class TapPointGrassToTreeTransition : Anchor
 
     public override void OnCollision(Collider2D collision)
     {
+
+      
     }
 
     public override void OnRelease()
@@ -38,22 +40,24 @@ public class TapPointGrassToTreeTransition : Anchor
         
     }
 
-    public override void OnTap()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-
-      
         gameManager.onPlay = false;
         heroRigid.simulated = false;
         onTapMode = true;
-        toNextLevelObject =  Instantiate(grassToTreeTransitionPrefab, new Vector3(0, transform.position.y + transitionAppearY_Offset, 0), Quaternion.Euler(0, 0, 0));
+        toNextLevelObject = Instantiate(grassToTreeTransitionPrefab, new Vector3(0, transform.position.y + transitionAppearY_Offset, 0), Quaternion.Euler(0, 0, 0));
         backgroundManager.isTransit = true;
 
         targetPosition = new Vector3(0, this.transform.position.y + heroYToMoveOffset, 0);
-
-
-
     }
+
+
+    public override void OnTap()
+    { }
+
+   
+    
     private void Awake()
     {
         mainCamera = GameObject.Find("Main Camera");
@@ -82,12 +86,12 @@ public class TapPointGrassToTreeTransition : Anchor
                 Instantiate(lvlPrefab, currentBackground.transform.position, currentBackground.transform.rotation);
                 toNextLevelObject.GetComponent<Animator>().SetInteger("Trigger", 1);
                 Destroy(currentBackground);
-        
+                gameManager.onPlay = true;
                 finishMode = true;
             }
             if (hero.transform.position.y >= targetPosition.y - 2) {
 
-                gameManager.onPlay = true;
+               
                 heroRigid.velocity = Vector3.zero;
                 heroRigid.simulated = true;
                 onTapMode = false;
@@ -98,5 +102,8 @@ public class TapPointGrassToTreeTransition : Anchor
 
     }
 
-  
+    public override void HittedAnchorReAttached()
+    {
+       
+    }
 }

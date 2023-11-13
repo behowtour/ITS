@@ -82,4 +82,9 @@ public class TapPointUpLift : Anchor
         yield return new WaitForSeconds(delayTime);
         OnMouseUp();
     }
+
+    public override void HittedAnchorReAttached()
+    {
+       
+    }
 }

@@ -17,6 +17,12 @@ public class TapPointNormal : Anchor
     {
         
     }
+
+    public override void HittedAnchorReAttached()
+    {
+        
+    }
+
     private void Awake()
     {
         

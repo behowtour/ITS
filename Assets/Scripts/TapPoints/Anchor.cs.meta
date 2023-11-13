@@ -3,7 +3,14 @@ guid: 903f72e9175e64499a53a7d975debf45
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - particleObjectPrefab: {instanceID: 0}
+  - audioClip_Tap: {fileID: 8300000, guid: a58e438b7cfa445498120af0e6169082, type: 3}
+  - audioClip_Release: {fileID: 8300000, guid: 78419f98379502c4dbfb2774bc94e7c1, type: 3}
+  - audioClip_Collision: {fileID: 8300000, guid: d9419ba0bfac1e84a95418ac5851caf6, type: 3}
+  - particleObject: {fileID: 2398998184186102414, guid: 0c1593987012fd3448001ec53c160f44, type: 3}
+  - particles: {instanceID: 0}
+  - animController: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
