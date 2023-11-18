@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1442380079
   m_SortingLayer: 2
   m_SortingOrder: 450
-  m_Sprite: {fileID: 21300000, guid: d4e43a44134d2734f829b2ded8b3f512, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79d93b8672077ed4aa5521eda0c5000f, type: 3}
   m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   particleObject: {fileID: 0}
   particles: {fileID: 0}
   animController: {fileID: 0}
+  mainController: {fileID: 0}
 --- !u!114 &-2542283091885122449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,4 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3d326377a268b4781e6c8bc34760a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveTime: 5
+  MoveTime: 0.1
+  MoveWidth: 6
+  MoveHeight: 4

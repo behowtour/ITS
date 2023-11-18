@@ -1,9 +1,11 @@
 using UnityEngine;
-using System;
 
 public class FlyingLeaf : MonoBehaviour
 {
-    public float MoveTime;
+    public float MoveTime; // чем больше тем медленнее движется
+    
+    [SerializeField] private float MoveWidth;
+    [SerializeField] private float MoveHeight;
 
     private float InitialPosY;
     private float UpdateTime;
@@ -12,8 +14,8 @@ public class FlyingLeaf : MonoBehaviour
     private Vector2 GenerateRandom(float PosY)
     {
         System.Random rnd = new System.Random();
-        float rndX = rnd.Next(-30, 30);
-        float rndY = rnd.Next(-20, 20);
+        float rndX = rnd.Next(((int)-MoveWidth*10) / 2, ((int)MoveWidth*10) / 2);
+        float rndY = rnd.Next(((int)-MoveHeight*10) / 2, ((int)MoveHeight*10) / 2);
         rndX = rndX * 0.1f;
         rndY = rndY * 0.1f + PosY;
 
@@ -31,11 +33,11 @@ public class FlyingLeaf : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if ((Vector2)transform.position != RandomPos) //Math.Abs(transform.position.x - RandomPos.x) >= 0.2f &&
-                                                      //Math.Abs(transform.position.y - RandomPos.y) >= 0.2f)
+        if((Vector2)transform.position != RandomPos)
+                                                      
         {
             UpdateTime += Time.deltaTime;
-            transform.position = Vector2.Lerp(transform.position, RandomPos, UpdateTime / MoveTime);
+            transform.position = Vector2.Lerp(transform.position, RandomPos, UpdateTime * MoveTime);
         }
         else
         {

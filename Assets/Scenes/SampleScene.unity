@@ -827,7 +827,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: -0.03, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -941,15 +941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leafPrefab:
-  - {fileID: 5997551165494692163, guid: 615b653e96ecb4a43b7cbda79fa0b502, type: 3}
-  - {fileID: 721389414873873703, guid: 342ae1be7efe1d04f9cdd5146a328915, type: 3}
-  - {fileID: 5997551165494692163, guid: 97926955c105c2e4fb24f454c8cef69e, type: 3}
-  - {fileID: 5997551165494692163, guid: fb3042ed8f03b4b3dbcc83f1c7e71d40, type: 3}
-  - {fileID: 5997551165494692163, guid: 9713b086d9c104d15a5c0f9bd34a70cd, type: 3}
-  - {fileID: 9207061245609889603, guid: 1ff132b95d025e9449e4a582cac8eade, type: 3}
   - {fileID: 3369980095039991734, guid: d0b7116efc7aee9479bfad2d35763c85, type: 3}
-  - {fileID: 3369980095039991734, guid: 3e221fa23a41bcc4d9b34a2337f75ace, type: 3}
-  pointsRate: 64000000250000000700000011000000410000000f0000000f0000000f000000
+  pointsRate: 64000000
   isDestroyLeaf: 1
   backgroundLayerForPoints: {fileID: 90999188}
   lastLeaf: {fileID: 0}
